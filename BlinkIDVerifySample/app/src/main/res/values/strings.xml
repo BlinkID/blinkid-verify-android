@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BlinkIDVerifySample</string>
+
+    <string name="btn_launch_verification">Launch</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <string name="dialog_capture_results_front_image">Front image</string>
+    <string name="dialog_capture_results_back_image">Back image</string>
+    <string name="dialog_capture_results_barcode_image">Barcode image</string>
+    <string name="dialog_capture_results_btn_process">Process images on server</string>
+</resources>
