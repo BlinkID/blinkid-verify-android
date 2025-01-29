@@ -35,13 +35,13 @@ The _BlinkID Verify_ Android SDK is a comprehensive solution for implementing se
 ## <a name="quick-sample"></a> Quick start with the sample apps
 
 1. Open Android Studio.
-2. In Quick Start dialog choose _Open project_
-3. In File dialog select _BlinkIDVerify_ folder.
-4. Wait for the project to load. If Android studio asks you to reload project on startup, select `Yes`.
+2. In `Quick Start` dialog choose _Open project_.
+3. In `File` dialog select _BlinkIDVerify_ folder.
+4. Wait for the project to load. If Android Studio asks you to reload the project on startup, select `Yes`.
 
 #### Included sample apps:
 
-- **_app_** demonstrates quick and straightforward integration of the BlinkID Verify SDK by using the provided UX to verify a document and display the results.
+- **_app_** demonstrates quick and straightforward integration of the BlinkID Verify SDK using the provided UX in Jetpack Compose to verify a document and display the results.
 
 
 ## <a name="sdk-integration"></a> SDK integration
@@ -50,7 +50,7 @@ The _BlinkID Verify_ Android SDK is a comprehensive solution for implementing se
 
 The `BlinkID Verify` library is available on Microblink maven repository.
 
-In your project root, add _Microblink_ maven repository to repositories list:
+In your project root add _Microblink_ maven repository to `repositories` list:
 
 ```
 repositories {
@@ -58,7 +58,7 @@ repositories {
 }
 ```
 
-Add _BlinkID Verify_ as a dependency in module level build.gradle(.kts):
+Add _BlinkID Verify_ as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
@@ -66,9 +66,9 @@ dependencies {
 }
 ```
 
-### Launching the document capture and obtaining the results
+### Launching the document capture session and obtaining the results
 
-1. A valid license key is required to initialize scanning. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://account.microblink.com/signin). License is bound to [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please make sure you enter the correct application ID when asked.
+1. A valid license key is required to initialize the document capture process. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://account.microblink.com/signin). License is bound to the [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please ensure you enter the correct application ID when asked.
 
 
 2. You first need to initialize the SDK and obtain the `BlinkIDVerifySdk` instance:
@@ -91,7 +91,7 @@ when {
     }
 }
 ```
-`BlinkIDVerifySdk.initializeSdk` is a suspend function and it should be called from a coroutine.
+`BlinkIDVerifySdk.initializeSdk` is a suspend function which should be called from a coroutine.
 
 3. Use `CameraScanningScreen` composable to launch document capture UX and obtain results:
 ```kotlin
@@ -100,7 +100,7 @@ CameraScanningScreen(
     verifyUiSettings = VerifyUiSettings(),
     captureSessionSettings = CaptureSessionSettings(),
     onCaptureSuccess = { captureResult ->
-        // result is BlinkIDVerifyCaptureResult
+        // captureResult is BlinkIDVerifyCaptureResult
     },
     onCaptureCanceled = {
         // user canceled the capture
@@ -108,23 +108,23 @@ CameraScanningScreen(
 )
 ```
 
-### Document capture result
+### Document capture session result
 
-After capture is finished, SDK returns object of tipe [BlinkIDVerifyCaptureResult](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.data.model.result/-blink-i-d-verify-capture-result/index.html). 
-It holds images containing the front and back side of the document. Also if the barcode is present on the document, the camera frame containing the clearly visible barcode will also be available.
+After the document capture session is finished the SDK returns an object of type [BlinkIDVerifyCaptureResult](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.data.model.result/-blink-i-d-verify-capture-result/index.html). 
+The object contains images of the front and back sides of the document. Additionally, if the barcode is present on the document, the camera frame containing a visible barcode will also be available.
 
-`BlinkIDVerifyCaptureResult.toBlinkIDVerifyRequest` helper method should be used to prepare `BlinkIDVerifyRequest` for the verification API call described in the next section.
+`BlinkIDVerifyCaptureResult.toBlinkIDVerifyRequest` helper method should be used to prepare `BlinkIDVerifyRequest` for the verification API call described in the following section.
 
 ### Launching the document verification API call and obtaining the results
 
-1. Yout need to create a `BlinkIDVerifyRequest` by using the `BlinkIDVerifyCaptureResult`:
+1. You need to create a `BlinkIDVerifyRequest` by using `BlinkIDVerifyCaptureResult`:
 ```kotlin
 val blinkIDVerifyRequest = captureResult.toBlinkIDVerifyRequest(
     BlinkIDVerifyProcessingRequestOptions(),
     BlinkIDVerifyProcessingUseCase()
 )
 ```
-Make sure that you are using the matching settings to `CaptureSessionSettings` used for capturing the document images.
+Ensure that the `CaptureSessionSettings` used for capturing document images match the settings used for `BlinkIDVerifyRequest`.
 
 2. You also need to create a [BlinkIDVerifyClient](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core/-blink-i-d-verify-client/index.html) for the document verification service providing your API token.
 ```kotlin
@@ -138,7 +138,7 @@ val client = BlinkIDVerifyClient(
 ```
 If you don't already have the API token, contact us at [help.microblink.com](https://help.microblink.com/).
 
-3. Finally use `val response = client.verify(blinkIDVerifyRequest)` to send the request and fetch the response that will contain either an error reason, or the results of the verification process:
+3. Finally use `val response = client.verify(blinkIDVerifyRequest)` to send the request and fetch the response that will contain either an error reason or the results of the verification process:
 ```kotlin
 CoroutineScope(IO).launch {
     when (val response = client.verify(blinkIDVerifyRequest)) {
@@ -154,7 +154,7 @@ CoroutineScope(IO).launch {
 
 ### Document verification results
 
-Final result from document verification service are of type [BlinkIDVerifyEndpointResponse](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.data.model.result/-blink-i-d-verify-endpoint-response/index.html) and it contains extraction and verification results.
+The final result from the document verification service is of type [BlinkIDVerifyEndpointResponse](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.data.model.result/-blink-i-d-verify-endpoint-response/index.html) and it contains both extraction and verification results.
 
 
 # <a name="device-requirements"></a> Device requirements
@@ -165,15 +165,15 @@ _BlinkID Verify_ SDK requires Android API level **24** or newer.
 
 ## <a name="camera-req"></a> Camera
 
-Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution must be at least **1080p**. Note that camera preview resolution is not the same as video recording resolution.
+To perform successful scans, the camera preview resolution must be at least **1080p**. Note that the camera preview resolution is not the same as the video recording resolution.
 
 ## <a name="processor-arch-req"></a> Processor architecture
 
 _BlinkID Verify_ SDK is distributed with **ARMv7** and **ARM64** native library binaries.
 
-_BlinkID Verify_ is a native library, written in C++ and available for multiple platforms. Because of this, _BlinkID Verify_ cannot work on devices with obscure hardware architectures. We have compiled SDK's native code only for the most popular Android [ABIs](https://en.wikipedia.org/wiki/Application_binary_interface).
+_BlinkID Verify_ is a native library written in C++ and available for multiple platforms. Because of this, _BlinkID Verify_ cannot work on devices with obscure hardware architectures. We have compiled SDK's native code only for the most popular Android [ABIs](https://en.wikipedia.org/wiki/Application_binary_interface).
 
-If you are combining _BlinkID Verify_ library with other libraries that contain native code in your application, make sure you match the architectures of all native libraries. For example, if third party library has only ARMv7 version, you must use exactly ARMv7 version of _BlinkID Verify_ with that library, but not ARM64. Using this architectures will crash your app at initialization step because JVM will try to load all its native dependencies in same preferred architecture and will fail with `UnsatisfiedLinkError`.
+If you are combining _BlinkID Verify_ library with other libraries that contain native code in your application, make sure to match the architectures of all native libraries. For example, if the third-party library has only ARMv7 version, you must use exactly ARMv7 version of _BlinkID Verify_ with that library, but not ARM64. Using different architectures will crash your app at the initialization step because JVM will try to load all its native dependencies in the same preferred architecture and fail with `UnsatisfiedLinkError`.
 
 To avoid this issue and ensure that only architectures supported by the _BlinkID Verify_ library are packaged in the final application, add the following statement to your `android/defaultConfig` block inside `build.gradle.kts`:
 
@@ -213,14 +213,13 @@ BlinkIDVerifySdkSettings(
 
 ## <a name="simple-customizations"></a> Simple customizations
 
-You can use basic customization options on our default `CameraScanningScreen` composable:
+You can use basic customization options in our default `CameraScanningScreen` composable:
 
 ```kotlin
 CameraScanningScreen(
     sdkInstance,
     // ui settings options
     verifyUiSettings = VerifyUiSettings(
-        buttonShape = yourButtonShape,
         typography = yourTypography,
         colorScheme = yourColorScheme,
         reticleColors = youReticleColors,
@@ -238,7 +237,7 @@ CameraScanningScreen(
 )
 ```
 
-For complete reference on available customization options, see [VerifyUiSettings](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-ux/com.microblink.blinkidverify.ux/-verify-ui-settings/index.html) API docs.
+For a complete reference on available customization options, see [VerifyUiSettings](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-ux/com.microblink.blinkidverify.ux/-verify-ui-settings/index.html) API docs.
 
 ## <a name="advanced-customizations"></a> Advanced customizations
 
@@ -246,7 +245,7 @@ For complete reference on available customization options, see [VerifyUiSettings
 
 It is possible to use completely custom UI elements by implementing your own Composable.
 
-Create your own implementation of scanning ViewModel that has to be subclass of our `CameraViewModel` to handle UX events that come from our SDK:
+Create your implementation of scanning ViewModel (which must be a subclass of our `CameraViewModel`) to handle UX events that come from our SDK:
 
 ```kotlin
 class YourBlinkIDVerifyViewModel(
@@ -310,7 +309,7 @@ class YourBlinkIDVerifyViewModel(
 
 ```
 
-Implement your camera scanning screen Composable by using our `CameraScreen` Composable that is responsible for camera management: 
+Implement your camera scanning screen Composable by using our `CameraScreen` Composable which is responsible for camera management: 
 
 ```kotlin
 @Composable
@@ -330,31 +329,31 @@ fun YourCameraScanningScreen(
 
 ### Modifying our `blinkid-verify-ux` library source code
 
-For most control over the UX, you can use open-source `blinkid-verify-ux` library and perform modifications as you need, **on source files that are allowed for modification by the license header** which is contained in each file.
+For larger control over the UX, you can use the open-source `blinkid-verify-ux` library and perform certain modifications. **Only the source files that specifically allow for modification by the license header** can be modified.
 
-To do so, you can include source code of our library directly to your application.
+To do so, you can include the source code of our library directly in your application.
 It is located in `libs/sources/blinkid-verify-ux` module.
 
-Please keep in mind that we will regulary make changes and update the source code with each release.
+**Please keep in mind that we will regularly make changes and update the source code with each release.**
 
 # <a name="changing-strings-and-localization"></a> Changing default strings and localization
 
-You can modify strings and add your own language. For more information on how localization works in Android, check out the [official Android documentation](https://developer.android.com/guide/topics/resources/localization).
+You can modify strings and add another language. For more information on how localization works in Android, check out the [official Android documentation](https://developer.android.com/guide/topics/resources/localization).
 
 ## <a name="using-own-string-resources"></a> Defining your own string resources for UI elements
 
-You can define your own string resources that will be used instead of predefined ones by using the custom [VerifySdkStrings](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-ux/com.microblink.blinkidverify.ux.theme/-verify-sdk-strings/index.html) while creating the `VerifyUiSettings`.
+You can define string resources that will be used instead of predefined ones by using the custom [VerifySdkStrings](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-ux/com.microblink.blinkidverify.ux.theme/-verify-sdk-strings/index.html) while creating the `VerifyUiSettings`.
 
 
 # <a name="low-level-api"></a> Completely custom UX (advanced)
 
-When using the low level API, you are responsible for preparing input image stream (or static images) for analysis and building a completely custom UX from scratch based on the image-by-image feedback from the SDK. 
+When using the low-level API, you are responsible for preparing the input image stream (or static images) for analysis as well as building a completely custom UX from scratch based on the image-by-image feedback from the SDK. 
 
-Low level API gives you more flexibility with the cost of a significantly larger integration effort. For example, if you need a camera, you will be responsible for camera management and displaying real-time user guidance.
+Low-level API gives you more flexibility with the cost of a significantly larger integration effort. For example, if you need a camera, you will be responsible for camera management and displaying real-time user guidance.
 
-### Adding _BlinkID Verify_ Core SDK dependency for low level API
+### Adding _BlinkID Verify_ Core SDK dependency for low-level API
 
-For low level API you need only _BlinkID Verify_ SDK core library: **blinkid-verify-core**, the blinkid-verify-ux is not needed.
+For low-level API integration, only _BlinkID Verify_ SDK core library: **blinkid-verify-core** is needed. The `blinkid-verify-ux is` not needed.
 
 In your project root, add _Microblink_ maven repository to the repositories list:
 
@@ -364,7 +363,7 @@ repositories {
 }
 ```
 
-Add _blinkid-verify-core_ library as a dependency in module level build.gradle(.kts):
+Add _blinkid-verify-core_ library as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
@@ -422,7 +421,7 @@ There are helper methods for creating [InputImage](https://blinkid.github.io/bli
 
 Processing of the single frame returns [ProcessResult](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.capture.session/-process-result/index.html) which contains:
 
-- Detailed analysis of the frame, including various detection statuses and potential issues which should be used for frame-by-frame UX updates.
+- Detailed analysis of the frame, including various detection statuses and potential issues that should be used for frame-by-frame UX updates.
 - Completeness status of the overall process.
 
 You should keep calling the process function until the result completeness indicates that the result is complete, but you could have custom logic for cancellation and timeouts.
@@ -444,22 +443,22 @@ You will get [BlinkIDVerifyCaptureResult](https://blinkid.github.io/blinkid-veri
 
 To terminate the scanning session, ensure that `ScanningSession.close()` is called.
 
-**If you are completely finished with the SDK processing, terminate the SDK to free up resources** by invoking `BlinkIDVerifySdk.close()` on the SDK instance.
+**If you are finished with the SDK processing, terminate the SDK to free up resources** by invoking `BlinkIDVerifySdk.close()` on the SDK instance.
 
 # <a name="troubleshoot"></a> Troubleshooting
 
 ### Integration difficulties
-In case of problems with SDK integration, first make sure that you have followed [integration instructions](#sdk-integration) and [device requirements](#device-requirements). If you're still having problems, please contact us at [help.microblink.com](http://help.microblink.com) describing your problem and provide following information:
+In case of problems with SDK integration, make sure that you have followed [integration instructions](#sdk-integration) and [device requirements](#device-requirements). If you're still having problems, please contact us at [help.microblink.com](http://help.microblink.com) describing your problem and provide the following information:
 
-* high resolution scan/photo of the item that you are trying to read
-* information about device that you are using - we need exact model name of the device. You can obtain that information with any app like [this one](https://play.google.com/store/apps/details?id=ru.andr7e.deviceinfohw)
-* please stress out that you are reporting problem related to Android version of _BlinkID Verify_ SDK
+* high-resolution scan/photo of the item that you are trying to read
+* information about device that you are using - we need the exact model name of the device. You can obtain that information with any app like [this one](https://play.google.com/store/apps/details?id=ru.andr7e.deviceinfohw)
+* please stress that you are reporting a problem related to the Android version of _BlinkID Verify_ SDK
 
 # <a name="additional-info"></a> Additional info
 
 ## <a name="sdk-size"></a> BlinkID Verify SDK size
 
-We recommend that you distribute your app using [App Bundle](https://developer.android.com/platform/technology/app-bundle). This will defer apk generation to Google Play, allowing it to generate minimal APK for each specific device that downloads your app, including only required processor architecture support.
+We recommend that you distribute your app using [App Bundle](https://developer.android.com/platform/technology/app-bundle). This will defer APK generation to Google Play, allowing it to generate minimal APK for each specific device that downloads your app, including only required processor architecture support.
 
 
 Here is the SDK size, calculated for supported ABIs:
@@ -469,7 +468,7 @@ Here is the SDK size, calculated for supported ABIs:
 | armeabi-v7a | xx MB | xx MB |
 | arm64-v8a | xx MB | xx MB |
 
-SDK size is calculated as application size increase when _BlinkID Verify_ SDK is added, with all its dependencies included.
+SDK size is calculated as application size increases when _BlinkID Verify_ SDK is added, with all its dependencies included.
 
 ### <a name="sdk-size-with-bundled-resources"></a> BlinkID Verify SDK size with bundled resources
 
