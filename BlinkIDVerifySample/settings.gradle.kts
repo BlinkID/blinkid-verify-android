@@ -27,3 +27,4 @@ dependencyResolutionManagement {
 rootProject.name = "BlinkIDVerifySample"
 include(":app")
 include(":lib-common")
+include(":blinkid-verify-ux")

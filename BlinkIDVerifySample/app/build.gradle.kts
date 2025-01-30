@@ -39,15 +39,18 @@ android {
 }
 
 dependencies {
-//    implementation(libs.androidx.core.ktx)
-//    implementation(libs.androidx.lifecycle.runtime.ktx)
-//    implementation(libs.androidx.activity.compose)
-//    implementation(platform(libs.androidx.compose.bom))
-//    implementation(libs.androidx.ui)
-//    implementation(libs.androidx.ui.graphics)
-//    implementation(libs.androidx.ui.tooling.preview)
-//    implementation(libs.androidx.material3)
-    debugImplementation(libs.androidx.ui.tooling)
-    implementation(libs.blinkid.verify.ux)
     implementation(project(":lib-common"))
+    implementation(libs.blinkid.verify.ux)
+/**
+    // use following set of dependencies if you want to use blinkid-verify-ux library module
+    // instead of maven dependency, and remove implementation(libs.blinkid.verify.ux) dependency
+    implementation(project(":blinkid-verify-ux"))
+    implementation(libs.blinkid.verify.core)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    debugImplementation(libs.androidx.ui.tooling)
+*/
 }
