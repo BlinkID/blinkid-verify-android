@@ -194,7 +194,7 @@ android {
 
 If you want to reduce the SDK startup time and network traffic, you have option to pre-bundle the SDK resources as assets into your application. All required resources are located in [libs/resources/assets/microblink/blinkidverify](https://github.com/BlinkID/blinkid-verify-android/tree/main/libs/resources/assets/microblink/blinkidverify) folder. You can bundle it to your application by including the mentioned folder to application's assets. Copy mentioned `libs/resources/assets/microblink` directory to `src/main/assets` folder of your application module (or appropriate folder for desired app flavor).
 
-Use `BlinkIDVerifySdkSettings` to set the following options when instiating the SDK:
+Use `BlinkIDVerifySdkSettings` to set the following options when instantiating the SDK:
 
 ```kotlin
 BlinkIDVerifySdkSettings(
@@ -301,7 +301,7 @@ class YourBlinkIDVerifyViewModel(
 
      override fun onCleared() {
         super.onCleared()
-        // cancel and close image analyser when view model is cleared
+        // cancel and close image analyzer when view model is cleared
         imageAnalyzer.cancel()
         imageAnalyzer.close()
     }
@@ -321,7 +321,7 @@ fun YourCameraScanningScreen(
     CameraScreen(
         cameraViewModel = viewModel,
     ) {
-        // TODO your Compose content
+        // TODO your camera overlay Compose content
     }
 
 }
