@@ -6,9 +6,7 @@ import com.microblink.blinkidverify.ux.DefaultShowHelpButton
 import com.microblink.blinkidverify.ux.DefaultShowOnboardingDialog
 import com.microblink.blinkidverify.ux.capture.DocumentSide
 import com.microblink.blinkidverify.ux.theme.VerifyTheme
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class VerifyUiState(
     val blinkIDVerifyCaptureResult: BlinkIDVerifyCaptureResult? = null,
     val reticleState: ReticleState = ReticleState.Hidden,
