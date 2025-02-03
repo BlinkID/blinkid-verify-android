@@ -54,7 +54,10 @@ In your project root add _Microblink_ maven repository to `repositories` list:
 
 ```
 repositories {
-    maven { url 'https://maven.microblink.com' }
+    // ... other repositories
+    maven {
+        url = uri("https://maven.microblink.com")
+    }
 }
 ```
 
@@ -359,7 +362,10 @@ In your project root, add _Microblink_ maven repository to the repositories list
 
 ```
 repositories {
-    maven { url 'https://maven.microblink.com' }
+    // ... other repositories
+    maven {
+        url = uri("https://maven.microblink.com")
+    }
 }
 ```
 
