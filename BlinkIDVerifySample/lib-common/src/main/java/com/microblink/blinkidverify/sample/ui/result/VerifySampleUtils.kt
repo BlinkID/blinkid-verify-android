@@ -30,9 +30,9 @@ fun VerifyCheck.toResultVerifyCheck(): ResultVerifyCheck {
     return ResultVerifyCheck(this)
 }
 
-data class DevResult(
+data class SampleResult(
     override val title: String?,
-    override val children: List<DevResult>? = null,
+    override val children: List<SampleResult>? = null,
     override val description: String? = null,
     val value: String,
     val subValue: String? = null,

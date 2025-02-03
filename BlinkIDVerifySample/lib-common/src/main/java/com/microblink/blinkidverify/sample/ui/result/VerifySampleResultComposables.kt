@@ -77,7 +77,7 @@ fun VerifySampleResultScreen(
 
     val resultList = mutableListOf<Result>().apply {
         this.add(
-            DevResult(
+            SampleResult(
                 title = "Processing status",
                 value = result.processingStatus.name
             )
@@ -87,7 +87,7 @@ fun VerifySampleResultScreen(
         }
         result.processIndicators?.forEach {
             this.add(
-                DevResult(
+                SampleResult(
                     title = it.name,
                     value = it.type.name,
                     subValue = it.result.name
@@ -96,7 +96,7 @@ fun VerifySampleResultScreen(
         }
         result.messages?.forEach {
             this.add(
-                DevResult(
+                SampleResult(
                     title = "${it.code} ${it.status.name}",
                     value = it.message
                 )
@@ -104,7 +104,7 @@ fun VerifySampleResultScreen(
         }
         result.runtime?.let {
             this.add(
-                DevResult(
+                SampleResult(
                     title = "Verify runtime",
                     value = json.encodeToString(it)
                 )
@@ -112,7 +112,7 @@ fun VerifySampleResultScreen(
         }
         result.optionsUsed?.let {
             this.add(
-                DevResult(
+                SampleResult(
                     title = "Options used",
                     value = json.encodeToString(it)
                 )
@@ -120,7 +120,7 @@ fun VerifySampleResultScreen(
         }
         result.useCaseUsed?.let {
             this.add(
-                DevResult(
+                SampleResult(
                     title = "Use case used",
                     value = json.encodeToString(it)
                 )
@@ -128,7 +128,7 @@ fun VerifySampleResultScreen(
         }
         result.extraction?.let {
             this.add(
-                DevResult(
+                SampleResult(
                     title = "Extraction result",
                     value = json.encodeToString(it)
                 )
@@ -236,7 +236,7 @@ fun SampleResultRow(
                 }
             }
 
-        } else if (node is DevResult) {
+        } else if (node is SampleResult) {
             SampleResultRowText(node, level, expanded, showDivider)
             if (expanded) {
                 node.children?.let {
@@ -377,7 +377,7 @@ fun VerifyCheckRow(title: String, value: String) {
 
 @Composable
 fun SampleResultRowText(
-    result: DevResult,
+    result: SampleResult,
     level: Int,
     isExpanded: Boolean,
     showDivider: Boolean = true,
