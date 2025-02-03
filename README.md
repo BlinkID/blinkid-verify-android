@@ -469,10 +469,10 @@ We recommend that you distribute your app using [App Bundle](https://developer.a
 
 Here is the SDK size, calculated for supported ABIs:
 
-| ABI | APK file size increase | APK download size increase |
+| ABI | Download size | Install size |
 | --- |:-------------:| :----------------:|
-| armeabi-v7a | xx MB | xx MB |
-| arm64-v8a | xx MB | xx MB |
+| armeabi-v7a | 3.38 MB | 5.09 MB |
+| arm64-v8a | 3.51 MB | 6.09 MB |
 
 SDK size is calculated as application size increases when _BlinkID Verify_ SDK is added, with all its dependencies included.
 
