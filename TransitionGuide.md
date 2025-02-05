@@ -96,8 +96,8 @@ mRecognizerBundle = new RecognizerBundle(mRecognizer);
 #### New (BlinkID Verify):
 ```kotlin
 // New initialization
-val instance = BlinkIDVerifySdk.initializeSdk(
-    BlinkIDVerifySdkSettings(
+val instance = BlinkIdVerifySdk.initializeSdk(
+    BlinkIdVerifySdkSettings(
         context = context,
         licenseKey = licenseKey
     )
@@ -106,8 +106,8 @@ val instance = BlinkIDVerifySdk.initializeSdk(
 when {
     instance.isSuccess -> {
         CameraScanningScreen(
-            blinkIDVerifySdk = instance,
-            verifyUiSettings = blinkIDVerifyUiSettings,
+            blinkIdVerifySdk = instance,
+            verifyUiSettings = blinkIdVerifyUiSettings,
             captureSessionSettings = captureSessionSettings,
             onCaptureSuccess = { },
             onCaptureCancelled = { }
@@ -153,8 +153,8 @@ Many different implementation methods exist for BlinkID, with the following bein
 It is recommended to use on its own separate screen through `Navigation` and `ViewModel` (see Sample app).
 ```kotlin
     CameraScanningScreen(
-        blinkIDVerifySdk = instance,
-        verifyUiSettings = blinkIDVerifyUiSettings, // customize the appearance of the scanning screen (fonts, colors, strings)
+        blinkIdVerifySdk = instance,
+        verifyUiSettings = blinkIdVerifyUiSettings, // customize the appearance of the scanning screen (fonts, colors, strings)
         captureSessionSettings = captureSessionSettings, // define specific image quality tresholds, timeout duration, and certain check strictness
         onCaptureSuccess = { 
             // define what happens when the scanning process completes sucessfuly
@@ -212,24 +212,24 @@ Or through checking recognizer state:
 
 Implementing server request manually and fetching results on success:
 ```kotlin
-val client = BlinkIDVerifyClient(
-    BlinkIDVerifyServiceSettings(
+val client = BlinkIdVerifyClient(
+    BlinkIdVerifyServiceSettings(
         verificationServiceBaseUrl = "https://docver.dev.microblink.com/api/v2",
         token = "xxx"
     )
 )
-when (val response = client.verify(blinkIDVerifyRequest)) {
+when (val response = client.verify(blinkIdVerifyRequest)) {
     is Response.Success -> {
-        val blinkIDVerifyResult = response.endpointResponse
+        val blinkIdVerifyResult = response.endpointResponse
     }
 }
 ```
 
-Or using the UX module to fetch the results through `BlinkIDVerifyViewModel`:
+Or using the UX module to fetch the results through `ScanningUXViewModel`:
 ```kotlin
 CameraScanningScreen(
-    blinkIDVerifySdk = instance,
-    verifyUiSettings = blinkIDVerifyUiSettings, 
+    blinkIdVerifySdk = instance,
+    verifyUiSettings = blinkIdVerifyUiSettings, 
     captureSessionSettings = captureSessionSettings, 
     onCaptureSuccess = { result ->
         // result is now available through the ViewModel
@@ -306,12 +306,12 @@ Any modifications to classes which do not have this exact header are not allowed
 BlinkID Verify SDK provides built-in support for backend verification.
 
   ```kotlin
-  val verifyServiceSettings = BlinkIDVerifyServiceSettings(
+  val verifyServiceSettings = BlinkIdVerifyServiceSettings(
       verificationServiceBaseUrl = "docver.microblink.com",
       token = "your-token"
   )
   
-  val docVerService = BlinkIDVerifyClient(verifyServiceSettings)
+  val docVerService = BlinkIdVerifyClient(verifyServiceSettings)
   ```
 
 ## Best Practices for Migration

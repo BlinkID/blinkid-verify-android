@@ -9,7 +9,7 @@ The _BlinkID Verify_ Android SDK is a comprehensive solution for implementing se
 
 # Table of contents
 * [Quick Start](#quick-start)
-    * [Quick start with the sample apps](#quick-sample)
+    * [Quick start with the sample app](#quick-sample)
     * [SDK integration](#sdk-integration)
 * [Device requirements](#device-requirements)
     * [Android version](#android-version-req)
@@ -71,7 +71,7 @@ dependencies {
 
 ### Launching the document capture session and obtaining the results
 
-1. A valid license key is required to initialize the document capture process. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://developer.microblink.com/). License is bound to the [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please ensure you enter the correct application ID when asked.
+1. A valid license key is required to initialize the document capture process. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://account.microblink.com/signin). License is bound to the [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please ensure you enter the correct application ID when asked.
 
 
 2. You first need to initialize the SDK and obtain the `BlinkIdVerifySdk` instance:
@@ -251,7 +251,7 @@ It is possible to use completely custom UI elements by implementing your own Com
 Create your implementation of scanning ViewModel (which must be a subclass of our `CameraViewModel`) to handle UX events that come from our SDK:
 
 ```kotlin
-class YourBlinkIdVerifyViewModel(
+class YourBlinkIdVerifyScanningUxViewModel(
     blinkIdVerifySdkInstance: BlinkIdVerifySdk,
     captureSessionSettings: CaptureSessionSettings
 ) : CameraViewModel() {
@@ -317,7 +317,7 @@ Implement your camera scanning screen Composable by using our `CameraScreen` Com
 ```kotlin
 @Composable
 fun YourCameraScanningScreen(
-    viewModel: YourBlinkIdVerifyViewModel
+    viewModel: YourBlinkIdVerifyScanningUxViewModel
     //... other required parameters for your UI
 ) {
     // ...
