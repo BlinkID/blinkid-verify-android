@@ -39,18 +39,14 @@ android {
 }
 
 dependencies {
-    implementation(project(":lib-common")) {
-        isTransitive = true
-    }
+    implementation(project(":lib-common"))
     implementation(libs.blinkid.verify.ux)
-    implementation(libs.androidx.navigation.compose)
 /**
     // use following set of dependencies if you want to use blinkid-verify-ux library module
     // instead of maven dependency, and remove implementation(libs.blinkid.verify.ux) dependency
     implementation(project(":blinkid-verify-ux"))
     implementation(libs.blinkid.verify.core)
     implementation(platform(libs.androidx.compose.bom))
-
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
