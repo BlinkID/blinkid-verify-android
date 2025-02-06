@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) Microblink. All rights reserved. This code is provided for
+ * use as-is and may not be copied, modified, or redistributed.
+ */
+
 package com.microblink.blinkidverify.ux.capture.camera
 
 import androidx.camera.core.ImageProxy
@@ -6,10 +11,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-
-// TODO each SDK should have its implementation of ViewModel(s) for scanning screen(s).
-//  Implement DocumentVerificationViewModel for Document Verification SDK, BlinkIdViewModel for
-//  BlinkID SDK, ...
 abstract class CameraViewModel: ViewModel() {
 
     /**

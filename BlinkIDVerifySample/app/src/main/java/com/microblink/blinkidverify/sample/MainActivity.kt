@@ -17,13 +17,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.microblink.blinkidverify.core.data.model.result.BlinkIDVerifyEndpointResponse
+import com.microblink.blinkidverify.core.data.model.result.BlinkIdVerifyEndpointResponse
 import com.microblink.blinkidverify.sample.ui.MainScreen
 import com.microblink.blinkidverify.sample.ui.navigation.BlinkIDVerifyCustomNavType
 import com.microblink.blinkidverify.sample.ui.result.VerifySampleResultScreen
 import com.microblink.blinkidverify.sample.ui.theme.BlinkIDVerifySampleTheme
 import com.microblink.blinkidverify.sample.viewmodels.MainViewModel
-import com.microblink.blinkidverify.ui.navigation.Destination
+import com.microblink.blinkidverify.sample.ui.navigation.Destination
 import com.microblink.blinkidverify.ux.CameraScanningScreen
 import kotlinx.coroutines.launch
 import kotlin.reflect.typeOf
@@ -110,7 +110,7 @@ class MainActivity : ComponentActivity() {
             }
             composable<Destination.VerifyResult>(
                 typeMap = mapOf(
-                    typeOf<BlinkIDVerifyEndpointResponse>() to BlinkIDVerifyCustomNavType.BlinkIDVerifyResultType
+                    typeOf<BlinkIdVerifyEndpointResponse>() to BlinkIDVerifyCustomNavType.BlinkIDVerifyResultType
                 )
             ) { backStackEntry ->
                 VerifySampleResultScreen(

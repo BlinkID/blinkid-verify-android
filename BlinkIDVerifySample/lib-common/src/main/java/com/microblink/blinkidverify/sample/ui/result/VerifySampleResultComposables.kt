@@ -48,7 +48,7 @@ import com.microblink.blinkidverify.core.data.model.checks.DetailedCheck
 import com.microblink.blinkidverify.core.data.model.checks.FieldCheck
 import com.microblink.blinkidverify.core.data.model.checks.TieredCheck
 import com.microblink.blinkidverify.core.data.model.checks.VerifyCheck
-import com.microblink.blinkidverify.core.data.model.result.BlinkIDVerifyEndpointResponse
+import com.microblink.blinkidverify.core.data.model.result.BlinkIdVerifyEndpointResponse
 import com.microblink.blinkidverify.sample.ui.theme.Cobalt
 import com.microblink.blinkidverify.sample.ui.theme.Cobalt400
 import com.microblink.blinkidverify.sample.ui.theme.Cobalt50
@@ -58,7 +58,7 @@ import kotlinx.serialization.json.Json
 
 @Composable
 fun VerifySampleResultScreen(
-    result: BlinkIDVerifyEndpointResponse,
+    result: BlinkIdVerifyEndpointResponse,
     onNavigateUp: () -> Unit,
 ) {
     val json = Json {

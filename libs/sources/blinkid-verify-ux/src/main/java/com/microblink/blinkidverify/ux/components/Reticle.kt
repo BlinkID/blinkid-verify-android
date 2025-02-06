@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) Microblink. Modifications are allowed under the terms of the
+ * license for files located in the UX/UI lib folder.
+ */
+
 package com.microblink.blinkidverify.ux.components
 
 import androidx.annotation.DrawableRes
@@ -31,7 +36,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import com.microblink.blinkidverify.ux.R
 import com.microblink.blinkidverify.ux.state.ReticleState
-import com.microblink.blinkidverify.ux.theme.VerifyTheme
+import com.microblink.blinkidverify.ux.theme.ErrorRed
+import com.microblink.blinkidverify.ux.theme.Gray
+import com.microblink.blinkidverify.ux.theme.White
 
 @Composable
 internal fun Reticle(
@@ -50,18 +57,18 @@ internal fun Reticle(
         ReticleState.Sensing -> {
             ReticleBase(
                 reticleRadius,
-                VerifyTheme.reticleColors.reticleBaseColor
+                Gray.copy(0.5f)
             )
-            ReticleElementDashedCircle(reticleRadius, VerifyTheme.reticleColors.reticleRotationColor)
+            ReticleElementDashedCircle(reticleRadius, White.copy(0.75f))
         }
 
         ReticleState.IndefiniteProgress -> {
             ReticleBase(
                 reticleRadius,
-                VerifyTheme.reticleColors.reticleBaseColor
+                Gray.copy(0.5f)
             )
-            ReticleElementFullCircleAnimation(reticleRadius, VerifyTheme.reticleColors.reticleCircleStaticColor,
-                VerifyTheme.reticleColors.reticleCircleAnimationColor)
+            ReticleElementFullCircleAnimation(reticleRadius, White.copy(0.3f),
+                White)
         }
 
         ReticleState.Success -> {
@@ -71,11 +78,11 @@ internal fun Reticle(
         ReticleState.Error -> {
             ReticleBase(
                 reticleRadius,
-                VerifyTheme.reticleColors.reticleErrorColor
+                ErrorRed
             )
             ReticleElementFullCircle(
                 reticleRadius,
-                VerifyTheme.reticleColors.reticleRotationColor
+                White.copy(0.75f)
             )
         }
     }
@@ -86,7 +93,7 @@ internal fun ReticleBase(
     reticleRadius: Dp,
     color: Color
 ) {
-    val centerColor = VerifyTheme.reticleColors.reticleDotColor
+    val centerColor = White
     Canvas(
         modifier = Modifier
             .height(reticleRadius)

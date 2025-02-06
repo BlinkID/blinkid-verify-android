@@ -47,7 +47,6 @@ dependencies {
     implementation(project(":blinkid-verify-ux"))
     implementation(libs.blinkid.verify.core)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)

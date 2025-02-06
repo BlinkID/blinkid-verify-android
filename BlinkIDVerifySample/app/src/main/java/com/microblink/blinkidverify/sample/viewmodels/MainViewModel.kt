@@ -6,19 +6,19 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.microblink.blinkidverify.core.BlinkIDVerifyClient
-import com.microblink.blinkidverify.core.BlinkIDVerifySdk
-import com.microblink.blinkidverify.core.BlinkIDVerifySdkSettings
+import com.microblink.blinkidverify.core.BlinkIdVerifyClient
+import com.microblink.blinkidverify.core.BlinkIdVerifySdk
+import com.microblink.blinkidverify.core.BlinkIdVerifySdkSettings
 import com.microblink.blinkidverify.core.Response
 import com.microblink.blinkidverify.core.capture.session.CapturePolicy
 import com.microblink.blinkidverify.core.capture.session.CaptureSessionSettings
 import com.microblink.blinkidverify.core.capture.session.ImageQualitySettings
-import com.microblink.blinkidverify.core.data.model.request.BlinkIDVerifyProcessingRequestOptions
-import com.microblink.blinkidverify.core.data.model.request.BlinkIDVerifyProcessingUseCase
-import com.microblink.blinkidverify.core.data.model.request.BlinkIDVerifyRequest
-import com.microblink.blinkidverify.core.data.model.result.BlinkIDVerifyCaptureResult
-import com.microblink.blinkidverify.core.data.model.result.BlinkIDVerifyEndpointResponse
-import com.microblink.blinkidverify.core.settings.BlinkIDVerifyServiceSettings
+import com.microblink.blinkidverify.core.data.model.request.BlinkIdVerifyProcessingRequestOptions
+import com.microblink.blinkidverify.core.data.model.request.BlinkIdVerifyProcessingUseCase
+import com.microblink.blinkidverify.core.data.model.request.BlinkIdVerifyRequest
+import com.microblink.blinkidverify.core.data.model.result.BlinkIdVerifyCaptureResult
+import com.microblink.blinkidverify.core.data.model.result.BlinkIdVerifyEndpointResponse
+import com.microblink.blinkidverify.core.settings.BlinkIdVerifyServiceSettings
 import com.microblink.blinkidverify.sample.config.BlinkIDVerifyConfig
 import com.microblink.blinkidverify.ux.VerifyUiSettings
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -33,13 +33,13 @@ private const val TAG = "MainViewModel"
 
 @Serializable
 data class MainState(
-    val blinkidVerifyResult: BlinkIDVerifyEndpointResponse? = null,
+    val blinkidVerifyResult: BlinkIdVerifyEndpointResponse? = null,
     val error: String? = null,
 )
 
 data class UiState(
     val displayLoading: Boolean = false,
-    val captureResult: BlinkIDVerifyCaptureResult? = null,
+    val captureResult: BlinkIdVerifyCaptureResult? = null,
 )
 
 class MainViewModel : ViewModel() {
@@ -49,18 +49,18 @@ class MainViewModel : ViewModel() {
     private val _uiState: MutableStateFlow<UiState> = MutableStateFlow(UiState())
     var uiState = _uiState.asStateFlow()
 
-    val blinkIDVerifyRequestOptionsConfig = BlinkIDVerifyProcessingRequestOptions()
+    val blinkIDVerifyRequestOptionsConfig = BlinkIdVerifyProcessingRequestOptions()
 
     // TODO use constructor
-    val blinkIDVerifyRequestUseCase = BlinkIDVerifyProcessingUseCase.Empty
+    val blinkIDVerifyRequestUseCase = BlinkIdVerifyProcessingUseCase.Empty
 
     // TODO use settings options
     val blinkIDVerifyUiSettings = VerifyUiSettings()
 
-    var stepTimeoutDuration: MutableState<Duration?> = mutableStateOf(10000.milliseconds)
+    var stepTimeoutDuration: MutableState<Duration> = mutableStateOf(10000.milliseconds)
         private set
 
-    var localSdk: BlinkIDVerifySdk? = null
+    var localSdk: BlinkIdVerifySdk? = null
         private set
 
     // TODO use DocumentVerificationProcessingRequestOptions.toCaptureSessionSettings that will be implemented in SDK
@@ -87,13 +87,13 @@ class MainViewModel : ViewModel() {
         stepTimeoutDuration = stepTimeoutDuration.value
     )
 
-    fun sendVerifyRequestsFromCaptureResult(captureResult: BlinkIDVerifyCaptureResult) {
+    fun sendVerifyRequestsFromCaptureResult(captureResult: BlinkIdVerifyCaptureResult) {
         _uiState.update {
             it.copy(displayLoading = true)
         }
         viewModelScope.launch {
             invokeServerProcessing(
-                captureResult.toBlinkIDVerifyRequest(
+                captureResult.toBlinkIdVerifyRequest(
                     blinkIDVerifyRequestOptionsConfig,
                     blinkIDVerifyRequestUseCase
                 )
@@ -101,12 +101,12 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    private suspend fun invokeServerProcessing(documentVerificationRequest: BlinkIDVerifyRequest) {
+    private suspend fun invokeServerProcessing(documentVerificationRequest: BlinkIdVerifyRequest) {
         _uiState.update {
             it.copy(displayLoading = true)
         }
-        val client = BlinkIDVerifyClient(
-            BlinkIDVerifyServiceSettings(
+        val client = BlinkIdVerifyClient(
+            BlinkIdVerifyServiceSettings(
                 verificationServiceBaseUrl = BlinkIDVerifyConfig.verificationServiceBaseUrl,
                 token = BlinkIDVerifyConfig.verificationServiceToken,
             )
@@ -141,8 +141,8 @@ class MainViewModel : ViewModel() {
         _uiState.update {
             it.copy(displayLoading = true)
         }
-        val maybeInstance = BlinkIDVerifySdk.initializeSdk(
-            BlinkIDVerifySdkSettings(
+        val maybeInstance = BlinkIdVerifySdk.initializeSdk(
+            BlinkIdVerifySdkSettings(
                 context = context,
                 licenseKey = BlinkIDVerifyConfig.licenseKey,
             )
@@ -165,7 +165,7 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun onCaptureResultAvailable(captureResult: BlinkIDVerifyCaptureResult) {
+    fun onCaptureResultAvailable(captureResult: BlinkIdVerifyCaptureResult) {
         _uiState.update {
             it.copy(
                 captureResult = captureResult

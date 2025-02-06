@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) Microblink. Modifications are allowed under the terms of the
+ * license for files located in the UX/UI lib folder.
+ */
+
 package com.microblink.blinkidverify.ux
 
 import androidx.activity.compose.BackHandler
@@ -7,51 +12,84 @@ import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.MutableCreationExtras
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.microblink.blinkidverify.core.BlinkIDVerifySdk
+import com.microblink.blinkidverify.core.BlinkIdVerifySdk
 import com.microblink.blinkidverify.core.capture.session.CaptureSessionSettings
-import com.microblink.blinkidverify.core.data.model.result.BlinkIDVerifyCaptureResult
+import com.microblink.blinkidverify.core.data.model.result.BlinkIdVerifyCaptureResult
 import com.microblink.blinkidverify.ux.capture.camera.compose.CameraScreen
 import com.microblink.blinkidverify.ux.state.MbTorchState
 import com.microblink.blinkidverify.ux.state.ProcessingState
-import com.microblink.blinkidverify.ux.theme.BlinkIDVerifySdkTheme
+import com.microblink.blinkidverify.ux.theme.BlinkIdVerifySdkTheme
 import kotlinx.coroutines.launch
 
 private const val TAG = "CameraScanningScreen"
 
+/**
+ * Composable function that provides a complete camera scanning screen using
+ * the BlinkID Verify SDK.
+ *
+ * This composable function sets up and manages the entire camera scanning
+ * process, including UI elements, camera interaction, and result handling. It
+ * uses the provided [BlinkIdVerifySdk] and [CaptureSessionSettings] to
+ * configure the scanning session and provides callbacks for handling
+ * successful capture and cancellation.
+ *
+ * @param blinkIdVerifySdk The [BlinkIdVerifySdk] instance used for document
+ *                         verification.
+ * @param verifyUiSettings The [VerifyUiSettings] used to customize the UI.
+ *                         Defaults to [VerifyUiSettings] with default values.
+ * @param captureSessionSettings The [CaptureSessionSettings] used to configure
+ *                               the capture session. Defaults to [CaptureSessionSettings] with default values.
+ * @param onCaptureSuccess A callback function invoked when a document is
+ *                         successfully captured. Receives the
+ *                         [BlinkIdVerifyCaptureResult] as a parameter.
+ * @param onCaptureCanceled A callback function invoked when the user cancels
+ *                          the scanning process.
+ *
+ */
 @Composable
 fun CameraScanningScreen(
-    blinkIDVerifySdk: BlinkIDVerifySdk,
+    blinkIdVerifySdk: BlinkIdVerifySdk,
     verifyUiSettings: VerifyUiSettings = VerifyUiSettings(),
-    captureSessionSettings: CaptureSessionSettings,
-    onCaptureSuccess: (BlinkIDVerifyCaptureResult) -> Unit,
+    captureSessionSettings: CaptureSessionSettings = CaptureSessionSettings(),
+    onCaptureSuccess: (BlinkIdVerifyCaptureResult) -> Unit,
     onCaptureCanceled: () -> Unit,
 ) {
-    val viewModel: BlinkIDVerifyViewModel = viewModel(
-        factory = BlinkIDVerifyViewModel.Factory,
+    val viewModel: BlinkIdVerifyUxViewModel = viewModel(
+        factory = BlinkIdVerifyUxViewModel.Factory,
         extras = MutableCreationExtras().apply {
             set(
-                BlinkIDVerifyViewModel.DOCUMENT_VERIFY_SDK,
-                blinkIDVerifySdk
+                BlinkIdVerifyUxViewModel.DOCUMENT_VERIFY_SDK,
+                blinkIdVerifySdk
             )
             set(
-                BlinkIDVerifyViewModel.DOCUMENT_VERIFY_CAPTURE_SETTINGS,
+                BlinkIdVerifyUxViewModel.DOCUMENT_VERIFY_CAPTURE_SETTINGS,
                 captureSessionSettings
             )
         }
     )
-    viewModel.setInitialUiStateFromUiSettings(verifyUiSettings)
+
+    var initialUiStateSet by rememberSaveable { mutableStateOf(false) }
+    if (!initialUiStateSet) {
+        viewModel.setInitialUiStateFromUiSettings(verifyUiSettings)
+        initialUiStateSet = true
+    }
+
     val snackbarHostState = remember { SnackbarHostState() }
     val snackbarWarningMessage =
         stringResource(verifyUiSettings.verifySdkStrings.scanningStrings.snackbarFlashlightWarning)
 
-    BlinkIDVerifySdkTheme {
+    BlinkIdVerifySdkTheme(verifyUiSettings) {
         Scaffold(
             snackbarHost = { SnackbarHost(hostState = snackbarHostState) }
         ) { paddingValues ->
@@ -62,14 +100,14 @@ fun CameraScanningScreen(
                 val overlayUiState = viewModel.uiState.collectAsStateWithLifecycle()
 
                 if (overlayUiState.value.processingState == ProcessingState.Success) {
-                    overlayUiState.value.blinkIDVerifyCaptureResult?.let {
+                    overlayUiState.value.blinkIdVerifyCaptureResult?.let {
                         onCaptureSuccess(it)
                     }
                 }
                 BackHandler {
                     onCaptureCanceled()
                 }
-                ScanningUX(
+                ScanningUx(
                     Modifier.padding(paddingValues),
                     overlayUiState.value,
                     onCaptureCanceled,
@@ -92,7 +130,8 @@ fun CameraScanningScreen(
                     viewModel::changeOnboardingDialogVisibility,
                     viewModel::changeHelpScreensVisibility,
                     viewModel::changeHelpTooltipVisibility,
-                    viewModel::onRetryTimeout
+                    viewModel::onRetryTimeout,
+                    onCaptureCanceled
                 )
             }
         }

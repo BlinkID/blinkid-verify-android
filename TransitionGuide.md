@@ -225,7 +225,7 @@ when (val response = client.verify(blinkIdVerifyRequest)) {
 }
 ```
 
-Or using the UX module to fetch the results through `ScanningUXViewModel`:
+Or using the UX module to fetch the results through `BlinkIdVerifyScanningUXViewModel`:
 ```kotlin
 CameraScanningScreen(
     blinkIdVerifySdk = instance,

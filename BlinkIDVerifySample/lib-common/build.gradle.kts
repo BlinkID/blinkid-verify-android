@@ -45,4 +45,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.blinkid.verify.core)
+    api(libs.androidx.navigation.compose)
 }
