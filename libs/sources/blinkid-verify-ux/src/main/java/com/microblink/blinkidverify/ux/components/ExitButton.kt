@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) Microblink. Modifications are allowed under the terms of the
+ * license for files located in the UX/UI lib folder.
+ */
+
 package com.microblink.blinkidverify.ux.components
 
 import androidx.compose.foundation.Image
@@ -13,15 +18,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import com.microblink.blinkidverify.ux.R
-import com.microblink.blinkidverify.ux.theme.VerifyTheme
+import com.microblink.blinkidverify.ux.theme.Gray
+import com.microblink.blinkidverify.ux.theme.White
 
 @Composable
 fun ExitButton(
     modifier: Modifier,
     onExit: () -> Unit
 ) {
-    val exitButtonBackgroundColor = VerifyTheme.uiColors.exitButtonBackground
-    val exitButtonColor = VerifyTheme.uiColors.exitButton
+    val exitButtonBackgroundColor = Gray.copy(alpha = 0.6f)
+    val exitButtonColor = White
 
     Box(
         modifier = modifier
@@ -32,7 +38,6 @@ fun ExitButton(
                 onExit()
             }
     ) {
-        // TODO: accessibility
         Image(
             modifier = Modifier.fillMaxSize(),
             painter = painterResource(R.drawable.mb_icon_exit),

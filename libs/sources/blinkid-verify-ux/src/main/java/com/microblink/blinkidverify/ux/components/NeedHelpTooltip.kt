@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) Microblink. Modifications are allowed under the terms of the
+ * license for files located in the UX/UI lib folder.
+ */
+
 package com.microblink.blinkidverify.ux.components
 
 import androidx.compose.foundation.Canvas
@@ -18,7 +23,6 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.microblink.blinkidverify.ux.R
-import com.microblink.blinkidverify.ux.theme.Cobalt
 import com.microblink.blinkidverify.ux.theme.VerifyTheme
 import kotlinx.coroutines.delay
 
@@ -43,19 +47,19 @@ fun NeedHelpTooltip(
         ) {
             Text(
                 modifier = Modifier.padding(6.dp),
-                text = stringResource(R.string.mb_need_help),
+                text = stringResource(R.string.mb_blinkid_verify_need_help),
                 style = MaterialTheme.typography.headlineSmall,
                 color = helpTooltipTextColor
             )
         }
         Canvas(Modifier.size(16.dp).align(Alignment.End)) {
             val path = Path().apply {
-                moveTo(-12f, -2f)
-                lineTo(12f, 0f)
+                moveTo(-12f, -1f)
+                lineTo(12f, -1f)
                 lineTo(0f, 20f)
                 close()
             }
-            drawPath(path = path, color = Cobalt)
+            drawPath(path = path, color = helpTooltipBackgroundColor)
         }
     }
 }

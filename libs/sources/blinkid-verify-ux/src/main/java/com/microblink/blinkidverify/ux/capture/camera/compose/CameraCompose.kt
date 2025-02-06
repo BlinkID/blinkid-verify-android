@@ -1,24 +1,14 @@
-/*
- * Copyright (c) 2024 Microblink Ltd. All rights reserved.
- *
- * ANY UNAUTHORIZED USE OR SALE, DUPLICATION, OR DISTRIBUTION
- * OF THIS PROGRAM OR ANY OF ITS PARTS, IN SOURCE OR BINARY FORMS,
- * WITH OR WITHOUT MODIFICATION, WITH THE PURPOSE OF ACQUIRING
- * UNLAWFUL MATERIAL OR ANY OTHER BENEFIT IS PROHIBITED!
- * THIS PROGRAM IS PROTECTED BY COPYRIGHT LAWS AND YOU MAY NOT
- * REVERSE ENGINEER, DECOMPILE, OR DISASSEMBLE IT.
+/**
+ * Copyright (c) Microblink. All rights reserved. This code is provided for
+ * use as-is and may not be copied, modified, or redistributed.
  */
 
 package com.microblink.blinkidverify.ux.capture.camera.compose
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
-import android.provider.Settings
 import android.util.Size
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -34,50 +24,44 @@ import androidx.camera.core.resolutionselector.ResolutionSelector
 import androidx.camera.core.resolutionselector.ResolutionStrategy
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.core.app.ActivityCompat.shouldShowRequestPermissionRationale
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.LifecycleStartEffect
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.microblink.blinkidverify.ux.R
 import com.microblink.blinkidverify.ux.capture.camera.CameraLensFacing
 import com.microblink.blinkidverify.ux.capture.camera.CameraSettings
 import com.microblink.blinkidverify.ux.capture.camera.CameraViewModel
-import com.microblink.blinkidverify.ux.theme.Cobalt
-import com.microblink.blinkidverify.ux.theme.White
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
+/**
+ * Composable function that displays the camera preview and handles camera-related
+ * permissions and image analysis.
+ *
+ * This composable provides a screen for capturing images using the device's
+ * camera. It handles camera permission requests and displays the camera
+ * preview if permission is granted. It also provides a content slot for
+ * overlaying additional UI elements on top of the camera preview.
+ *
+ * @param cameraViewModel The [CameraViewModel] used to interact with the camera
+ *                        and perform image analysis.
+ * @param cameraSettings The [CameraSettings] used to configure the camera.
+ *                       Defaults to [CameraSettings] with default values.
+ * @param content A composable lambda for adding UI content on top of the camera
+ *                preview.
+ *
+ */
 @Composable
 fun CameraScreen(
     cameraViewModel: CameraViewModel,
@@ -125,8 +109,8 @@ private fun CameraPreview(
     imageAnalyzer: (ImageProxy) -> Unit,
 ) {
     val lensFacing = when (cameraSettings.lensFacing) {
-        CameraLensFacing.LENS_FACING_BACK -> CameraSelector.LENS_FACING_BACK
-        CameraLensFacing.LENS_FACING_FRONT -> CameraSelector.LENS_FACING_FRONT
+        CameraLensFacing.LensFacingBack -> CameraSelector.LENS_FACING_BACK
+        CameraLensFacing.LensFacingFront -> CameraSelector.LENS_FACING_FRONT
     }
 
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -196,85 +180,6 @@ private fun CameraPreview(
     )
 }
 
-@Composable
-fun CameraPermissionDeniedScreen(requestCameraPermission: () -> Unit) {
-    val shouldShowDialog = remember { mutableStateOf(false) }
-    val context = LocalContext.current
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFF888888)),
-        contentAlignment = Alignment.Center
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.mb_camera_denied),
-                contentDescription = stringResource(id = R.string.mb_camera_permission_required),
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Text(
-                text = stringResource(id = R.string.mb_camera_permission_required),
-                color = White,
-                fontSize = 20.sp,
-                fontFamily = FontFamily.SansSerif,
-                fontWeight = FontWeight.Light,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(20.dp)
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Button(colors = ButtonDefaults.buttonColors().copy(containerColor = Cobalt), onClick = {
-                val shouldShowRequestPermissionRationale = (context as? Activity)?.let {
-                    shouldShowRequestPermissionRationale(it, Manifest.permission.CAMERA)
-                } ?: false
-                if (shouldShowRequestPermissionRationale) {
-                    requestCameraPermission()
-                } else {
-                    shouldShowDialog.value = true
-                }
-            }) {
-                Text(text = stringResource(id = R.string.mb_enable_camera))
-            }
-        }
-
-        if (shouldShowDialog.value) {
-            AlertDialog(
-                onDismissRequest = { shouldShowDialog.value = false },
-                title = { Text(text = stringResource(R.string.mb_warning_title)) },
-                text = { Text(text = stringResource(R.string.mb_enable_permission_help)) },
-                containerColor = Color.White,
-                confirmButton = {
-                    Button(
-                        colors = ButtonDefaults.buttonColors().copy(containerColor = Cobalt),
-                        onClick = {
-                            shouldShowDialog.value = false
-                            context.startActivity(
-                                Intent(
-                                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                    Uri.parse(
-                                        "package:" + context.packageName
-                                    )
-                                )
-                            )
-                        }
-                    ) {
-                        Text(
-                            text = stringResource(com.microblink.blinkidverify.ux.R.string.mb_ok),
-                        )
-                    }
-                }
-            )
-        }
-
-    }
-}
-
 private suspend fun Context.getCameraProvider(): ProcessCameraProvider =
     suspendCoroutine { continuation ->
         ProcessCameraProvider.getInstance(this).also { cameraProvider ->
@@ -295,7 +200,6 @@ private fun enableTapToFocus(previewView: PreviewView, cameraControl: CameraCont
             .setAutoCancelDuration(3, TimeUnit.SECONDS)
             .build()
         cameraControl.startFocusAndMetering(action)
-        // ClickableViewAccessibility: onTouch lambda should call View#performClick when a click is detected
         view.performClick()
         false
     }

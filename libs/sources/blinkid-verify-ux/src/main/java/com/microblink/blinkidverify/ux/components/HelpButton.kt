@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) Microblink. Modifications are allowed under the terms of the
+ * license for files located in the UX/UI lib folder.
+ */
+
 package com.microblink.blinkidverify.ux.components
 
 import androidx.compose.foundation.Image
@@ -7,6 +12,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,11 +38,11 @@ fun HelpButton(
                 onChangeOnboardingDialogState(true)
             }
     ) {
-        Image(
+        Icon(
             modifier = Modifier.fillMaxSize(),
             painter = painterResource(R.drawable.mb_icon_help),
             contentDescription = "",
-            colorFilter = ColorFilter.tint(helpButtonColor)
+            tint = helpButtonColor
         )
     }
 }

@@ -1,0 +1,307 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>FrameAnalysisResult</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    BlinkIDVerify
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":blinkid-verify-core:dokkaHtmlPartial/release">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":blinkid-verify-core:dokkaHtmlPartial/release" data-filter=":blinkid-verify-core:dokkaHtmlPartial/release">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    BlinkIDVerify
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="blinkid-verify-core::com.microblink.blinkidverify.core.capture.session/FrameAnalysisResult///PointingToDeclaration//-1004863576">
+  <div class="breadcrumbs"><a href="../../index.html">blinkid-verify-core</a><span class="delimiter">/</span><a href="../index.html">com.microblink.blinkidverify.core.capture.session</a><span class="delimiter">/</span><span class="current">FrameAnalysisResult</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Frame</span><wbr><span>Analysis</span><wbr><span><span>Result</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">FrameAnalysisResult</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>documentLocation<span class="token operator">: </span><a href="../-document-location/index.html">DocumentLocation</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentLocalizationStatus<span class="token operator">: </span><a href="../-document-localization-status/index.html">DocumentLocalizationStatus</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>detectionStatus<span class="token operator">: </span><a href="../-detection-status/index.html">DetectionStatus</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>blurDetected<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>glareDetected<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>moire<span class="token operator">: </span><a href="../../com.microblink.blinkidverify.core.data.imageanalysis/-image-analysis-detection-status/index.html">ImageAnalysisDetectionStatus</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>monochrome<span class="token operator">: </span><a href="../../com.microblink.blinkidverify.core.data.imageanalysis/-document-image-color-status/index.html">DocumentImageColorStatus</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>processingStatus<span class="token operator">: </span><a href="../../com.microblink.blinkidverify.core.data.model.result.extraction/-processing-status/index.html">ProcessingStatus</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>hasBarcodeReadingIssues<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>occlusionDetected<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>tiltDetected<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><p class="paragraph">Represents the result of analyzing a single frame during document processing.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1933099361%2FConstructors%2F-1004863576" anchor-label="FrameAnalysisResult" id="-1933099361%2FConstructors%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-frame-analysis-result.html"><span>Frame</span><wbr><span>Analysis</span><wbr><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1933099361%2FConstructors%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">documentLocation<span class="token operator">: </span><a href="../-document-location/index.html">DocumentLocation</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">documentLocalizationStatus<span class="token operator">: </span><a href="../-document-localization-status/index.html">DocumentLocalizationStatus</a><span class="token punctuation">, </span></span><span class="parameter ">detectionStatus<span class="token operator">: </span><a href="../-detection-status/index.html">DetectionStatus</a><span class="token punctuation">, </span></span><span class="parameter ">blurDetected<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">glareDetected<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">moire<span class="token operator">: </span><a href="../../com.microblink.blinkidverify.core.data.imageanalysis/-image-analysis-detection-status/index.html">ImageAnalysisDetectionStatus</a><span class="token punctuation">, </span></span><span class="parameter ">monochrome<span class="token operator">: </span><a href="../../com.microblink.blinkidverify.core.data.imageanalysis/-document-image-color-status/index.html">DocumentImageColorStatus</a><span class="token punctuation">, </span></span><span class="parameter ">processingStatus<span class="token operator">: </span><a href="../../com.microblink.blinkidverify.core.data.model.result.extraction/-processing-status/index.html">ProcessingStatus</a><span class="token punctuation">, </span></span><span class="parameter ">hasBarcodeReadingIssues<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">occlusionDetected<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">tiltDetected<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-694598782%2FProperties%2F-1004863576" anchor-label="blurDetected" id="-694598782%2FProperties%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="blur-detected.html"><span>blur</span><wbr><span><span>Detected</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-694598782%2FProperties%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="blur-detected.html">blurDetected</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Indicates if blur was detected in the frame.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2138925480%2FProperties%2F-1004863576" anchor-label="detectionStatus" id="-2138925480%2FProperties%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="detection-status.html"><span>detection</span><wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2138925480%2FProperties%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="detection-status.html">detectionStatus</a><span class="token operator">: </span><a href="../-detection-status/index.html">DetectionStatus</a></div><div class="brief "><p class="paragraph">The overall status of document detection in the frame (e.g., detected, not detected).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-188401339%2FProperties%2F-1004863576" anchor-label="documentLocalizationStatus" id="-188401339%2FProperties%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="document-localization-status.html"><span>document</span><wbr><span>Localization</span><wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-188401339%2FProperties%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="document-localization-status.html">documentLocalizationStatus</a><span class="token operator">: </span><a href="../-document-localization-status/index.html">DocumentLocalizationStatus</a></div><div class="brief "><p class="paragraph">The status of document localization within the frame (e.g., successful, failed).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-872404869%2FProperties%2F-1004863576" anchor-label="documentLocation" id="-872404869%2FProperties%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="document-location.html"><span>document</span><wbr><span><span>Location</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-872404869%2FProperties%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="document-location.html">documentLocation</a><span class="token operator">: </span><a href="../-document-location/index.html">DocumentLocation</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Optional information about the location of the document within the frame. Can be null if the document was not found.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1886400514%2FProperties%2F-1004863576" anchor-label="glareDetected" id="-1886400514%2FProperties%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="glare-detected.html"><span>glare</span><wbr><span><span>Detected</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1886400514%2FProperties%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="glare-detected.html">glareDetected</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Indicates if glare was detected in the frame.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-633065009%2FProperties%2F-1004863576" anchor-label="hasBarcodeReadingIssues" id="-633065009%2FProperties%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-barcode-reading-issues.html"><span>has</span><wbr><span>Barcode</span><wbr><span>Reading</span><wbr><span><span>Issues</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-633065009%2FProperties%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="has-barcode-reading-issues.html">hasBarcodeReadingIssues</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Indicates if there were issues encountered while reading barcodes in the frame.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="916566421%2FProperties%2F-1004863576" anchor-label="moire" id="916566421%2FProperties%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="moire.html"><span><span>moire</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="916566421%2FProperties%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="moire.html">moire</a><span class="token operator">: </span><a href="../../com.microblink.blinkidverify.core.data.imageanalysis/-image-analysis-detection-status/index.html">ImageAnalysisDetectionStatus</a></div><div class="brief "><p class="paragraph">The status of moiré pattern detection in the image.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2041154962%2FProperties%2F-1004863576" anchor-label="monochrome" id="-2041154962%2FProperties%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="monochrome.html"><span><span>monochrome</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2041154962%2FProperties%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="monochrome.html">monochrome</a><span class="token operator">: </span><a href="../../com.microblink.blinkidverify.core.data.imageanalysis/-document-image-color-status/index.html">DocumentImageColorStatus</a></div><div class="brief "><p class="paragraph">The status of color analysis of the document image (e.g., monochrome, color).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1147250560%2FProperties%2F-1004863576" anchor-label="occlusionDetected" id="-1147250560%2FProperties%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="occlusion-detected.html"><span>occlusion</span><wbr><span><span>Detected</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1147250560%2FProperties%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="occlusion-detected.html">occlusionDetected</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Indicates if occlusion (e.g., obstruction) was detected in the frame.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-104272090%2FProperties%2F-1004863576" anchor-label="processingStatus" id="-104272090%2FProperties%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="processing-status.html"><span>processing</span><wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-104272090%2FProperties%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="processing-status.html">processingStatus</a><span class="token operator">: </span><a href="../../com.microblink.blinkidverify.core.data.model.result.extraction/-processing-status/index.html">ProcessingStatus</a></div><div class="brief "><p class="paragraph">The overall status of processing the frame (e.g., completed, failed).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1203158036%2FProperties%2F-1004863576" anchor-label="tiltDetected" id="-1203158036%2FProperties%2F-1004863576" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-verify-core:dokkaHtmlPartial/release" data-filterable-set=":blinkid-verify-core:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="tilt-detected.html"><span>tilt</span><wbr><span><span>Detected</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1203158036%2FProperties%2F-1004863576"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-verify-core:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="tilt-detected.html">tiltDetected</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Indicates if tilt (e.g., rotation) was detected in the frame.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

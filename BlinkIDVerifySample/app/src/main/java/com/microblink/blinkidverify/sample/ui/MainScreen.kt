@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.microblink.blinkidverify.core.data.model.result.BlinkIDVerifyCaptureResult
+import com.microblink.blinkidverify.core.data.model.result.BlinkIdVerifyCaptureResult
 import com.microblink.blinkidverify.sample.R
 import com.microblink.blinkidverify.sample.viewmodels.MainViewModel
 
@@ -95,7 +95,7 @@ private fun LoadingDialog() {
 
 @Composable
 private fun CaptureResultDialog(
-    result: BlinkIDVerifyCaptureResult,
+    result: BlinkIdVerifyCaptureResult,
     onDismiss: () -> Unit,
     onProcessImagesOnServerClicked: () -> Unit
 ) {

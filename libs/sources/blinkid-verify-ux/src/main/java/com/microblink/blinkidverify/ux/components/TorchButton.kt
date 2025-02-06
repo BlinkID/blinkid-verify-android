@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) Microblink. Modifications are allowed under the terms of the
+ * license for files located in the UX/UI lib folder.
+ */
+
 package com.microblink.blinkidverify.ux.components
 
 import androidx.compose.foundation.Image
@@ -14,7 +19,8 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import com.microblink.blinkidverify.ux.R
 import com.microblink.blinkidverify.ux.state.MbTorchState
-import com.microblink.blinkidverify.ux.theme.VerifyTheme
+import com.microblink.blinkidverify.ux.theme.Gray
+import com.microblink.blinkidverify.ux.theme.White
 
 @Composable
 fun TorchButton(
@@ -22,11 +28,11 @@ fun TorchButton(
     torchState: MbTorchState,
     onTorchStateChange: () -> Unit
 ) {
-//    if (torchState != MbTorchState.NOT_SUPPORTED_BY_CAMERA) {
+//    TODO: if (torchState != MbTorchState.NOT_SUPPORTED_BY_CAMERA) {
     val torchButtonBackgroundColor =
-        if (torchState == MbTorchState.On) VerifyTheme.uiColors.torchOnButtonBackground else VerifyTheme.uiColors.torchOffButtonBackground
+        if (torchState == MbTorchState.On) White else Gray.copy(alpha = 0.6f)
     val torchButtonColor =
-        if (torchState == MbTorchState.On) VerifyTheme.uiColors.torchOnButton else VerifyTheme.uiColors.torchOffButton
+        if (torchState == MbTorchState.On) Gray.copy(alpha = 0.6f) else White
     val icon =
         if (torchState == MbTorchState.On) painterResource(R.drawable.mb_icon_torch_on) else painterResource(
             R.drawable.mb_icon_torch_off
@@ -40,7 +46,6 @@ fun TorchButton(
                 onTorchStateChange()
             }
     ) {
-        // TODO: accessibility
         Image(
             modifier = Modifier.fillMaxSize(), painter = icon, contentDescription = "",
             colorFilter = ColorFilter.tint(torchButtonColor)

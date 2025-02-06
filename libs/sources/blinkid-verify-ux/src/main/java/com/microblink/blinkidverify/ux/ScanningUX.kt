@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) Microblink. Modifications are allowed under the terms of the
+ * license for files located in the UX/UI lib folder.
+ */
+
 package com.microblink.blinkidverify.ux
 
 import androidx.compose.foundation.layout.Box
@@ -31,11 +36,47 @@ import com.microblink.blinkidverify.ux.state.VerifyUiState
 import com.microblink.blinkidverify.ux.state.ProcessingState
 import com.microblink.blinkidverify.ux.state.ReticleState
 import com.microblink.blinkidverify.ux.state.StatusMessage
-import com.microblink.blinkidverify.ux.theme.VerifyTheme
+import com.microblink.blinkidverify.ux.state.UnrecoverableErrorState
+import com.microblink.blinkidverify.ux.theme.Gray
 
+/**
+ * Composable function that provides the user interface for the scanning screen,
+ * including the reticle, instruction messages, buttons, and dialogs.
+ *
+ * This function is responsible for rendering all the UI elements visible
+ * during the document scanning process, except for the camera preview itself.
+ * It handles displaying the reticle, instruction messages, exit and torch
+ * buttons, help components, and various dialogs based on the provided UI state
+ * and settings.
+ *
+ * @param modifier The [Modifier] to be applied to the outermost container of the UI.
+ * @param uiState The [VerifyUiState] containing the current state of the UI.
+ * @param onExitScanning A callback function invoked when the user wants to
+ *                       exit the scanning process.
+ * @param verifyUiSettings The [VerifyUiSettings] used to configure the UI.
+ * @param onTorchStateChange A callback function invoked when the user wants to
+ *                           change the torch state.
+ * @param onFlipDocumentAnimationCompleted A callback function invoked when the
+ *                                         flip document animation is completed.
+ * @param onReticleSuccessAnimationCompleted A callback function invoked when
+ *                                           the reticle success animation is
+ *                                           completed.
+ * @param onChangeOnboardingDialogVisibility A callback function invoked when
+ *                                           the visibility of the onboarding
+ *                                           dialog should change.
+ * @param onChangeHelpScreensVisibility A callback function invoked when the
+ *                                      visibility of the help screens should
+ *                                      change.
+ * @param onChangeHelpTooltipVisibility A callback function invoked when the
+ *                                       visibility of the help tooltip should
+ *                                       change.
+ * @param onRetryTimeout A callback function invoked when the retry timeout occurs and the button is pressed.
+ * @param onDoneError A callback function invoked when the license error timeout occurs and the button is pressed.
+ *
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScanningUX(
+fun ScanningUx(
     modifier: Modifier,
     uiState: VerifyUiState,
     onExitScanning: () -> Unit,
@@ -47,6 +88,7 @@ fun ScanningUX(
     onChangeHelpScreensVisibility: (Boolean) -> Unit,
     onChangeHelpTooltipVisibility: (Boolean) -> Unit,
     onRetryTimeout: () -> Unit,
+    onDoneError: () -> Unit
 ) {
     ScanningScreenCentralElements(
         modifier = modifier,
@@ -63,7 +105,13 @@ fun ScanningUX(
     ) {
         ExitButton(Modifier.align(Alignment.TopStart), onExitScanning)
         TorchButton(Modifier.align(Alignment.TopEnd), uiState.torchState, onTorchStateChange)
-        if (verifyUiSettings.showHelpButton) HelpBox(Modifier.align(Alignment.BottomEnd), uiState.helpButtonDisplayed, uiState.helpTooltipDisplayed, onChangeHelpScreensVisibility, onChangeHelpTooltipVisibility)
+        if (verifyUiSettings.showHelpButton) HelpBox(
+            Modifier.align(Alignment.BottomEnd),
+            uiState.helpButtonDisplayed,
+            uiState.helpTooltipDisplayed,
+            onChangeHelpScreensVisibility,
+            onChangeHelpTooltipVisibility
+        )
     }
 
     if (verifyUiSettings.showOnboardingDialog && uiState.onboardingDialogDisplayed) {
@@ -72,14 +120,31 @@ fun ScanningUX(
     if (verifyUiSettings.showHelpButton && uiState.helpDisplayed) {
         HelpScreens(onChangeHelpScreensVisibility)
     }
-    uiState.unrecoverableErrorDialog?.let { state ->
-        ErrorDialog(
-            R.string.mb_recognition_timeout_dialog_title,
-            R.string.mb_recognition_timeout_dialog_message,
-            R.string.mb_recognition_timeout_dialog_retry_button,
-            onButtonClick = onRetryTimeout
-        )
+    when (uiState.unrecoverableErrorState) {
+        UnrecoverableErrorState.NoError -> {}
+        UnrecoverableErrorState.ErrorInvalidLicense ->
+            ErrorDialog(
+                R.string.mb_blinkid_verify_license_error_dialog_title,
+                null,
+                R.string.mb_blinkid_verify_license_error_dialog_button,
+                onButtonClick = onDoneError
+            )
 
+        UnrecoverableErrorState.ErrorNetworkError ->
+            ErrorDialog(
+                R.string.mb_blinkid_verify_license_error_dialog_title,
+                null,
+                R.string.mb_blinkid_verify_license_error_dialog_button,
+                onButtonClick = onDoneError
+            )
+
+        UnrecoverableErrorState.ErrorTimeoutExpired ->
+            ErrorDialog(
+                R.string.mb_blinkid_verify_recognition_timeout_dialog_title,
+                R.string.mb_blinkid_verify_recognition_timeout_dialog_message,
+                R.string.mb_blinkid_verify_recognition_timeout_dialog_retry_button,
+                onButtonClick = onRetryTimeout
+            )
     }
 }
 
@@ -90,7 +155,7 @@ internal fun ScanningScreenCentralElements(
     instructionMessage: StatusMessage,
     cardAnimationState: CardAnimationState,
     onFlipDocumentAnimationCompleted: () -> Unit,
-    onReticleSuccessAnimationCompleted: () -> Unit,
+    onReticleSuccessAnimationCompleted: () -> Unit
 ) {
 
     var _reticleState by remember { mutableStateOf(ReticleState.Sensing) }
@@ -142,7 +207,7 @@ internal fun ScanningScreenCentralElements(
         ) {
             if (showInstructionDialog) {
                 _instructionMessage.statusMessageToStringRes()?.let {
-                    MessageContainer(it, VerifyTheme.reticleColors.reticleMessageContainerColor)
+                    MessageContainer(it, Gray.copy(0.9f))
                 }
             }
         }

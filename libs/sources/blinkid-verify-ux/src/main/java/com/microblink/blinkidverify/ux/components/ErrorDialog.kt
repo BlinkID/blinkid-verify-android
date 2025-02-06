@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) Microblink. Modifications are allowed under the terms of the
+ * license for files located in the UX/UI lib folder.
+ */
+
 package com.microblink.blinkidverify.ux.components
 
 import androidx.annotation.StringRes
@@ -22,12 +27,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import com.microblink.blinkidverify.ux.theme.Cobalt
 
 @Composable
 fun ErrorDialog(
     @StringRes title: Int,
-    @StringRes description: Int,
+    @StringRes description: Int?,
     @StringRes buttonText: Int,
     onDismissErrorDialog: () -> Unit = {},
     onButtonClick: () -> Unit
@@ -39,7 +43,7 @@ fun ErrorDialog(
                 .verticalScroll(
                     state = rememberScrollState()
                 ),
-            colors = CardDefaults.cardColors(containerColor = Color.White),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background),
             shape = RoundedCornerShape(16.dp)
         ) {
             Column(
@@ -49,23 +53,25 @@ fun ErrorDialog(
                 Text(
                     text = stringResource(title),
                     style = MaterialTheme.typography.titleMedium,
-                    color = Cobalt
+                    color = MaterialTheme.colorScheme.primary
                 )
-                Spacer(Modifier.height(20.dp))
-                Text(
-                    modifier = Modifier.padding(horizontal = 10.dp),
-                    color = Color.Black,
-                    text = stringResource(description),
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.bodyMedium
-                )
+                description?.let {
+                    Spacer(Modifier.height(20.dp))
+                    Text(
+                        modifier = Modifier.padding(horizontal = 10.dp),
+                        color = MaterialTheme.colorScheme.onBackground,
+                        text = stringResource(it),
+                        textAlign = TextAlign.Center,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                }
                 Spacer(Modifier.height(20.dp))
                 // TODO: add no ripple clickable to the entire material theme
                 Button(
                     modifier = Modifier.align(Alignment.End),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Transparent,
-                        contentColor = Cobalt
+                        contentColor = MaterialTheme.colorScheme.primary
                     ),
                     onClick = onButtonClick
                 ) {
