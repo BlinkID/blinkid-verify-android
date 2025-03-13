@@ -476,8 +476,6 @@ Here is the SDK size, calculated for supported ABIs:
 
 SDK size is calculated as application size increases when _BlinkID Verify_ SDK is added, with all its dependencies included.
 
-### <a name="sdk-size-with-bundled-resources"></a> BlinkID Verify SDK size with bundled resources
-
 ## <a name="api-documentation"></a> API documentation
 You can find the BlinkID Verify SDK **KDoc** documentation [here](https://blinkid.github.io/blinkid-verify-android/index.html).
 
