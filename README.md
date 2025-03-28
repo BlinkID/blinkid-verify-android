@@ -9,25 +9,26 @@ The _BlinkID Verify_ Android SDK is a comprehensive solution for implementing se
 
 # Table of contents
 * [Quick Start](#quick-start)
-    * [Quick start with the sample app](#quick-sample)
-    * [SDK integration](#sdk-integration)
+  * [Quick start with the sample app](#quick-sample)
+  * [SDK integration](#sdk-integration)
 * [Device requirements](#device-requirements)
-    * [Android version](#android-version-req)
-    * [Camera](#camera-req)
-    * [Processor architecture](#processor-arch-req)
+  * [Android version](#android-version-req)
+  * [Camera](#camera-req)
+  * [Processor architecture](#processor-arch-req)
 * [Pre-bundling the SDK resources in your app](#pre-bundling-resources)
 * [Customizing the look and UX](#customizing-the-look)
-    * [Simple customizations](#simple-customizations)
-    * [Advanced customizations](#advanced-customizations)
+  * [Simple customizations](#simple-customizations)
+  * [Advanced customizations](#advanced-customizations)
 * [Changing default strings and localization](#changing-strings-and-localization)
-    * [Defining your own string resources for UI elements](#using-own-string-resources)
+  * [Defining your own string resources for UI elements](#using-own-string-resources)
+* [Using SDK through `BlinkIdVerifyCaptureActivity`](#using-capture-activity)
 * [Completely custom UX (advanced)](#low-level-api)
-    * [The `BlinkIdVerifySdk` and `CaptureSession`](#core-api-sdk-and-session)
+  * [The `BlinkIdVerifySdk` and `CaptureSession`](#core-api-sdk-and-session)
 * [Troubleshooting](#troubleshoot)
 * [Additional info](#additional-info)
-    * [BlinkID Verify SDK size](#sdk-size)
-    * [API documentation](#api-documentation)
-    * [Contact](#contact)
+  * [BlinkID Verify SDK size](#sdk-size)
+  * [API documentation](#api-documentation)
+  * [Contact](#contact)
 
 
 # <a name="quick-start"></a> Quick Start
@@ -48,16 +49,14 @@ The _BlinkID Verify_ Android SDK is a comprehensive solution for implementing se
 
 ### Adding _BlinkID Verify_ SDK dependency
 
-The `BlinkID Verify` library is available on Microblink maven repository.
+The `BlinkID Verify` library is available on Maven Central repository.
 
-In your project root add _Microblink_ maven repository to `repositories` list:
+In your project root, add `mavenCentral()` repository to the repositories list, if not already present:
 
 ```
 repositories {
     // ... other repositories
-    maven {
-        url = uri("https://maven.microblink.com")
-    }
+    mavenCentral()
 }
 ```
 
@@ -79,7 +78,7 @@ dependencies {
 val maybeInstance = BlinkIdVerifySdk.initializeSdk(
     BlinkIdVerifySdkSettings(
         context = context,
-        licenseKey = <your_license_key>,
+        licenseKey = "your_license_key",
     )
 )
 when {
@@ -96,12 +95,13 @@ when {
 ```
 `BlinkIdVerifySdk.initializeSdk` is a suspend function which should be called from a coroutine.
 
-3. Use `CameraScanningScreen` composable to launch document capture UX and obtain results:
+3. Use `VerifyCameraScanningScreen` composable to launch document capture UX and obtain results:
 ```kotlin
-CameraScanningScreen(
+VerifyCameraScanningScreen(
     sdkInstance,
-    verifyUiSettings = VerifyUiSettings(),
-    captureSessionSettings = CaptureSessionSettings(),
+    uiSettings = UiSettings(),
+    uxSettings = VerifyUxSettings(),
+    captureSessionSettings = VerifyCaptureSessionSettings(),
     onCaptureSuccess = { captureResult ->
         // captureResult is BlinkIdVerifyCaptureResult
     },
@@ -113,7 +113,7 @@ CameraScanningScreen(
 
 ### Document capture session result
 
-After the document capture session is finished the SDK returns an object of type [BlinkIdVerifyCaptureResult](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.data.model.result/-blink-id-verify-capture-result/index.html). 
+After the document capture session is finished the SDK returns an object of type [BlinkIdVerifyCaptureResult](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.data.model.result/-blink-id-verify-capture-result/index.html).
 The object contains images of the front and back sides of the document. Additionally, if the barcode is present on the document, the camera frame containing a visible barcode will also be available.
 
 `BlinkIdVerifyCaptureResult.toBlinkIdVerifyRequest` helper method should be used to prepare `BlinkIdVerifyRequest` for the verification API call described in the following section.
@@ -127,7 +127,7 @@ val blinkIdVerifyRequest = captureResult.toBlinkIdVerifyRequest(
     BlinkIdVerifyProcessingUseCase()
 )
 ```
-Ensure that the `CaptureSessionSettings` used for capturing document images match the settings used for `BlinkIdVerifyRequest`.
+Ensure that the `VerifyCaptureSessionSettings` used for capturing document images match the settings used for `BlinkIdVerifyRequest`.
 
 2. You also need to create a [BlinkIdVerifyClient](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core/-blink-id-verify-client/index.html) for the document verification service providing your API token.
 ```kotlin
@@ -210,27 +210,25 @@ BlinkIdVerifySdkSettings(
 )
 ```
 
-
-
 # <a name="customizing-the-look"></a> Customizing the look and the UX
 
 ## <a name="simple-customizations"></a> Simple customizations
 
-You can use basic customization options in our default `CameraScanningScreen` composable:
+You can use basic customization options in our default `VerifyCameraScanningScreen` composable:
 
 ```kotlin
-CameraScanningScreen(
+VerifyCameraScanningScreen(
     sdkInstance,
     // ui settings options
-    verifyUiSettings = VerifyUiSettings(
+    uiSettings = VerifyUiSettings(
         typography = yourTypography,
         colorScheme = yourColorScheme,
-        reticleColors = youReticleColors,
-        verifySdkStrings = yourVerifySdkStrings,
+        uiColors = yourUiColors,
+        sdkStrings = yourSdkStrings,
         showOnboardingDialog = true, // or false
         showHelpButton = true // or false
     ),
-    captureSessionSettings = CaptureSessionSettings(),
+    captureSessionSettings = VerifyCaptureSessionSettings(),
     onCaptureSuccess = { captureResult ->
         // result is BlinkIdVerifyCaptureResult
     },
@@ -240,7 +238,7 @@ CameraScanningScreen(
 )
 ```
 
-For a complete reference on available customization options, see [VerifyUiSettings](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-ux/com.microblink.blinkidverify.ux/-verify-ui-settings/index.html) API docs.
+For a complete reference on available customization options, see [UiSettings](https://blinkid.github.io/blinkid-verify-android/microblink-ux/com.microblink.ux/-ui-settings/index.html) API docs.
 
 ## <a name="advanced-customizations"></a> Advanced customizations
 
@@ -253,13 +251,15 @@ Create your implementation of scanning ViewModel (which must be a subclass of ou
 ```kotlin
 class YourBlinkIdVerifyScanningUxViewModel(
     blinkIdVerifySdkInstance: BlinkIdVerifySdk,
-    captureSessionSettings: CaptureSessionSettings
+    captureSessionSettings: VerifyCaptureSessionSettings,
+    uxSettings: VerifyUxSettings
 ) : CameraViewModel() {
 
     val imageAnalyzer = BlinkIdVerifyAnalyzer(
         verifySdk = blinkIdVerifySdkInstance,
         captureSessionSettings = captureSessionSettings,
-        scanningDoneHandler = object : ScanningDoneHandler {
+        uxSettings = uxsettings,
+        scanningDoneHandler = object : VerifyScanningDoneHandler {
             override fun onScanningFinished(result: BlinkIdVerifyCaptureResult) {
                 // TODO use capture result
             }
@@ -288,6 +288,14 @@ class YourBlinkIdVerifyScanningUxViewModel(
                         is ScanningUxEvent.DocumentTooClose -> {
                             // TODO
                         }
+                      
+                        is DocumentFrameAnalysisResult -> {
+                            // TODO
+                        }
+                      
+                        is DocumentLocatedLocation -> {
+                            // TODO
+                        }
                         // TODO ... handle other events, when must be exhaustive, omitted for brevity
                     }
                 }
@@ -312,11 +320,11 @@ class YourBlinkIdVerifyScanningUxViewModel(
 
 ```
 
-Implement your camera scanning screen Composable by using our `CameraScreen` Composable which is responsible for camera management: 
+Implement your camera scanning screen Composable by using our `CameraScreen` Composable which is responsible for camera management:
 
 ```kotlin
 @Composable
-fun YourCameraScanningScreen(
+fun YourVerifyCameraScanningScreen(
     viewModel: YourBlinkIdVerifyScanningUxViewModel
     //... other required parameters for your UI
 ) {
@@ -330,12 +338,12 @@ fun YourCameraScanningScreen(
 }
 ``` 
 
-### Modifying our `blinkid-verify-ux` library source code
+### Modifying our ux libraries source code
 
-For larger control over the UX, you can use the open-source `blinkid-verify-ux` library and perform certain modifications. **Only the source files that specifically allow for modification by the license header** can be modified.
+For larger control over the UX, you can use the open-source `blinkid-verify-ux` and `microblink-ux` libraries and perform certain modifications. **Only the source files that specifically allow for modification by the license header** can be modified.
 
 To do so, you can include the source code of our library directly in your application.
-It is located in `libs/sources/blinkid-verify-ux` module.
+They are located in `libs/sources/blinkid-verify-ux` and `libs/sources/microblink-ux` modules.
 
 **Please keep in mind that we will regularly make changes and update the source code with each release.**
 
@@ -345,27 +353,74 @@ You can modify strings and add another language. For more information on how loc
 
 ## <a name="using-own-string-resources"></a> Defining your own string resources for UI elements
 
-You can define string resources that will be used instead of predefined ones by using the custom [VerifySdkStrings](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-ux/com.microblink.blinkidverify.ux.theme/-verify-sdk-strings/index.html) while creating the `VerifyUiSettings`.
+You can define string resources that will be used instead of predefined ones by using the custom [SdkStrings](https://blinkid.github.io/blinkid-verify-android/microblink-ux/com.microblink.ux.theme/-sdk-strings/index.html) while creating the `VerifyUiSettings`.
 
+## <a name="using-capture-activity"></a> Using SDK through `BlinkIdVerifyCaptureActivity`
+
+The simplest way of using BlinkID SDK is through our integrated activity.
+This eliminates the need for Compose integration and allows for quick and easy access to results. By using this integration method customization is reduced, although most UI elements can still be customized.
+
+Activity is accessed through `rememberLauncherForActivityResult` by using [MbBlinkIdScan](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-mb-blink-id-scan/index.html) contract.
+```kotlin
+    val captureLauncher = rememberLauncherForActivityResult(
+        contract = MbBlinkIdScan(),
+        onResult = { captureResult ->
+          if (captureResult.status == ActivityResultStatus.DocumentCaptured) {
+                // use captureResult.result (BlinkIdVerifyCaptureResult)
+            }
+        }
+    )
+```
+When launching the contract, [BlinkIdVerifyActivitySettings](https://blinkid.github.io/blinkid-verify-android/blinkid-ux/com.microblink.blinkidverify.ux.result.contract/-blink-id-verify-activity-settings/index.html) need to be defined. These settings include basic SDK information such as license key and additional settings for customizing the capture experience.
+```kotlin
+    captureLauncher.launch(
+        BlinkIdVeirfyActivitySettings(
+            BlinkIdVerifySdkSettings(
+                licenseKey = <your_license_key>
+            ), 
+            // define additional settings here
+        )
+    )
+```
+[BlinkIdVerifyActivitySettings](https://blinkid.github.io/blinkid-verify-android/blinkid-ux/com.microblink.blinkidverify.ux.result.contract/-blink-id-verify-activity-settings/index.html) contain the following:
+```kotlin
+    data class BlinkIdVerifyActivitySettings(
+        val blinkIdVerifySdkSettings: BlinkIdVerifySdkSettings,
+        val captureSessionSettings: VerifyCaptureSessionSettings = VerifyCaptureSessionSettings(),
+        val uxSettings: VerifyUxSettings = VerifyUxSettings(),
+        val verifyActivityUiColors: BlinkIdVerifyActivityColors? = null,
+        val verifyActivityUiStrings: SdkStrings = SdkStrings.Default,
+        val verifyActivityTypography: ParcelableUiTypography,
+        val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
+        val showHelpButton: Boolean = DefaultShowHelpButton,
+        val enableEdgeToEdge: Boolean = true,
+        val deleteCachedAssetsAfterUse: Boolean = false
+)
+```
+Most customizations regarding the UI are handled in the same way as with the Composable component.
+The main difference can be found in how `Typography` is set.
+
+Customizing SDK `Typography` is still available through `verifyActivityTypography` which is [ParcelableUiTypography](https://blinkid.github.io/blinkid-verify-android/microblink-ux/com.microblink.ux.utils/-parcelable-ui-typography/index.html) type. This class offers only the most important `TextStyle` and `Font` parameters.
+
+While `Colors` are fully customizable, the client needs to make sure that `Dark` and `Light` themes follow the current system state. In the Compose implementation, this is handled directly by the SDK.
 
 # <a name="low-level-api"></a> Completely custom UX (advanced)
 
-When using the low-level API, you are responsible for preparing the input image stream (or static images) for analysis as well as building a completely custom UX from scratch based on the image-by-image feedback from the SDK. 
+When using the low-level API, you are responsible for preparing the input image stream (or static images) for analysis as well as building a completely custom UX from scratch based on the image-by-image feedback from the SDK.
 
 Low-level API gives you more flexibility with the cost of a significantly larger integration effort. For example, if you need a camera, you will be responsible for camera management and displaying real-time user guidance.
 
 ### Adding _BlinkID Verify_ Core SDK dependency for low-level API
 
-For low-level API integration, only _BlinkID Verify_ SDK core library: **blinkid-verify-core** is needed. The `blinkid-verify-ux is` not needed.
+For low-level API integration, only _BlinkID Verify_ SDK core library: **blinkid-verify-core** is needed.
+Both `blinkid-verify-ux` and `microblink-ux` are not needed.
 
-In your project root, add _Microblink_ maven repository to the repositories list:
+In your project root, add `mavenCentral()` repository to the repositories list, if not already present:
 
 ```
 repositories {
     // ... other repositories
-    maven {
-        url = uri("https://maven.microblink.com")
-    }
+    mavenCentral()
 }
 ```
 
@@ -379,12 +434,11 @@ dependencies {
 
 ## <a name="core-api-sdk-and-session"></a> The `BlinkIdVerifySdk` and `CaptureSession`
 
-[BlinkIdVerifySdk](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core/-blink-id-verify-sdk/index.html) is a singleton that is main entry point to the _BlinkID Vreify_ SDK. It manages the global state of the SDK. This involves managing the main processing, unlocking the SDK, ensuring that licence check is up-to-date, downloading resources, and performing all necessary synchronization for the processing operations.
+[BlinkIdVerifySdk](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core/-blink-id-verify-sdk/index.html) is a singleton that is main entry point to the _BlinkID Verify_ SDK. It manages the global state of the SDK. This involves managing the main processing, unlocking the SDK, ensuring that licence check is up-to-date, downloading resources, and performing all necessary synchronization for the processing operations.
 
-Once you obtain an instance of the `BlinkIdVerifySdk` class after the SDK initialization is completed, you can use it to start a document capture session. 
+Once you obtain an instance of the `BlinkIdVerifySdk` class after the SDK initialization is completed, you can use it to start a document capture session.
 
-[CaptureSession](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.capture.session/-capture-session/index.html) is the main object that accepts images and camera frames, processes them and returns frame-by-frame results, and final result when it becomes available.
-
+[VerifyCaptureSession](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.capture.session/-verify-capture-session/index.html) is the main object that accepts images and camera frames, processes them and returns frame-by-frame results, and final result when it becomes available.
 
 ### <a name="analyzing-image-stream"></a> Analyzing the stream of images
 
@@ -393,7 +447,7 @@ Once you obtain an instance of the `BlinkIdVerifySdk` class after the SDK initia
 val maybeInstance = BlinkIdVerifySdk.initializeSdk(
     BlinkIdVerifySdkSettings(
         context = context,
-        licenseKey = <your_license_key>,
+        licenseKey = "your_license_key",
     )
 )
 when {
@@ -408,9 +462,9 @@ when {
     }
 }
 ```
-2. Create `CaptureSession` by calling suspend function `BlinkIdVerifySdk.createScanningSession(CaptureSessionSettings)`
+2. Create `VerifyCaptureSession` by calling suspend function `BlinkIdVerifySdk.createScanningSession(VerifyCaptureSessionSettings)`
 ```kotlin
-val captureSession = blinkIdVerifySdk.createScanningSession(CaptureSessionSettings(
+val captureSession = blinkIdVerifySdk.createScanningSession(VerifyCaptureSessionSettings(
     // use CapturePolicy.Video to analyze stream of images, if you have few 
     // images (e.g. from gallery) use CapturePolicy.Photo
     capturePolicy = CapturePolicy.Video,
@@ -418,14 +472,14 @@ val captureSession = blinkIdVerifySdk.createScanningSession(CaptureSessionSettin
 ))
 ```
 
-3. To process each image (camera frame) that comes to the recognition, call the suspend function `CaptureSession.process(InputImage): ProcessResult`
+3. To process each image (camera frame) that comes to the recognition, call the suspend function `VerifyCaptureSession.process(InputImage): ProcessResult`
 ```kotlin
 val processResult = captureSession.process(inputImage)
 ```
 
-There are helper methods for creating [InputImage](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.capture.session.image/-input-image/index.html) from `android.media.Image`, `androidx.camera.core.ImageProxy` and standard Android Bitmap. 
+There are helper methods for creating [InputImage](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.capture.session.image/-input-image/index.html) from `android.media.Image`, `androidx.camera.core.ImageProxy` and standard Android Bitmap.
 
-Processing of the single frame returns [ProcessResult](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.capture.session/-process-result/index.html) which contains:
+Processing of the single frame returns [VerifyProcessResult](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.capture.session/-verify-process-result/index.html) which contains:
 
 - Detailed analysis of the frame, including various detection statuses and potential issues that should be used for frame-by-frame UX updates.
 - Completeness status of the overall process.
@@ -434,7 +488,7 @@ You should keep calling the process function until the result completeness indic
 
 ### <a name="core-api-obtaining-results"></a> Obtaining capture results
 
-If after analysis of some image completeness status of `ProcessResult` indicates that document capture is complete, only then you should get the final result from the `CaptureSession`:
+If after analysis of some image completeness status of `VerifyProcessResult` indicates that document capture is complete, only then you should get the final result from the `VerifyCaptureSession`:
 
 ```kotlin
 if (processResult.resultCompleteness.isComplete()) {
@@ -470,9 +524,9 @@ We recommend that you distribute your app using [App Bundle](https://developer.a
 Here is the SDK size, calculated for supported ABIs:
 
 | ABI | Download size | Install size |
-| --- |:-------------:| :----------------:|
-| armeabi-v7a | 3.38 MB | 5.09 MB |
-| arm64-v8a | 3.51 MB | 6.09 MB |
+| --- |:-------------:|:------------:|
+| armeabi-v7a |    3.47 MB    |   5.17 MB    |
+| arm64-v8a |    3.67 MB    |   6.27 MB    |
 
 SDK size is calculated as application size increases when _BlinkID Verify_ SDK is added, with all its dependencies included.
 
