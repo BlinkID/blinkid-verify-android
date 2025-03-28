@@ -13,24 +13,29 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.microblink.blinkidverify.core.BlinkIdVerifySdk
-import com.microblink.blinkidverify.core.capture.session.CaptureSessionSettings
+import com.microblink.blinkidverify.core.capture.session.VerifyCaptureSessionSettings
 import com.microblink.blinkidverify.core.data.model.result.BlinkIdVerifyCaptureResult
-import com.microblink.blinkidverify.ux.capture.scanning.DocumentSide
-import com.microblink.blinkidverify.ux.capture.scanning.BlinkIdVerifyAnalyzer
-import com.microblink.blinkidverify.ux.capture.scanning.ScanningDoneHandler
-import com.microblink.blinkidverify.ux.capture.scanning.ScanningUxEvent
-import com.microblink.blinkidverify.ux.capture.scanning.ScanningUxEventHandler
-import com.microblink.blinkidverify.ux.capture.camera.CameraViewModel
-import com.microblink.blinkidverify.ux.capture.camera.ImageAnalyzer
-import com.microblink.blinkidverify.ux.capture.scanning.UnrecoverableError
-import com.microblink.blinkidverify.ux.capture.scanning.toUnrecoverableErrorState
-import com.microblink.blinkidverify.ux.state.CardAnimationState
+import com.microblink.blinkidverify.ux.capture.scanning.DocumentFrameAnalysisResult
+import com.microblink.blinkidverify.ux.capture.scanning.DocumentLocatedLocation
+import com.microblink.blinkidverify.ux.capture.scanning.VerifyAnalyzer
+import com.microblink.blinkidverify.ux.capture.scanning.VerifyScanningDoneHandler
+import com.microblink.blinkidverify.ux.capture.settings.VerifyUxSettings
 import com.microblink.blinkidverify.ux.state.VerifyUiState
-import com.microblink.blinkidverify.ux.state.MbTorchState
-import com.microblink.blinkidverify.ux.state.ProcessingState
-import com.microblink.blinkidverify.ux.state.ReticleState
-import com.microblink.blinkidverify.ux.state.StatusMessage
-import com.microblink.blinkidverify.ux.state.UnrecoverableErrorState
+import com.microblink.ux.ScanningUxEvent
+import com.microblink.ux.ScanningUxEventHandler
+import com.microblink.ux.UiSettings
+import com.microblink.ux.camera.CameraViewModel
+import com.microblink.ux.camera.ImageAnalyzer
+import com.microblink.ux.state.CardAnimationState
+import com.microblink.ux.state.DocumentSide
+import com.microblink.ux.state.DocumentSide.*
+import com.microblink.ux.state.ErrorState
+import com.microblink.ux.state.MbTorchState
+import com.microblink.ux.state.ProcessingState
+import com.microblink.ux.state.ReticleState
+import com.microblink.ux.state.StatusMessage
+import com.microblink.ux.utils.ErrorReason
+import com.microblink.ux.utils.toErrorState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -41,9 +46,10 @@ import kotlin.time.Duration.Companion.nanoseconds
 import kotlin.time.DurationUnit
 import kotlin.time.toDuration
 
-class BlinkIdVerifyUxViewModel(
+internal class BlinkIdVerifyUxViewModel(
     blinkIdVerifySdkInstance: BlinkIdVerifySdk,
-    captureSessionSettings: CaptureSessionSettings,
+    captureSessionSettings: VerifyCaptureSessionSettings,
+    uxSettings: VerifyUxSettings
 ) :
     CameraViewModel() {
     private var imageAnalyzer: ImageAnalyzer? = null
@@ -68,26 +74,27 @@ class BlinkIdVerifyUxViewModel(
 
     init {
         viewModelScope.launch {
-            imageAnalyzer = BlinkIdVerifyAnalyzer(
+            imageAnalyzer = VerifyAnalyzer(
                 verifySdk = blinkIdVerifySdkInstance,
                 captureSessionSettings = captureSessionSettings,
-                scanningDoneHandler = object : ScanningDoneHandler {
+                uxSettings = uxSettings,
+                verifyScanningDoneHandler = object : VerifyScanningDoneHandler {
                     override fun onScanningFinished(result: BlinkIdVerifyCaptureResult) {
                         _uiState.update {
                             it.copy(blinkIdVerifyCaptureResult = result)
                         }
                     }
 
-                    override fun onError(error: UnrecoverableError) {
+                    override fun onError(error: ErrorReason) {
                         _uiState.update {
                             it.copy(
-                                unrecoverableErrorState = error.toUnrecoverableErrorState(),
+                                errorState = error.toErrorState(),
                                 processingState = ProcessingState.ErrorDialog
                             )
                         }
                     }
 
-                    override fun onScanningCanceled() { }
+                    override fun onScanningCanceled() {}
                 },
                 uxEventHandler = object : ScanningUxEventHandler {
                     override fun onUxEvents(events: List<ScanningUxEvent>) {
@@ -118,8 +125,8 @@ class BlinkIdVerifyUxViewModel(
                                         _uiState.update {
                                             it.copy(
                                                 processingState = newProcessingState,
-                                                statusMessage = if (it.currentSide == DocumentSide.Front) StatusMessage.ScanFrontSide
-                                                else if (it.currentSide == DocumentSide.Back) StatusMessage.ScanBackSide
+                                                statusMessage = if (it.currentSide == Front) StatusMessage.ScanFrontSide
+                                                else if (it.currentSide == Back) StatusMessage.ScanBackSide
                                                 else StatusMessage.ScanBarcode
                                             )
                                         }
@@ -128,7 +135,7 @@ class BlinkIdVerifyUxViewModel(
 
                                 }
 
-                                is ScanningUxEvent.DocumentLocated, is ScanningUxEvent.DocumentLocatedLocation -> {
+                                is ScanningUxEvent.DocumentLocated, is DocumentLocatedLocation -> {
                                     val newProcessingState = ProcessingState.Processing
                                     if (!shouldStayInCurrentState(
                                             uiState.value.processingState,
@@ -278,12 +285,12 @@ class BlinkIdVerifyUxViewModel(
                                         uiState.value.processingState
 
                                     when (uiState.value.currentSide) {
-                                        DocumentSide.Front -> {
+                                        Front -> {
                                             when (event.side) {
-                                                DocumentSide.Front -> {
+                                                Front -> {
                                                 }
 
-                                                DocumentSide.Back -> {
+                                                Back -> {
                                                     // TODO: support for portrait animations
                                                     processingState =
                                                         ProcessingState.SuccessAnimation
@@ -291,30 +298,30 @@ class BlinkIdVerifyUxViewModel(
                                                     imageAnalyzer?.pauseAnalysis()
                                                 }
 
-                                                DocumentSide.Barcode -> {
+                                                Barcode -> {
                                                     processingState = ProcessingState.Sensing
                                                     statusMessage = StatusMessage.ScanBarcode
-                                                    currentSide = DocumentSide.Barcode
+                                                    currentSide = Barcode
                                                 }
                                             }
                                         }
 
-                                        DocumentSide.Back -> {
+                                        Back -> {
                                             when (event.side) {
-                                                DocumentSide.Front -> {}
+                                                Front -> {}
 
-                                                DocumentSide.Back -> {}
+                                                Back -> {}
 
-                                                DocumentSide.Barcode -> {
+                                                Barcode -> {
                                                     // TODO: add should stay in processing state
                                                     processingState = ProcessingState.Sensing
                                                     statusMessage = StatusMessage.ScanBarcode
-                                                    currentSide = DocumentSide.Barcode
+                                                    currentSide = Barcode
                                                 }
                                             }
                                         }
 
-                                        DocumentSide.Barcode -> {
+                                        Barcode -> {
                                             // impossible to reach anything else other than barcode
                                             statusMessage = StatusMessage.ScanBarcode
                                         }
@@ -338,7 +345,7 @@ class BlinkIdVerifyUxViewModel(
 
                                 }
 
-                                is ScanningUxEvent.DocumentFrameAnalysisResult -> {
+                                is DocumentFrameAnalysisResult -> {
                                     // Not used in this UI implementation.
                                     // Can be used for additional frame debugging.
                                 }
@@ -351,11 +358,11 @@ class BlinkIdVerifyUxViewModel(
         }
     }
 
-    fun setInitialUiStateFromUiSettings(verifyUiSettings: VerifyUiSettings) {
+    fun setInitialUiStateFromUiSettings(uiSettings: UiSettings) {
         _uiState.update {
             it.copy(
-                helpButtonDisplayed = verifyUiSettings.showHelpButton,
-                onboardingDialogDisplayed = verifyUiSettings.showOnboardingDialog
+                helpButtonDisplayed = uiSettings.showHelpButton,
+                onboardingDialogDisplayed = uiSettings.showOnboardingDialog
             )
         }
         if (_uiState.value.onboardingDialogDisplayed) changeOnboardingDialogVisibility(true)
@@ -459,10 +466,10 @@ class BlinkIdVerifyUxViewModel(
         helpTooltipTimer.cancel()
         _uiState.update {
             it.copy(
-                unrecoverableErrorState = UnrecoverableErrorState.NoError,
+                errorState = ErrorState.NoError,
                 processingState = ProcessingState.ErrorDialog,
                 statusMessage = StatusMessage.ScanFrontSide,
-                currentSide = DocumentSide.Front
+                currentSide = Front
             )
         }
         imageAnalyzer?.restartAnalysis()
@@ -477,7 +484,7 @@ class BlinkIdVerifyUxViewModel(
                     processingState =
                         ProcessingState.CardAnimation,
                     statusMessage = StatusMessage.FlipDocument,
-                    currentSide = DocumentSide.Back,
+                    currentSide = Back,
                     cardAnimationState =
                         CardAnimationState.ShowFlipLandscape
                 )
@@ -504,12 +511,15 @@ class BlinkIdVerifyUxViewModel(
         val DOCUMENT_VERIFY_SDK =
             object : CreationExtras.Key<BlinkIdVerifySdk> {}
         val DOCUMENT_VERIFY_CAPTURE_SETTINGS =
-            object : CreationExtras.Key<CaptureSessionSettings> {}
+            object : CreationExtras.Key<VerifyCaptureSessionSettings> {}
+        val DOCUMENT_VERIFY_UX_SETTINGS =
+            object : CreationExtras.Key<VerifyUxSettings> {}
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 BlinkIdVerifyUxViewModel(
                     this[DOCUMENT_VERIFY_SDK] as BlinkIdVerifySdk,
-                    this[DOCUMENT_VERIFY_CAPTURE_SETTINGS] as CaptureSessionSettings
+                    this[DOCUMENT_VERIFY_CAPTURE_SETTINGS] as VerifyCaptureSessionSettings,
+                    this[DOCUMENT_VERIFY_UX_SETTINGS] as VerifyUxSettings
                 )
             }
         }
