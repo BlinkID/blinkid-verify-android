@@ -21,7 +21,7 @@ This guide will help you migrate your application from BlinkID to the new BlinkI
 
 #### BlinkID Verify (New):
 ```kotlin
-1. Maven (maven.microblink.com)
+1. MavenCentral
 2. Manual Integration (through .aar)
 3. Custom integration (source-available UX module allows forking and customizations)
 ```
@@ -31,15 +31,16 @@ This guide will help you migrate your application from BlinkID to the new BlinkI
 ### 1. Update dependencies
 
 ```kts
-// Maven - DON'T remove
-maven { url 'https://maven.microblink.com' }
-// from repositories declaration in your gradle files
+// Add Maven Central
+mavenCentral()
+// to repositories declaration in your gradle files
 ```
 
 #### Remove old dependencies:
 ```kts
 // remove
-implementation(com.microblink:blinkid) 
+implementation(com.microblink:blinkid)
+maven { url 'https://maven.microblink.com' }
 // from build.gradle.kts
 
 // or
