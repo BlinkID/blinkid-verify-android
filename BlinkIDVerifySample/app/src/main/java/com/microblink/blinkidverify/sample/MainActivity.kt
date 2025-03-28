@@ -24,7 +24,7 @@ import com.microblink.blinkidverify.sample.ui.result.VerifySampleResultScreen
 import com.microblink.blinkidverify.sample.ui.theme.BlinkIDVerifySampleTheme
 import com.microblink.blinkidverify.sample.viewmodels.MainViewModel
 import com.microblink.blinkidverify.sample.ui.navigation.Destination
-import com.microblink.blinkidverify.ux.CameraScanningScreen
+import com.microblink.blinkidverify.ux.VerifyCameraScanningScreen
 import kotlinx.coroutines.launch
 import kotlin.reflect.typeOf
 
@@ -83,9 +83,10 @@ class MainActivity : ComponentActivity() {
                 // - this ensures that ViewModel.onCleared will be called.
                 val sdk = viewModel.localSdk
                 if (sdk != null) {
-                    CameraScanningScreen(
+                    VerifyCameraScanningScreen(
                         sdk,
-                        verifyUiSettings = viewModel.blinkIDVerifyUiSettings,
+                        uxSettings = viewModel.blinkIDVerifyUxSettings,
+                        uiSettings = viewModel.blinkIDVerifyUiSettings,
                         captureSessionSettings = viewModel.captureSessionSettings,
                         onCaptureSuccess = { result ->
                             viewModel.onCaptureResultAvailable(result)

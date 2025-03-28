@@ -11,7 +11,7 @@ import com.microblink.blinkidverify.core.BlinkIdVerifySdk
 import com.microblink.blinkidverify.core.BlinkIdVerifySdkSettings
 import com.microblink.blinkidverify.core.Response
 import com.microblink.blinkidverify.core.capture.session.CapturePolicy
-import com.microblink.blinkidverify.core.capture.session.CaptureSessionSettings
+import com.microblink.blinkidverify.core.capture.session.VerifyCaptureSessionSettings
 import com.microblink.blinkidverify.core.capture.session.ImageQualitySettings
 import com.microblink.blinkidverify.core.data.model.request.BlinkIdVerifyProcessingRequestOptions
 import com.microblink.blinkidverify.core.data.model.request.BlinkIdVerifyProcessingUseCase
@@ -19,8 +19,9 @@ import com.microblink.blinkidverify.core.data.model.request.BlinkIdVerifyRequest
 import com.microblink.blinkidverify.core.data.model.result.BlinkIdVerifyCaptureResult
 import com.microblink.blinkidverify.core.data.model.result.BlinkIdVerifyEndpointResponse
 import com.microblink.blinkidverify.core.settings.BlinkIdVerifyServiceSettings
-import com.microblink.blinkidverify.sample.config.BlinkIDVerifyConfig
-import com.microblink.blinkidverify.ux.VerifyUiSettings
+import com.microblink.blinkidverify.sample.config.BlinkIdVerifyConfig
+import com.microblink.blinkidverify.ux.capture.settings.VerifyUxSettings
+import com.microblink.ux.UiSettings
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -55,16 +56,20 @@ class MainViewModel : ViewModel() {
     val blinkIDVerifyRequestUseCase = BlinkIdVerifyProcessingUseCase.Empty
 
     // TODO use settings options
-    val blinkIDVerifyUiSettings = VerifyUiSettings()
+    val blinkIDVerifyUiSettings = UiSettings()
 
     var stepTimeoutDuration: MutableState<Duration> = mutableStateOf(10000.milliseconds)
         private set
 
+    val blinkIDVerifyUxSettings = VerifyUxSettings(
+        stepTimeoutDuration = stepTimeoutDuration.value
+    )
+
     var localSdk: BlinkIdVerifySdk? = null
         private set
 
-    // TODO use DocumentVerificationProcessingRequestOptions.toCaptureSessionSettings that will be implemented in SDK
-    val captureSessionSettings = CaptureSessionSettings(
+    // TODO use BlinkIdVerifyProcessingRequestOptions.toCaptureSessionSettings that will be implemented in SDK
+    val captureSessionSettings = VerifyCaptureSessionSettings(
         capturePolicy = CapturePolicy.Video,
         treatExpirationAsFraud = blinkIDVerifyRequestOptionsConfig.treatExpirationAsFraud,
         screenMatchLevel = blinkIDVerifyRequestOptionsConfig.screenMatchLevel,
@@ -83,8 +88,7 @@ class MainViewModel : ViewModel() {
             tiltMatchLevel = blinkIDVerifyRequestOptionsConfig.tiltMatchLevel,
             imageQualityInterpretation = blinkIDVerifyRequestOptionsConfig.imageQualityInterpretation
         ),
-        useCase = blinkIDVerifyRequestUseCase,
-        stepTimeoutDuration = stepTimeoutDuration.value
+        useCase = blinkIDVerifyRequestUseCase
     )
 
     fun sendVerifyRequestsFromCaptureResult(captureResult: BlinkIdVerifyCaptureResult) {
@@ -107,8 +111,8 @@ class MainViewModel : ViewModel() {
         }
         val client = BlinkIdVerifyClient(
             BlinkIdVerifyServiceSettings(
-                verificationServiceBaseUrl = BlinkIDVerifyConfig.verificationServiceBaseUrl,
-                token = BlinkIDVerifyConfig.verificationServiceToken,
+                verificationServiceBaseUrl = BlinkIdVerifyConfig.verificationServiceBaseUrl,
+                token = BlinkIdVerifyConfig.verificationServiceToken,
             )
         )
         when (val response = client.verify(documentVerificationRequest)) {
@@ -142,9 +146,9 @@ class MainViewModel : ViewModel() {
             it.copy(displayLoading = true)
         }
         val maybeInstance = BlinkIdVerifySdk.initializeSdk(
+            context = context,
             BlinkIdVerifySdkSettings(
-                context = context,
-                licenseKey = BlinkIDVerifyConfig.licenseKey,
+                licenseKey = BlinkIdVerifyConfig.licenseKey,
             )
         )
         when {
