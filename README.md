@@ -70,7 +70,7 @@ dependencies {
 
 ### Launching the document capture session and obtaining the results
 
-1. A valid license key is required to initialize the document capture process. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://developer.microblink.com/).. License is bound to the [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please ensure you enter the correct application ID when asked.
+1. A valid license key is required to initialize the document capture process. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://developer.microblink.com/). License is bound to the [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please ensure you enter the correct application ID when asked.
 
 
 2. You first need to initialize the SDK and obtain the `BlinkIdVerifySdk` instance:
@@ -360,7 +360,7 @@ You can define string resources that will be used instead of predefined ones by 
 The simplest way of using BlinkID SDK is through our integrated activity.
 This eliminates the need for Compose integration and allows for quick and easy access to results. By using this integration method customization is reduced, although most UI elements can still be customized.
 
-Activity is accessed through `rememberLauncherForActivityResult` by using [MbBlinkIdScan](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-mb-blink-id-scan/index.html) contract.
+Activity is accessed through `rememberLauncherForActivityResult` by using [MbBlinkIdScan](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-ux/com.microblink.blinkid.ux.contract/-mb-blink-id-scan/index.html) contract.
 ```kotlin
     val captureLauncher = rememberLauncherForActivityResult(
         contract = MbBlinkIdScan(),
@@ -371,10 +371,10 @@ Activity is accessed through `rememberLauncherForActivityResult` by using [MbBli
         }
     )
 ```
-When launching the contract, [BlinkIdVerifyActivitySettings](https://blinkid.github.io/blinkid-verify-android/blinkid-ux/com.microblink.blinkidverify.ux.result.contract/-blink-id-verify-activity-settings/index.html) need to be defined. These settings include basic SDK information such as license key and additional settings for customizing the capture experience.
+When launching the contract, [BlinkIdVerifyActivitySettings](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-ux/com.microblink.blinkidverify.ux.result.contract/-blink-id-verify-activity-settings/index.html) need to be defined. These settings include basic SDK information such as license key and additional settings for customizing the capture experience.
 ```kotlin
     captureLauncher.launch(
-        BlinkIdVeirfyActivitySettings(
+        BlinkIdVerifyActivitySettings(
             BlinkIdVerifySdkSettings(
                 licenseKey = <your_license_key>
             ), 
@@ -477,7 +477,7 @@ val captureSession = blinkIdVerifySdk.createScanningSession(VerifyCaptureSession
 val processResult = captureSession.process(inputImage)
 ```
 
-There are helper methods for creating [InputImage](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.capture.session.image/-input-image/index.html) from `android.media.Image`, `androidx.camera.core.ImageProxy` and standard Android Bitmap.
+There are helper methods for creating [InputImage](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.core.image/-input-image/index.html) from `android.media.Image`, `androidx.camera.core.ImageProxy` and standard Android Bitmap.
 
 Processing of the single frame returns [VerifyProcessResult](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.capture.session/-verify-process-result/index.html) which contains:
 
@@ -532,6 +532,8 @@ SDK size is calculated as application size increases when _BlinkID Verify_ SDK i
 
 ## <a name="api-documentation"></a> API documentation
 You can find the BlinkID Verify SDK **KDoc** documentation [here](https://blinkid.github.io/blinkid-verify-android/index.html).
+
+Full BlinkID Verify API can be found [here](https://blinkidverify.docs.microblink.com/docs/docver/models/request/).
 
 ## <a name="contact"></a> Contact
 For any other questions, feel free to contact us at [help.microblink.com](http://help.microblink.com).
