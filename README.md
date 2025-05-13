@@ -360,10 +360,10 @@ You can define string resources that will be used instead of predefined ones by 
 The simplest way of using BlinkID SDK is through our integrated activity.
 This eliminates the need for Compose integration and allows for quick and easy access to results. By using this integration method customization is reduced, although most UI elements can still be customized.
 
-Activity is accessed through `rememberLauncherForActivityResult` by using [MbBlinkIdScan](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-ux/com.microblink.blinkid.ux.contract/-mb-blink-id-scan/index.html) contract.
+Activity is accessed through `rememberLauncherForActivityResult` by using [MbBlinkIdVerifyCapture](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-ux/com.microblink.blinkidverify.ux.result.contract/-mb-blink-id-verify-capture/index.html) contract.
 ```kotlin
     val captureLauncher = rememberLauncherForActivityResult(
-        contract = MbBlinkIdScan(),
+        contract = MbBlinkIdVerifyCapture(),
         onResult = { captureResult ->
           if (captureResult.status == ActivityResultStatus.DocumentCaptured) {
                 // use captureResult.result (BlinkIdVerifyCaptureResult)
