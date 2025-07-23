@@ -1,7 +1,6 @@
 # Gradle files
 .gradle/
 build/
-.DS_Store
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -35,3 +34,5 @@ google-services.json
 
 # built maven bundles
 /libs/*maven-bundle.zip
+
+.DS_Store
