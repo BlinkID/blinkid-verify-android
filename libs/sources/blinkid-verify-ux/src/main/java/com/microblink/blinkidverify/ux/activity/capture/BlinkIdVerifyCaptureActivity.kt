@@ -159,6 +159,8 @@ internal class BlinkIdVerifyCaptureActivity : AppCompatActivity() {
             colorScheme = verifyColorScheme,
             uiColors = verifyUiColors,
             sdkStrings = verifyActivitySettings.verifyActivityUiStrings,
+            showOnboardingDialog = verifyActivitySettings.showOnboardingDialog,
+            showHelpButton = verifyActivitySettings.showHelpButton
         )
     }
 }

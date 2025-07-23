@@ -4,6 +4,3 @@
  */
 
 package com.microblink.blinkidverify.ux.theme
-
-import androidx.compose.runtime.staticCompositionLocalOf
-import com.microblink.ux.theme.SdkStrings

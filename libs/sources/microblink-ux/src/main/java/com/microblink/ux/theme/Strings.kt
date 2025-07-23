@@ -10,6 +10,7 @@ import androidx.annotation.StringRes
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.microblink.ux.R
+import com.microblink.ux.theme.SdkStrings.Companion.Default
 import kotlinx.parcelize.Parcelize
 
 
@@ -21,25 +22,26 @@ import kotlinx.parcelize.Parcelize
  * created and used in [com.microblink.ux.UiSettings.sdkStrings].
  *
  * @property scanningStrings Strings that appear as instruction messages during the scanning session.
- *                           These instructions are triggered by specific UX events and will appear
- *                           on screen accordingly.
+ * These instructions are triggered by specific UX events and will appear on screen accordingly.
  * @property helpDialogsStrings Strings used in onboarding and help dialogs. These strings shouldn't
- *                              be customized as they provide adequate instructions tailored specifically
- *                              to our scanning experience. However, if the scanning experience is changed
- *                              in any way, onboarding and help screen instructions may also be adjusted.
- *
+ * be customized as they provide adequate instructions tailored specifically to our scanning experience.
+ * However, if the scanning experience is changed in any way, onboarding and help screen instructions may also be adjusted.
+ * @property accessibilityStrings Strings that are used by accessibility TalkBack service for specific
+ * buttons, labels, and actions.
  */
 @Immutable
 @Parcelize
-public data class SdkStrings(
+open class SdkStrings(
     val scanningStrings: ScanningStrings,
-    val helpDialogsStrings: HelpDialogsStrings
-): Parcelable {
+    val helpDialogsStrings: HelpDialogsStrings,
+    val accessibilityStrings: AccessibilityStrings
+) : Parcelable {
     companion object {
         val Default: SdkStrings =
             SdkStrings(
                 scanningStrings = ScanningStrings.Default,
-                helpDialogsStrings = HelpDialogsStrings.Default
+                helpDialogsStrings = HelpDialogsStrings.Default,
+                accessibilityStrings = AccessibilityStrings.Default
             )
     }
 }
@@ -49,22 +51,24 @@ public data class SdkStrings(
  */
 @Immutable
 @Parcelize
-data class ScanningStrings(
-    @StringRes val instructionsFrontSide: Int,
-    @StringRes val instructionsBackSide: Int,
-    @StringRes val instructionsBarcode: Int,
-    @StringRes val instructionsFlipDocument: Int,
-    @StringRes val instructionsDocumentTooCloseToEdge: Int,
-    @StringRes val instructionsDocumentNotFullyVisible: Int,
-    @StringRes val instructionsDocumentTilted: Int,
-    @StringRes val instructionsFacePhotoNotFullyVisible: Int,
-    @StringRes val instructionsScanningWrongSide: Int,
-    @StringRes val instructionsBlurDetected: Int,
-    @StringRes val instructionsGlareDetected: Int,
-    @StringRes val instructionsMoveFarther: Int,
-    @StringRes val instructionsMoveCloser: Int,
-    @StringRes val snackbarFlashlightWarning: Int
-): Parcelable {
+open class ScanningStrings(
+    @StringRes open val instructionsFrontSide: Int,
+    @StringRes open val instructionsBackSide: Int,
+    @StringRes open val instructionsBarcode: Int,
+    @StringRes open val instructionsFlipDocument: Int,
+    @StringRes open val instructionsDocumentTooCloseToEdge: Int,
+    @StringRes open val instructionsDocumentNotFullyVisible: Int,
+    @StringRes open val instructionsDocumentTilted: Int,
+    @StringRes open val instructionsFacePhotoNotFullyVisible: Int,
+    @StringRes open val instructionsScanningWrongSide: Int,
+    @StringRes open val instructionsBlurDetected: Int,
+    @StringRes open val instructionsGlareDetected: Int,
+    @StringRes open val instructionsMoveFarther: Int,
+    @StringRes open val instructionsMoveCloser: Int,
+    @StringRes open val instructionsIncreaseLight: Int,
+    @StringRes open val instructionsDecreaseLight: Int,
+    @StringRes open val snackbarFlashlightWarning: Int
+) : Parcelable {
     companion object {
         val Default: ScanningStrings =
             ScanningStrings(
@@ -81,6 +85,8 @@ data class ScanningStrings(
                 instructionsGlareDetected = R.string.mb_glare_detected,
                 instructionsMoveFarther = R.string.mb_move_farther,
                 instructionsMoveCloser = R.string.mb_move_closer,
+                instructionsIncreaseLight = R.string.mb_increase_lighting_intensity,
+                instructionsDecreaseLight = R.string.mb_decrease_lighting_intensity,
                 snackbarFlashlightWarning = R.string.mb_flashlight_warning_message
             )
     }
@@ -108,7 +114,7 @@ data class HelpDialogsStrings(
     @StringRes val helpMrzMessage1: Int,
     @StringRes val helpMessage2: Int,
     @StringRes val helpMessage3: Int,
-): Parcelable {
+) : Parcelable {
     companion object {
         val Default: HelpDialogsStrings =
             HelpDialogsStrings(
@@ -132,6 +138,38 @@ data class HelpDialogsStrings(
     }
 }
 
+/**
+ * @see com.microblink.ux.theme.SdkStrings
+ */
+@Immutable
+@Parcelize
+data class AccessibilityStrings(
+    @StringRes val documentScanned: Int,
+    @StringRes val firstSideScanned: Int,
+    @StringRes val previousPage: Int,
+    @StringRes val nextPage: Int,
+    @StringRes val showHelpScreens: Int,
+    @StringRes val turnFlashlightOff: Int,
+    @StringRes val turnFlashlightOn: Int,
+    @StringRes val exitScanning: Int,
+    @StringRes val flashlightOff: Int,
+    @StringRes val flashlightOn: Int
+) : Parcelable {
+    companion object {
+        val Default: AccessibilityStrings = AccessibilityStrings(
+            documentScanned = R.string.mb_accessibility_success_document_scanned,
+            firstSideScanned = R.string.mb_accessibility_success_first_side_scanned,
+            previousPage = R.string.mb_accessibility_previous_page,
+            nextPage = R.string.mb_accessibility_next_page,
+            showHelpScreens = R.string.mb_accessibility_show_help_screens,
+            turnFlashlightOff = R.string.mb_accessibility_turn_flashlight_off,
+            turnFlashlightOn = R.string.mb_accessibility_turn_flashlight_on,
+            exitScanning = R.string.mb_accessibility_exit_scanning,
+            flashlightOff = R.string.mb_accessibility_flashlight_off,
+            flashlightOn = R.string.mb_accessibility_flashlight_on
+        )
+    }
+}
 
 var LocalBaseSdkStrings = staticCompositionLocalOf {
     SdkStrings.Default

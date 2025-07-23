@@ -110,10 +110,10 @@ class VerifyAnalyzer(
                                         (System.nanoTime() - timestamp).toDuration(DurationUnit.NANOSECONDS)
                                     if (currentDuration > stepTimeoutDuration) {
                                         Log.w(TAG, "processing timeout occurred")
-                                        analysisPaused = true
+                                        pauseAnalysis()
+                                        verifyScanningUxTranslator.resetSession()
                                         verifyScanningDoneHandler.onError(ErrorReason.ErrorTimeoutExpired)
                                         // finish with whatever result we have
-                                        firstImageTimestamp = null
                                     } else {
                                         Log.v(TAG, "continuing processing...")
                                     }
