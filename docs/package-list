@@ -32,11 +32,13 @@ com.microblink.util
 module:blinkid-verify-ux
 com.microblink.blinkid.ux
 com.microblink.blinkid.ux.activity
+com.microblink.blinkid.ux.components
 com.microblink.blinkid.ux.contract
 com.microblink.blinkid.ux.scanning
 com.microblink.blinkid.ux.settings
 com.microblink.blinkid.ux.state
 com.microblink.blinkid.ux.theme
+com.microblink.blinkid.ux.utils
 com.microblink.blinkidverify.ux
 com.microblink.blinkidverify.ux.activity.capture
 com.microblink.blinkidverify.ux.capture.scanning
