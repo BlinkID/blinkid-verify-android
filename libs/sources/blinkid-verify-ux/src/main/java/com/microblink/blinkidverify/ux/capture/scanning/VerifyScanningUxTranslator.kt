@@ -54,7 +54,6 @@ class VerifyScanningUxTranslator : VerifyUxTranslator {
         session: VerifyCaptureSession,
     ): List<ScanningUxEvent> {
         val events = mutableListOf<ScanningUxEvent>()
-        var documentLocated = false
 
         val frameAnalysisResult = processResult.frameAnalysisResult
 
@@ -75,6 +74,7 @@ class VerifyScanningUxTranslator : VerifyUxTranslator {
                 firstBackRequestedTimestamp = System.nanoTime()
             } else {
                 if (shouldRequestBarcode(processResult)) {
+                    barcodeDispatched = true
                     session.setAllowBarcodeStep(true)
                     events.add(ScanningUxEvent.RequestDocumentSide(DocumentSide.Barcode))
                 }
@@ -93,7 +93,6 @@ class VerifyScanningUxTranslator : VerifyUxTranslator {
                     ScanningUxEvent.DocumentLocated
                 }
             )
-            documentLocated = true
         } else {
             events.add(ScanningUxEvent.DocumentNotFound)
         }
@@ -141,8 +140,8 @@ class VerifyScanningUxTranslator : VerifyUxTranslator {
 
         hasEvents = true
 
-        if (frameAnalysisResult.blurDetected) events.add(ScanningUxEvent.BlurDetected)
-        else if (frameAnalysisResult.glareDetected) events.add(ScanningUxEvent.GlareDetected)
+        if (frameAnalysisResult.glareDetected) events.add(ScanningUxEvent.GlareDetected)
+        else if (frameAnalysisResult.blurDetected) events.add(ScanningUxEvent.BlurDetected)
         else if (frameAnalysisResult.occlusionDetected) events.add(ScanningUxEvent.DocumentNotFullyVisible)
         else if (frameAnalysisResult.tiltDetected) events.add(ScanningUxEvent.DocumentTooTilted)
         else hasEvents = false
@@ -152,10 +151,15 @@ class VerifyScanningUxTranslator : VerifyUxTranslator {
             return events
         }
 
-        if (documentLocated) events.add(ScanningUxEvent.DocumentNotFullyVisible)
+        events.add(ScanningUxEvent.DocumentNotFound)
         events.add(ScanningUxEvent.RequestDocumentSide(side = currentSide))
         events.add(DocumentFrameAnalysisResult(frameAnalysisResult = frameAnalysisResult))
         return events
+    }
+
+    fun resetSession() {
+        firstBackRequestedTimestamp = null
+        barcodeDispatched = false
     }
 
     private fun shouldRequestBarcode(processResult: VerifyProcessResult): Boolean {

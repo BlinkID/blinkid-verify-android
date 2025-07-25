@@ -132,7 +132,7 @@ data class BlinkIdVerifyActivityColors(
  *
  */
 @Parcelize
-data class BlinkIdVerifyActivitySettings(
+data class BlinkIdVerifyActivitySettings @JvmOverloads constructor(
     val blinkIdVerifySdkSettings: BlinkIdVerifySdkSettings,
     val captureSessionSettings: VerifyCaptureSessionSettings = VerifyCaptureSessionSettings(),
     val uxSettings: VerifyUxSettings = VerifyUxSettings(),

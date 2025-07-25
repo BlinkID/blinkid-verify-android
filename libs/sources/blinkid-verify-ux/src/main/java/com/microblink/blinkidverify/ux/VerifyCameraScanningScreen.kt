@@ -121,6 +121,9 @@ fun VerifyCameraScanningScreen(
                     overlayUiState.value,
                     onCaptureCanceled,
                     uiSettings,
+                    uxSettings.allowHapticFeedback,
+                    showProductionOverlay = !blinkIdVerifySdk.getLicenseToken().licenseRights.allowRemoveProductionOverlay,
+                    showDemoOverlay = !blinkIdVerifySdk.getLicenseToken().licenseRights.allowRemoveDemoOverlay,
                     {
                         viewModel.changeTorchState()
                         viewModel.viewModelScope.launch {
@@ -136,6 +139,7 @@ fun VerifyCameraScanningScreen(
                     },
                     viewModel::onFlipAnimationCompleted,
                     viewModel::onReticleSuccessAnimationCompleted,
+                    viewModel::onHapticFeedbackCompleted,
                     viewModel::changeOnboardingDialogVisibility,
                     viewModel::changeHelpScreensVisibility,
                     viewModel::changeHelpTooltipVisibility,
