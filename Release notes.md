@@ -1,5 +1,35 @@
 # Release notes
 
+## v3.14.0
+
+### What's New
+- Update to BlinkID v7.4 for document capturing and extraction
+- Improved document coverage globally with new document version support and new document types
+- Improved data extraction accuracy for Quebec and Ontario Healthcare cards
+
+### UI/UX Updates
+- Complete scanning instruction messages revamp - the scanning session is now more stable and cleaner, which ensures a better scanning experience
+- Added Typography customization to `BlinkIdVerifyCaptureActivity` through `BlinkIdVerifyActivitySettings`
+- Added "Demo" overlay for the demo licenses (non-production)
+- Added "Powered by Microblink" overlay option for licenses with this enabled
+- Added new accessibility features
+- Added haptic feedback during the scanning session (setting `allowHapticFeedback`)
+- Added a separate timeout timer for the Barcode step
+- Updated help screens with new illustrations
+- Updated "Need help?" tooltip triggers
+- Updated translations for Croatian language
+
+### Bugfixes
+- Fixed document number extraction from Canada/Nunavut barcodes
+- Fixed data match overall result
+- Replaced caching directory for storing downloaded resource files - avoid rare crashes on specific devices
+
+### Other API Changes
+- Added additional functions for better interoperability with Java to following classes: `BlinkIdVerifySdkSettings`, `BlinkIdSdkSettings`, `BlinkIdVerifyActivitySettings`, `BlinkIdScanActivitySettings`, `VerifyUxSettings`, `BlinkIdUxSettings`, `SdkStrings`, `BlinkIdSdkStrings`, `ParcelableTextStyle`, `ParcelableFont`
+- Renamed class `StatusMessage` to `CommonStatusMessage`
+- Renamed `Product` enum to `MbProduct`
+- `dependentsInfo` in `VizResult` is now nullable
+
 ## v3.9.0
 
 ### BlinkID integration
