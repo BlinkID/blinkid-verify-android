@@ -229,6 +229,8 @@ VerifyCameraScanningScreen(
         showOnboardingDialog = true, // or false
         showHelpButton = true // or false
     ),
+    uxSettings = VerifyUxSettings(),
+    cameraSettings = CameraSettings(),
     captureSessionSettings = VerifyCaptureSessionSettings(),
     onCaptureSuccess = { captureResult ->
         // result is BlinkIdVerifyCaptureResult
