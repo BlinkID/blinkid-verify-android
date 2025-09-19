@@ -64,7 +64,7 @@ Add _BlinkID Verify_ as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-verify-ux:3.8.0")
+    implementation("com.microblink:blinkid-verify-ux:3.14.1")
 }
 ```
 
@@ -101,6 +101,7 @@ VerifyCameraScanningScreen(
     sdkInstance,
     uiSettings = UiSettings(),
     uxSettings = VerifyUxSettings(),
+    cameraSettings = CameraSettings(),
     captureSessionSettings = VerifyCaptureSessionSettings(),
     onCaptureSuccess = { captureResult ->
         // captureResult is BlinkIdVerifyCaptureResult
@@ -386,6 +387,7 @@ When launching the contract, [BlinkIdVerifyActivitySettings](https://blinkid.git
 ```kotlin
     data class BlinkIdVerifyActivitySettings(
         val blinkIdVerifySdkSettings: BlinkIdVerifySdkSettings,
+        val cameraSettings: CameraSettings = CameraSettings(),
         val captureSessionSettings: VerifyCaptureSessionSettings = VerifyCaptureSessionSettings(),
         val uxSettings: VerifyUxSettings = VerifyUxSettings(),
         val verifyActivityUiColors: BlinkIdVerifyActivityColors? = null,
@@ -428,7 +430,7 @@ Add _blinkid-verify-core_ library as a dependency in module level `build.gradle(
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-verify-core:3.8.0")
+    implementation("com.microblink:blinkid-verify-core:3.14.1")
 }
 ```
 
@@ -525,8 +527,8 @@ Here is the SDK size, calculated for supported ABIs:
 
 | ABI | Download size | Install size |
 | --- |:-------------:|:------------:|
-| armeabi-v7a |    3.47 MB    |   5.17 MB    |
-| arm64-v8a |    3.67 MB    |   6.27 MB    |
+| armeabi-v7a |    3.64 MB    |   5.44 MB    |
+| arm64-v8a |    3.78 MB    |   6.59 MB    |
 
 SDK size is calculated as application size increases when _BlinkID Verify_ SDK is added, with all its dependencies included.
 

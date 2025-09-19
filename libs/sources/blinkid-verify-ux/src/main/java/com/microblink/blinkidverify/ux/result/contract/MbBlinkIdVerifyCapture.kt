@@ -18,6 +18,7 @@ import com.microblink.blinkidverify.ux.result.contract.ActivityResultStatus.Docu
 import com.microblink.blinkidverify.ux.result.contract.ActivityResultStatus.ErrorLicenseCheck
 import com.microblink.ux.DefaultShowHelpButton
 import com.microblink.ux.DefaultShowOnboardingDialog
+import com.microblink.ux.camera.CameraSettings
 import com.microblink.ux.theme.SdkStrings
 import com.microblink.ux.utils.ParcelableUiTypography
 import kotlinx.parcelize.Parcelize
@@ -104,6 +105,7 @@ data class BlinkIdVerifyActivityColors(
  *
  * @property blinkIdVerifySdkSettings The core SDK settings required for initializing and
  *           running the BlinkID Verify SDK. This is a mandatory parameter.
+ * @property cameraSettings The [CameraSettings] used for document scanning. Defaults to [CameraSettings] with default values.
  * @property captureSessionSettings Configuration options for the document capture session. This
  *           allows you to customize aspects of the capture process, such as certain visual check strictness
  *           and timeout duration. Defaults to `CaptureSessionSettings()`.
@@ -134,6 +136,7 @@ data class BlinkIdVerifyActivityColors(
 @Parcelize
 data class BlinkIdVerifyActivitySettings @JvmOverloads constructor(
     val blinkIdVerifySdkSettings: BlinkIdVerifySdkSettings,
+    val cameraSettings: CameraSettings = CameraSettings(),
     val captureSessionSettings: VerifyCaptureSessionSettings = VerifyCaptureSessionSettings(),
     val uxSettings: VerifyUxSettings = VerifyUxSettings(),
     val verifyActivityUiColors: BlinkIdVerifyActivityColors? = null,

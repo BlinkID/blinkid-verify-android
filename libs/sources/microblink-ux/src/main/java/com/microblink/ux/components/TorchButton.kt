@@ -30,7 +30,10 @@ fun TorchButton(
     torchState: MbTorchState,
     onTorchStateChange: () -> Unit
 ) {
-//    TODO: if (torchState != MbTorchState.NOT_SUPPORTED_BY_CAMERA) {
+    if (torchState == MbTorchState.NotSupportedByCamera) {
+        return
+    }
+
     val torchButtonBackgroundColor =
         if (torchState == MbTorchState.On) White else Gray.copy(alpha = 0.6f)
     val torchButtonColor =

@@ -22,6 +22,7 @@ import com.microblink.blinkidverify.core.settings.BlinkIdVerifyServiceSettings
 import com.microblink.blinkidverify.sample.config.BlinkIdVerifyConfig
 import com.microblink.blinkidverify.ux.capture.settings.VerifyUxSettings
 import com.microblink.ux.UiSettings
+import com.microblink.ux.camera.CameraSettings
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -57,6 +58,9 @@ class MainViewModel : ViewModel() {
 
     // TODO use settings options
     val blinkIDVerifyUiSettings = UiSettings()
+
+    // TODO use camera settings
+    val cameraSettings = CameraSettings()
 
     var stepTimeoutDuration: MutableState<Duration> = mutableStateOf(10000.milliseconds)
         private set

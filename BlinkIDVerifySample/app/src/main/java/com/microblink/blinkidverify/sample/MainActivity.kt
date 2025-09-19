@@ -87,6 +87,7 @@ class MainActivity : ComponentActivity() {
                         sdk,
                         uxSettings = viewModel.blinkIDVerifyUxSettings,
                         uiSettings = viewModel.blinkIDVerifyUiSettings,
+                        cameraSettings = viewModel.cameraSettings,
                         captureSessionSettings = viewModel.captureSessionSettings,
                         onCaptureSuccess = { result ->
                             viewModel.onCaptureResultAvailable(result)
