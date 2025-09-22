@@ -31,6 +31,7 @@ import com.microblink.blinkidverify.ux.theme.BlinkIdVerifySdkTheme
 import com.microblink.blinkidverify.ux.theme.VerifyTheme
 import com.microblink.ux.ScanningUx
 import com.microblink.ux.UiSettings
+import com.microblink.ux.camera.CameraSettings
 import com.microblink.ux.camera.compose.CameraScreen
 import com.microblink.ux.state.MbTorchState
 import com.microblink.ux.state.ProcessingState
@@ -52,6 +53,8 @@ private const val TAG = "VerifyCameraScanningScreen"
  *                         verification.
  * @param uiSettings The [UiSettings] used to customize the UI.
  *                         Defaults to [VerifyUiSettings] with default values.
+ * @param cameraSettings The [CameraSettings] used for document scanning.
+ *                       Defaults to [CameraSettings] with default values.
  * @param captureSessionSettings The [VerifyCaptureSessionSettings] used to configure
  *                               the capture session. Defaults to [CaptureSessionSettings] with default values.
  * @param onCaptureSuccess A callback function invoked when a document is
@@ -66,6 +69,7 @@ fun VerifyCameraScanningScreen(
     blinkIdVerifySdk: BlinkIdVerifySdk,
     uxSettings: VerifyUxSettings = VerifyUxSettings(),
     uiSettings: UiSettings = UiSettings(),
+    cameraSettings: CameraSettings = CameraSettings(),
     captureSessionSettings: VerifyCaptureSessionSettings = VerifyCaptureSessionSettings(),
     onCaptureSuccess: (BlinkIdVerifyCaptureResult) -> Unit,
     onCaptureCanceled: () -> Unit,
@@ -105,6 +109,8 @@ fun VerifyCameraScanningScreen(
 
             CameraScreen(
                 cameraViewModel = viewModel,
+                cameraSettings = cameraSettings,
+                onCameraScreenLongPress = { viewModel.changeHelpTooltipVisibility(true) }
             ) {
                 val overlayUiState = viewModel.uiState.collectAsStateWithLifecycle()
 

@@ -1,5 +1,10 @@
 # Release notes
 
+## v3.14.1
+
+### Improvements
+- Added the option to use the front-facing camera for scanning. You can select front-facing camera through `CameraSettings` in a scanning screen Composable function or in scan activity settings.
+
 ## v3.14.0
 
 ### What's New

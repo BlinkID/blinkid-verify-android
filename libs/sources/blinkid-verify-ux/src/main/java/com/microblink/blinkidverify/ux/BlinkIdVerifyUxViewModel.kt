@@ -259,6 +259,16 @@ internal class BlinkIdVerifyUxViewModel(
                     }
                 }
             )
+
+            isTorchSupported.collect { isTorchSupported ->
+                _uiState.update {
+                    it.copy(
+                        torchState =
+                            if (isTorchSupported) MbTorchState.Off
+                            else MbTorchState.NotSupportedByCamera
+                    )
+                }
+            }
         }
     }
 

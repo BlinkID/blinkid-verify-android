@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
-import com.microblink.blinkidverify.core.BlinkIdVerifySdkSettings
 import com.microblink.blinkidverify.ux.VerifyCameraScanningScreen
 import com.microblink.blinkidverify.ux.result.contract.BlinkIdVerifyActivitySettings
 import com.microblink.blinkidverify.ux.result.contract.BlinkIdVerifyCaptureResultHolder
@@ -47,14 +46,7 @@ internal class BlinkIdVerifyCaptureActivity : AppCompatActivity() {
         activityViewModel.viewModelScope.launch {
             activityViewModel.initializeLocalSdk(
                 context = this@BlinkIdVerifyCaptureActivity,
-                blinkIdVerifySdkSettings = BlinkIdVerifySdkSettings(
-                    licenseKey = verifyActivitySettings.blinkIdVerifySdkSettings.licenseKey,
-                    licensee = verifyActivitySettings.blinkIdVerifySdkSettings.licensee,
-                    downloadResources = verifyActivitySettings.blinkIdVerifySdkSettings.downloadResources,
-                    resourceDownloadUrl = verifyActivitySettings.blinkIdVerifySdkSettings.resourceDownloadUrl,
-                    resourceLocalFolder = verifyActivitySettings.blinkIdVerifySdkSettings.resourceLocalFolder,
-                    resourceRequestTimeout = verifyActivitySettings.blinkIdVerifySdkSettings.resourceRequestTimeout
-                ),
+                blinkIdVerifySdkSettings = verifyActivitySettings.blinkIdVerifySdkSettings,
                 onInitFailed = {
                     onCancel(MbBlinkIdVerifyCapture.CancelReason.ErrorLicenseCheck)
                 }
@@ -75,6 +67,7 @@ internal class BlinkIdVerifyCaptureActivity : AppCompatActivity() {
                             blinkIdVerifySdk = it,
                             uxSettings = verifyActivitySettings.uxSettings,
                             uiSettings = verifyUiSettings,
+                            cameraSettings = verifyActivitySettings.cameraSettings,
                             captureSessionSettings = verifyActivitySettings.captureSessionSettings,
                             onCaptureSuccess = { result ->
                                 BlinkIdVerifyCaptureResultHolder.blinkIdVerifyCaptureResult = result

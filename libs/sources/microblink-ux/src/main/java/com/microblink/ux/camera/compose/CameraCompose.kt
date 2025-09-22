@@ -92,14 +92,15 @@ fun CameraScreen(
                     detectTapGestures(
                         onLongPress = {
                             onCameraScreenLongPress()
-                        }
-                    )
+                        })
                 }
         ) {
             CameraPreview(
                 cameraSettings,
-                torchOn.value
-            ) { imageProxy -> cameraViewModel.analyzeImage(imageProxy) }
+                torchOn.value,
+                onTorchSupportStateAvailable = cameraViewModel::updateTorchSupportState,
+                imageAnalyzer = cameraViewModel::analyzeImage
+            )
             content()
         }
 
@@ -117,6 +118,7 @@ fun CameraScreen(
 private fun CameraPreview(
     cameraSettings: CameraSettings = CameraSettings(),
     torchOn: Boolean,
+    onTorchSupportStateAvailable: (Boolean) -> Unit,
     imageAnalyzer: (ImageProxy) -> Unit,
 ) {
     val lensFacing = when (cameraSettings.lensFacing) {
@@ -178,6 +180,8 @@ private fun CameraPreview(
         enableTapToFocus(previewView, camera.cameraControl)
         camera.cameraControl.enableTorch(torchOn)
         cameraControl.value = camera.cameraControl
+
+        onTorchSupportStateAvailable(camera.cameraInfo.hasFlashUnit())
     }
 
     LaunchedEffect(torchOn) {
