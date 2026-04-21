@@ -1,5 +1,65 @@
 # Release notes
 
+## v3.20.0
+
+### What's New
+- Update to BlinkID v7.7.1 for document capturing and extraction.
+
+### New features
+- Added a "document not supported" alert - when an unsupported document is detected during scanning, the user is now clearly notified via an alert.
+- Passport-specific scanning  
+  - Added custom passport animations - users are now guided with tailored animations when scanning passports, improving the scanning experience for passport documents.
+  - Added `scanUnsupportedBack` and `scanPassportDataPageOnly` options to `BlinkIdVerifyScanningSettings`, allowing control over whether the back side of unsupported documents is scanned and whether only the passport data page (MRZ page) is required.
+- Added new and improved analytics pipeline.
+
+### API changes
+- Session API renamed:
+    - `VerifyCaptureSession` to `BlinkIdVerifyScanningSession`
+    - `VerifyCaptureSessionSettings` to `BlinkIdVerifySessionSettings`
+    - `VerifyProcessResult` to `BlinkIdVerifyProcessResult`
+    - `ProcessResult` has been removed; use `BlinkIdVerifyProcessResult`
+- Added new property `generativeAiMatchLevel` in `BlinkIdVerifyProcessingRequestOptions`.
+- Added new properties to `ExtractionImageAnalysisResult`:
+  - `documentClassInfo`
+  - `documentOrientation`
+  - `documentRotation`
+- UX event types renamed:
+    - `DocumentFrameAnalysisResult` to `VerifyDocumentImageAnalysisResult` (now wraps `ExtractionImageAnalysisResult` instead of `FrameAnalysisResult`).
+    - `DocumentLocatedLocation` to `BlinkIdVerifyDocumentLocatedLocation` (now uses `Quadrilateral` instead of `DocumentLocation`).
+- `dispatchVerifyEvents` extension function on `ScanningUxEventHandler` has been removed. Use the updated `VerifyUxTranslator` directly.
+- `VerifyProcessingStatus.None` has been renamed to `VerifyProcessingStatus.Unknown`.
+- Scanning settings restructured: Session settings are now passed via `BlinkIdVerifySessionSettings` with nested `BlinkIdVerifyScanningSettings`, which consolidates image quality, match levels, and use-case options that were previously spread across multiple configuration objects.
+- `CheckResult` and `VerificationSideMode` classes have been removed.
+- Updated `CaptureConditions` to include values `NoControl`, `Basic`, `Hybrid`.
+- Added convenience method in `BlinkIdVerifyCaptureResult` `toBlinkIdVerifyRequest()` that automatically derives shared on-device and backend options from the session settings, reducing the risk of mismatched configuration.
+- `DocumentAlreadyScannedException` renamed to `ScanAlreadyCompletedException`.
+
+The following changes will impact your implementation only if you have ***advanced SDK customizations*** and don’t use the default `Activity` or `Composable`:
+- `DocumentSide`(`Front`, `Back`, `Barcode`) renamed to `UiScanningSide` (`First`, `Second`, `Barcode`).
+- `CommonStatusMessage` changed its members (to remove `Document`, `Front`, and `Back` occurrences):
+  - `ScanFrontSide` to `ScanFirstSide`
+  - `ScanBackSide` to `ScanSecondSide`
+  - `FlipDocument` to `Flip`
+  - `KeepDocumentVisible` to `KeepVisible`
+  - `AlignDocument` to `Align`
+  - `ScanBarcode`, `RotateDocument`, `RotateDocumentShort`, `KeepFacePhotoVisible`, `IncreaseLightingIntensity`, `DecreaseLightingIntensity`, `EliminateGlare` and `FilterSpecificMessage`  have been moved from `CommonStatusMessage` to `BlinkIdStatusMessage`
+- Composable `HelpScreens` is implemented through a list of `HelpScreenPage` data classes.
+- Composable `OnboardingDialog` is implemented through a single `HelpScreenPage` instance.
+- Error dialogs for the default UI are now defined in the `ComposableUtils.kt` file.
+- `MbBlinkIdVerifyCapture` now uses `ScanActivityColors`, `ScanActivitySettings`, `ScanActivityResultStatus`(`Scanned`, `Canceled`, `ErrorSdkInit`).
+- Changed members of `ScanningUxEvent`:
+  - `RequestDocumentSide(DocumentSide)` to `RequestSide(UiScanningSide)`
+- Added `LightColorScheme` and `DarkColorScheme`.
+- Removed `DocumentDrawable` (composable used for `FlipAnimation`) - animations now directly use a `Drawable`.
+- `DocumentFlipAnimation` replaced with `FlipAnimation`.
+
+### Improvements and bug fixes
+- SDK and session lifecycle management improvements and bug fixes.
+- Removed `MoveDocumentFromEdge` scanning UI message.
+- Introduced `MbLog` for structured SDK logging, replacing direct Android Log calls. Integrators can set the log level via SDK settings.
+- Compile and target SDK set to API level 36.
+- UI localization coverage has been expanded with additional languages.
+
 ## v3.14.1
 
 ### Improvements
