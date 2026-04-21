@@ -1,24 +1,28 @@
+/**
+ * Copyright (c) Microblink. Modifications are allowed under the terms of the
+ * license for files located in the UX/UI lib folder.
+ */
+
 package com.microblink.blinkidverify.ux.result.contract
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.os.Parcelable
 import androidx.activity.result.contract.ActivityResultContract
-import androidx.annotation.ColorInt
 import androidx.core.os.BundleCompat
 import com.microblink.blinkidverify.core.BlinkIdVerifySdkSettings
-import com.microblink.blinkidverify.core.capture.session.VerifyCaptureSessionSettings
+import com.microblink.blinkidverify.core.capture.session.BlinkIdVerifySessionSettings
 import com.microblink.blinkidverify.core.data.model.result.BlinkIdVerifyCaptureResult
 import com.microblink.blinkidverify.ux.activity.capture.BlinkIdVerifyCaptureActivity
 import com.microblink.blinkidverify.ux.capture.settings.VerifyUxSettings
-import com.microblink.blinkidverify.ux.result.contract.ActivityResultStatus.Canceled
-import com.microblink.blinkidverify.ux.result.contract.ActivityResultStatus.DocumentCaptured
-import com.microblink.blinkidverify.ux.result.contract.ActivityResultStatus.ErrorLicenseCheck
 import com.microblink.ux.DefaultShowHelpButton
 import com.microblink.ux.DefaultShowOnboardingDialog
 import com.microblink.ux.camera.CameraSettings
+import com.microblink.ux.contract.CancelReason
+import com.microblink.ux.contract.ScanActivityColors
+import com.microblink.ux.contract.ScanActivityResultStatus
+import com.microblink.ux.contract.ScanActivitySettings
 import com.microblink.ux.theme.SdkStrings
 import com.microblink.ux.utils.ParcelableUiTypography
 import kotlinx.parcelize.Parcelize
@@ -28,7 +32,7 @@ import kotlinx.parcelize.Parcelize
  * results.
  *
  * To launch the scanning session, [BlinkIdVerifyActivitySettings] are required.
- * As a result, [BlinkIdVerifyCaptureActivityResult] is returned, which contains [ActivityResultStatus] and [BlinkIdVerifyCaptureResult].
+ * As a result, [BlinkIdVerifyCaptureActivityResult] is returned, which contains [ScanActivityResultStatus] and [BlinkIdVerifyCaptureResult].
  *
  */
 class MbBlinkIdVerifyCapture :
@@ -43,7 +47,7 @@ class MbBlinkIdVerifyCapture :
         if (resultCode == Activity.RESULT_OK) {
             BlinkIdVerifyCaptureResultHolder.blinkIdVerifyCaptureResult?.let { result ->
                 return BlinkIdVerifyCaptureActivityResult(
-                    status = ActivityResultStatus.DocumentCaptured,
+                    status = ScanActivityResultStatus.Scanned,
                     result = result
                 )
             }
@@ -56,19 +60,19 @@ class MbBlinkIdVerifyCapture :
                 intent?.getSerializableExtra(EXTRA_CANCEL_REASON) as? CancelReason
             }
             return when (cancelReason) {
-                CancelReason.ErrorLicenseCheck ->
+                CancelReason.ErrorSdkInit ->
                     BlinkIdVerifyCaptureActivityResult(
-                        status = ActivityResultStatus.ErrorLicenseCheck,
+                        status = ScanActivityResultStatus.ErrorSdkInit,
                         result = null
                     )
 
                 CancelReason.UserRequested -> BlinkIdVerifyCaptureActivityResult(
-                    status = ActivityResultStatus.Canceled,
+                    status = ScanActivityResultStatus.Canceled,
                     result = null
                 )
 
                 else -> BlinkIdVerifyCaptureActivityResult(
-                    status = ActivityResultStatus.Canceled,
+                    status = ScanActivityResultStatus.Canceled,
                     result = null
                 )
             }
@@ -79,22 +83,7 @@ class MbBlinkIdVerifyCapture :
         const val EXTRA_CANCEL_REASON = "ExtraCancelReason"
     }
 
-    enum class CancelReason {
-        UserRequested,
-        ErrorLicenseCheck
-    }
 }
-
-@Parcelize
-data class BlinkIdVerifyActivityColors(
-    @ColorInt val primary: Int?,
-    @ColorInt val background: Int?,
-    @ColorInt val onBackground: Int?,
-    @ColorInt val helpButtonBackground: Int?,
-    @ColorInt val helpButton: Int?,
-    @ColorInt val helpTooltipBackground: Int?,
-    @ColorInt val helpTooltipText: Int?,
-) : Parcelable
 
 /**
  * Configuration settings for the [BlinkIdVerifyCaptureActivity].
@@ -106,15 +95,15 @@ data class BlinkIdVerifyActivityColors(
  * @property blinkIdVerifySdkSettings The core SDK settings required for initializing and
  *           running the BlinkID Verify SDK. This is a mandatory parameter.
  * @property cameraSettings The [CameraSettings] used for document scanning. Defaults to [CameraSettings] with default values.
- * @property captureSessionSettings Configuration options for the document capture session. This
+ * @property sessionSettings Configuration options for the document capture session. This
  *           allows you to customize aspects of the capture process, such as certain visual check strictness
  *           and timeout duration. Defaults to `CaptureSessionSettings()`.
  * @property uxSettings The [com.microblink.blinkidverify.ux.capture.settings.VerifyUxSettings] used to customize the UX.
- * @property verifyActivityUiColors Custom colors for the `BlinkIdVerifyActivity` user interface.
+ * @property scanActivityUiColors Custom colors for the `BlinkIdVerifyActivity` user interface.
  *           If set to `null`, the default colors will be used. Defaults to `null`.
- * @property verifyActivityUiStrings Custom strings for the `BlinkIdVerifyActivity` user
+ * @property scanActivityUiStrings Custom strings for the `BlinkIdVerifyActivity` user
  *           interface. Defaults to [SdkStrings.Default].
- * @property verifyActivityTypography Custom typography for the `BlinkIdVerifyActivity` user
+ * @property scanActivityTypography Custom typography for the `BlinkIdVerifyActivity` user
  *           interface. Due to a limitation of [Typography] class, [ParcelableUiTypography] mimics
  *           [com.microblink.ux.theme.UiTypography] by allowing the customization of all the elements to a lesser extent.
  *           The most important [TextStyle] and [Font] customizations are still available through this class.
@@ -136,17 +125,17 @@ data class BlinkIdVerifyActivityColors(
 @Parcelize
 data class BlinkIdVerifyActivitySettings @JvmOverloads constructor(
     val blinkIdVerifySdkSettings: BlinkIdVerifySdkSettings,
-    val cameraSettings: CameraSettings = CameraSettings(),
-    val captureSessionSettings: VerifyCaptureSessionSettings = VerifyCaptureSessionSettings(),
+    val sessionSettings: BlinkIdVerifySessionSettings = BlinkIdVerifySessionSettings(),
     val uxSettings: VerifyUxSettings = VerifyUxSettings(),
-    val verifyActivityUiColors: BlinkIdVerifyActivityColors? = null,
-    val verifyActivityUiStrings: SdkStrings = SdkStrings.Default,
-    val verifyActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
-    val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
-    val showHelpButton: Boolean = DefaultShowHelpButton,
-    val enableEdgeToEdge: Boolean = true,
-    val deleteCachedAssetsAfterUse: Boolean = false
-) : Parcelable {
+    override val cameraSettings: CameraSettings = CameraSettings(),
+    override val scanActivityUiColors: ScanActivityColors? = null,
+    override val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
+    override val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
+    override val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
+    override val showHelpButton: Boolean = DefaultShowHelpButton,
+    override val enableEdgeToEdge: Boolean = true,
+    override val deleteCachedAssetsAfterUse: Boolean = false
+) : ScanActivitySettings {
     internal fun saveToIntent(intent: Intent) {
         intent.putExtra(INTENT_EXTRAS_BLINKID_VERIFY_SETTINGS, this)
     }
@@ -171,19 +160,6 @@ data class BlinkIdVerifyActivitySettings @JvmOverloads constructor(
 }
 
 /**
- * @property DocumentCaptured Document has been successfully captured.
- * @property Canceled Capture process has been canceled by the user, or because of any other unexpected error.
- * @property ErrorLicenseCheck Capture process has been canceled because of the license check error. This happens
- *        if you use license which is online activated, and activation fails.
- *
- */
-public enum class ActivityResultStatus {
-    DocumentCaptured,
-    Canceled,
-    ErrorLicenseCheck
-}
-
-/**
  * Class containing results of the BlinkID Verify Capture activity.
  *
  * @property status Represents the status of the activity result and shows whether the activity completed
@@ -193,6 +169,6 @@ public enum class ActivityResultStatus {
  *
  */
 public data class BlinkIdVerifyCaptureActivityResult(
-    val status: ActivityResultStatus,
+    val status: ScanActivityResultStatus,
     val result: BlinkIdVerifyCaptureResult?
 )

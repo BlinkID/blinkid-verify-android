@@ -5,18 +5,16 @@
 
 package com.microblink.blinkidverify.ux.capture.scanning
 
-import com.microblink.blinkidverify.core.capture.session.VerifyCaptureSession
-import com.microblink.blinkidverify.core.capture.session.VerifyProcessResult
-import com.microblink.ux.ScanningUxEvent
+import com.microblink.blinkidverify.core.capture.session.BlinkIdVerifyProcessResult
 import com.microblink.core.image.InputImage
+import com.microblink.ux.ScanningUxEvent
 
 /**
  * An interface that represents the translation process from [ScanningUxEvent] to the UX.
  */
 interface VerifyUxTranslator {
     suspend fun translate(
-        processResult: VerifyProcessResult,
+        processResult: BlinkIdVerifyProcessResult,
         inputImage: InputImage?,
-        session: VerifyCaptureSession,
     ): List<ScanningUxEvent>
 }

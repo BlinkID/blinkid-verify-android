@@ -13,11 +13,11 @@ import androidx.compose.runtime.CompositionLocalProvider
 import com.microblink.blinkidverify.ux.theme.VerifyTheme.sdkStrings
 import com.microblink.blinkidverify.ux.theme.VerifyTheme.sdkTheme
 import com.microblink.ux.UiSettings
-import com.microblink.ux.theme.LocalBaseSdkStrings
+import com.microblink.ux.theme.DarkColorScheme
+import com.microblink.ux.theme.LightColorScheme
 import com.microblink.ux.theme.LocalBaseUiColors
 import com.microblink.ux.theme.LocalTheme
 import com.microblink.ux.theme.LocalTypography
-import com.microblink.ux.theme.SdkStrings
 import com.microblink.ux.theme.SdkTypography
 import com.microblink.ux.theme.UiColors
 import com.microblink.ux.theme.UiTypography
@@ -42,8 +42,9 @@ fun BlinkIdVerifySdkTheme(
     CompositionLocalProvider(
         LocalBaseUiColors provides (verifyUiSettings.uiColors
             ?: if (darkTheme) UiColors.DefaultDark else UiColors.Default),
-        LocalBaseSdkStrings provides (verifyUiSettings.sdkStrings ?: sdkStrings),
-        LocalTheme provides if (darkTheme) DarkVerifyColorScheme else VerifyColorScheme,
+        LocalBaseVerifySdkStrings provides (verifyUiSettings.sdkStrings as? VerifySdkStrings
+            ?: sdkStrings),
+        LocalTheme provides if (darkTheme) DarkColorScheme else LightColorScheme,
         LocalTypography provides (verifyUiSettings.typography ?: SdkTypography(null))
 
     ) {
@@ -59,9 +60,9 @@ internal object VerifyTheme {
         @Composable
         get() = LocalBaseUiColors.current
 
-    val sdkStrings: SdkStrings
+    val sdkStrings: VerifySdkStrings
         @Composable
-        get() = LocalBaseSdkStrings.current
+        get() = LocalBaseVerifySdkStrings.current
 
     val sdkTheme: ColorScheme
         @Composable
