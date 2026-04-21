@@ -88,7 +88,7 @@ class MainActivity : ComponentActivity() {
                         uxSettings = viewModel.blinkIDVerifyUxSettings,
                         uiSettings = viewModel.blinkIDVerifyUiSettings,
                         cameraSettings = viewModel.cameraSettings,
-                        captureSessionSettings = viewModel.captureSessionSettings,
+                        sessionSettings = viewModel.sessionSettings,
                         onCaptureSuccess = { result ->
                             viewModel.onCaptureResultAvailable(result)
                             navController.popBackStack(
@@ -97,6 +97,7 @@ class MainActivity : ComponentActivity() {
                             )
                         },
                         onCaptureCanceled = {
+                            viewModel.unloadSdk()
                             navController.popBackStack(
                                 route = Destination.Main,
                                 inclusive = false
