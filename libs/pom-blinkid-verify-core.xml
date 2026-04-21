@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.microblink</groupId>
     <artifactId>blinkid-verify-core</artifactId>
-    <version>3.14.1</version>
+    <version>3.20.0</version>
     <packaging>aar</packaging>
     <name>BlinkID Verify SDK for Android</name>
     <description>Everything you need to add AI-driven ID document verification into your Android app.</description>
@@ -61,6 +61,12 @@
             <groupId>org.jetbrains.kotlinx</groupId>
             <artifactId>kotlinx-datetime</artifactId>
             <version>0.6.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>androidx.lifecycle</groupId>
+            <artifactId>lifecycle-process</artifactId>
+            <version>2.9.2</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

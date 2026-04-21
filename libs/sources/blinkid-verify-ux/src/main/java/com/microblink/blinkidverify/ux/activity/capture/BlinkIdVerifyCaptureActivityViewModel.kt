@@ -1,12 +1,20 @@
+/**
+ * Copyright (c) Microblink. Modifications are allowed under the terms of the
+ * license for files located in the UX/UI lib folder.
+ */
+
 package com.microblink.blinkidverify.ux.activity.capture
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.microblink.blinkidverify.core.BlinkIdVerifySdk
 import com.microblink.blinkidverify.core.BlinkIdVerifySdkSettings
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class BlinkIdVerifyCaptureActivityViewModel : ViewModel() {
 
@@ -19,7 +27,7 @@ class BlinkIdVerifyCaptureActivityViewModel : ViewModel() {
     suspend fun initializeLocalSdk(
         context: Context,
         blinkIdVerifySdkSettings: BlinkIdVerifySdkSettings,
-        onInitFailed: () -> Unit
+        onInitFailed: () -> Unit  // TODO add exception parameter
     ) {
         _displayLoading.update {
             true
@@ -44,19 +52,24 @@ class BlinkIdVerifyCaptureActivityViewModel : ViewModel() {
     }
 
     fun unloadSdk() {
-        try {
-            localSdk?.close()
-        } catch (_: Exception) {
-        }
+        val sdkToClose = localSdk
         localSdk = null
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                sdkToClose?.close()
+            } catch (_: Exception) {
+            }
+        }
     }
-
     fun unloadSdkAndDeleteCachedAssets() {
-        try {
-            localSdk?.closeAndDeleteCachedAssets()
-        } catch (_: Exception) {
-        }
+        val sdkToClose = localSdk
         localSdk = null
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                sdkToClose?.closeAndDeleteCachedAssets()
+            } catch (_: Exception) {
+            }
+        }
     }
 
 }
