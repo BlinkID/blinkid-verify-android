@@ -12,7 +12,7 @@
 
 
 <h2>MRZ Fields</h2>
-Other than documents listed here, BlinkID also scans the <strong>Machine Readable Zone (MRZ)</strong> on standard (ISO/IEC 7501 compliant)
+Other than documents listed here, BlinkID also scans the <strong>Machine Readable Zone (MRZ)</strong> on standard (ISO/IEC 7501 compliant) 
 <strong>Machine Readable Travel Documents (MRTD)</strong>. This includes <strong>passports, visas</strong> and other identification documents.
 <br>
 <br>
@@ -37,7 +37,7 @@ The MRZ is parsed to produce a structure with fields:
 <br>
 
 <h2>Anonymised Fields</h2>
-With the <strong>result anonymization option</strong> enabled, results are not returned for protected fields on documents listed here.
+With the <strong>result anonymization option</strong> enabled, results are not returned for protected fields on documents listed here. 
 The full document image will also have this data blacked out.
 <br>
 Protected fields are:
@@ -93,11 +93,11 @@ Protected fields are:
 <h2>All Fields</h2>
 
 <p align="justify">
-The tables below represent scanning results for each document in each country supported in BlinkID v6. The fields marked as "Mandatory" are mandatory on all document versions and 
+The tables below represent scanning results for each document in each country supported in BlinkID v7. The fields marked as "Mandatory" are mandatory on all document versions and 
 will always be a part of the result set. The ones marked as "Optional" will be returned only if they exist on the specific document being scanned. 
 For US documents, all information concerns both horizontal and vertical supported documents.
 
-Currently, in BlinkID v6 we support the extraction of fields in Latin, Cyrillic, and Arabic scipts. Information about supported scripts for each document is listed
+Currently, in BlinkID v7 we support the extraction of fields in Latin, Cyrillic, and Arabic scripts. Information about supported scripts for each document is listed 
 in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this repository.
 <br>
 <br>
@@ -127,6 +127,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
 
 <tr><th colspan=2>AFGHANISTAN Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -285,6 +286,42 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>ANGOLA Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Fathers name</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Mothers name</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>ANGOLA Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Additional address information</td><td>Mandatory</td></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Marital status</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Document additional number</td><td>Optional</td></tr>
+
+<tr><th colspan=2>ANGOLA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Marital status</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Optional</td></tr>
+
 <tr><th colspan=2>ANTIGUA AND BARBUDA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
@@ -297,6 +334,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Restrictions</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 <tr><td>Vehicle class</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>ANTIGUA AND BARBUDA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>ARGENTINA Alien ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -745,10 +796,12 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>AUSTRIA Residence Permit - Back</th></tr>
@@ -757,6 +810,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
@@ -965,6 +1019,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Profession</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>BAHRAIN Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>BANGLADESH Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -1068,6 +1136,21 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
+
+<tr><th colspan=2>BARBADOS Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
 
 <tr><th colspan=2>BELARUS Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -1190,17 +1273,16 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Parents last name</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
-<tr><td>Date of issue</td><td>Optional</td></tr>
-<tr><td>Personal ID number</td><td>Optional</td></tr>
-<tr><td>Place of birth</td><td>Optional</td></tr>
+<tr><td>Parents first name</td><td>Optional</td></tr>
 
 <tr><th colspan=2>BELGIUM Minors ID - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Issuing authority</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
-<tr><td>Date of issue</td><td>Optional</td></tr>
-<tr><td>Personal ID number</td><td>Optional</td></tr>
 
 <tr><th colspan=2>BELGIUM Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -1233,6 +1315,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -1247,6 +1331,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>BELGIUM Resident ID - Front</th></tr>
@@ -1303,6 +1388,39 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>BELIZE Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BENIN Driver's License - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Vehicle class</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BENIN Driver's License - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>BENIN Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -1341,6 +1459,21 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Address</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
 
+<tr><th colspan=2>BENIN Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>BERMUDA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
@@ -1353,6 +1486,49 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Sex</td><td>Mandatory</td></tr>
 <tr><td>Vehicle class</td><td>Mandatory</td></tr>
 <tr><td>Restrictions</td><td>Optional</td></tr>
+
+<tr><th colspan=2>BERMUDA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BERMUDA Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BHUTAN Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Optional</td></tr>
 
 <tr><th colspan=2>BOLIVIA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -1490,6 +1666,21 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>BOTSWANA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
+
 <tr><th colspan=2>BRAZIL Alien ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -1579,6 +1770,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Sex</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
 
+<tr><th colspan=2>BRAZIL ACRE Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BRAZIL ACRE Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
+
 <tr><th colspan=2>BRAZIL ALAGOAS Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -1616,6 +1821,19 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BRAZIL ESPIRITO SANTO Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BRAZIL ESPIRITO SANTO Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
 
 <tr><th colspan=2>BRAZIL GOIAS Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -1656,6 +1874,19 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Full name</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
 
+<tr><th colspan=2>BRAZIL MATO GROSSO DO SUL Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BRAZIL MATO GROSSO DO SUL Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
+
 <tr><th colspan=2>BRAZIL MINAS GERAIS Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -1677,6 +1908,19 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>BRAZIL PARA Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
+
+<tr><th colspan=2>BRAZIL PARAIBA Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BRAZIL PARAIBA Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
@@ -1708,6 +1952,19 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
 
+<tr><th colspan=2>BRAZIL PIAUI Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BRAZIL PIAUI Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
+
 <tr><th colspan=2>BRAZIL RIO DE JANEIRO Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -1719,6 +1976,19 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BRAZIL RIO GRANDE DO NORTE Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BRAZIL RIO GRANDE DO NORTE Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
 
 <tr><th colspan=2>BRAZIL RIO GRANDE DO SUL Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -1769,6 +2039,19 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BRAZIL TOCANTINS Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BRAZIL TOCANTINS Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
 
 <tr><th colspan=2>BRUNEI Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -1909,11 +2192,14 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
 <tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 
 <tr><th colspan=2>BULGARIA Residence Permit - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
@@ -1947,14 +2233,28 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
-<tr><td>Profession</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Optional</td></tr>
 
 <tr><th colspan=2>BURKINA FASO Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>BURKINA FASO Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>BURKINA FASO Polycarbonate Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
@@ -2018,25 +2318,44 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>CAMEROON Driver's License - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Vehicle class</td><td>Mandatory</td></tr>
+<tr><td>Address</td><td>Optional</td></tr>
+<tr><td>Document additional number</td><td>Optional</td></tr>
+<tr><td>First name</td><td>Optional</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
+
 <tr><th colspan=2>CAMEROON Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
-<tr><td>Place of birth</td><td>Mandatory</td></tr>
-<tr><td>Profession</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 <tr><td>Address</td><td>Optional</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
+<tr><td>Document number</td><td>Optional</td></tr>
 <tr><td>First name</td><td>Optional</td></tr>
+<tr><td>Place of birth</td><td>Optional</td></tr>
+<tr><td>Profession</td><td>Optional</td></tr>
 
 <tr><th colspan=2>CAMEROON Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
-<tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
-<tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Address</td><td>Optional</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
+<tr><td>Document number</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>MRZ</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
+<tr><td>Place of birth</td><td>Optional</td></tr>
+<tr><td>Profession</td><td>Optional</td></tr>
 
 <tr><th colspan=2>CAMEROON Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -2306,6 +2625,15 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Barcode data</td><td>Optional</td></tr>
 
+<tr><th colspan=2>CANADA MANITOBA Metis Federation Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>CANADA NEW BRUNSWICK Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
@@ -2548,11 +2876,11 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Endorsements</td><td>Mandatory</td></tr>
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 <tr><td>Vehicle class</td><td>Mandatory</td></tr>
-<tr><td>Endorsements</td><td>Optional</td></tr>
 
 <tr><th colspan=2>CANADA QUEBEC Driver's License - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -2571,7 +2899,6 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Restrictions</td><td>Mandatory</td></tr>
 <tr><td>Vehicle class</td><td>Mandatory</td></tr>
-<tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>CANADA SASKATCHEWAN Driver's License - Back</th></tr>
@@ -2676,6 +3003,21 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>CENTRAL AFRICAN REPUBLIC Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>CHAD Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -2694,6 +3036,36 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Address</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Profession</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>CHAD Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>CHAD Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>CHILE Alien ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -2716,25 +3088,26 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th colspan=2>CHILE Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
-<tr><td>Date of expiry</td><td>Mandatory</td></tr>
-<tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Issuing authority</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
-<tr><td>Vehicle class</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
+<tr><td>Date of issue</td><td>Optional</td></tr>
+<tr><td>Restrictions</td><td>Optional</td></tr>
+<tr><td>Vehicle class</td><td>Optional</td></tr>
 
 <tr><th colspan=2>CHILE Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
-<tr><td>Document number</td><td>Optional</td></tr>
 
 <tr><th colspan=2>CHILE Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -2774,8 +3147,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 
 <tr><th colspan=2>CHINA Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
-<tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
 
 <tr><th colspan=2>CHINA Mainland Travel Permit Taiwan - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -2925,6 +3298,21 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>CONGO Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>COSTA RICA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -2940,13 +3328,17 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Optional</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
 
 <tr><th colspan=2>COSTA RICA Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
-<tr><td>Date of birth</td><td>Mandatory</td></tr>
-<tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
-<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Optional</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
+<tr><td>Full name</td><td>Optional</td></tr>
+<tr><td>MRZ</td><td>Optional</td></tr>
+<tr><td>Place of birth</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>COSTA RICA Paper Passport - Bio-data page</th></tr>
@@ -3034,6 +3426,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
@@ -3042,17 +3435,18 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Last name</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>CROATIA Residence Permit - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
-<tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
@@ -3154,6 +3548,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
@@ -3173,6 +3569,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Place of birth</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>CZECHIA Driver's License - Front</th></tr>
@@ -3220,12 +3617,14 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>CZECHIA Residence Permit - Back</th></tr>
@@ -3275,6 +3674,21 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Issuing authority</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>DEMOCRATIC REPUBLIC OF THE CONGO Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>DEMOCRATIC REPUBLIC OF THE CONGO Voter ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
@@ -3305,6 +3719,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
@@ -3316,6 +3732,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -3335,6 +3752,33 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>DJIBOUTI Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>DJIBOUTI Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
@@ -3427,6 +3871,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>EAST TIMOR Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
@@ -3579,6 +4037,68 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Marital status</td><td>Mandatory</td></tr>
 <tr><td>Profession</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>EL SALVADOR Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>EQUATORIAL GUINEA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>EQUATORIAL GUINEA Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>ERITREA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Optional</td></tr>
+<tr><td>Full name</td><td>Optional</td></tr>
+<tr><td>Last name</td><td>Optional</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
+
 <tr><th colspan=2>ESTONIA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -3633,6 +4153,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -3648,6 +4170,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
 <tr><td>Place of birth</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>ESTONIA Polycarbonate Passport - Bio-data page</th></tr>
@@ -3665,6 +4188,21 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>ESWATINI Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>ESWATINI Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>ESWATINI Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -3677,6 +4215,34 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>ETHIOPIA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>FEDERATED STATES OF MICRONESIA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
@@ -3734,17 +4300,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>FINLAND Residence Permit - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -3768,6 +4337,16 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
 
+<tr><th colspan=2>FRANCE Adr Certificate - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>FRANCE Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -3789,6 +4368,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Additional name information</td><td>Optional</td></tr>
 <tr><td>Date of expiry</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>MRZ</td><td>Optional</td></tr>
@@ -3854,6 +4434,35 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
+
+<tr><th colspan=2>GABON Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Optional</td></tr>
+
+<tr><th colspan=2>GABON Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Optional</td></tr>
 
 <tr><th colspan=2>GAMBIA Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -3937,6 +4546,16 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>GERMANY Adr Certificate - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>GERMANY Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -3980,22 +4599,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
-<tr><td>Document additional number</td><td>Optional</td></tr>
-<tr><td>MRZ</td><td>Optional</td></tr>
 <tr><td>Signature</td><td>Optional</td></tr>
 
 <tr><th colspan=2>GERMANY Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Address</td><td>Optional</td></tr>
-<tr><td>Document number</td><td>Optional</td></tr>
-<tr><td>MRZ</td><td>Optional</td></tr>
 
 <tr><th colspan=2>GERMANY Minors Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -4031,6 +4648,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -4046,6 +4665,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>GERMANY Polycarbonate Passport - Bio-data page</th></tr>
@@ -4102,6 +4722,39 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>GHANA Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>GHANA Social Security Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>GHANA Voter ID - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Polling station code</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Optional</td></tr>
+<tr><td>First name</td><td>Optional</td></tr>
+<tr><td>Full name</td><td>Optional</td></tr>
+<tr><td>Last name</td><td>Optional</td></tr>
 
 <tr><th colspan=2>GIBRALTAR Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -4177,10 +4830,10 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 
 <tr><th colspan=2>GREECE Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
-<tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of expiry</td><td>Optional</td></tr>
+<tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>First name</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -4190,11 +4843,16 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 
 <tr><th colspan=2>GREECE Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Fathers name</td><td>Mandatory</td></tr>
+<tr><td>Mothers name</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>First name</td><td>Optional</td></tr>
+<tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Last name</td><td>Optional</td></tr>
 <tr><td>MRZ</td><td>Optional</td></tr>
+<tr><td>Municipality of registration</td><td>Optional</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
 
 <tr><th colspan=2>GREECE Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -4215,6 +4873,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
@@ -4225,11 +4885,12 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th colspan=2>GREECE Residence Permit - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
-<tr><td>Place of birth</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>GREECE Polycarbonate Passport - Bio-data page</th></tr>
@@ -4348,6 +5009,22 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>GUINEA Driver's License - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>GUINEA Driver's License - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Restrictions</td><td>Optional</td></tr>
+
 <tr><th colspan=2>GUINEA Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -4378,6 +5055,37 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>GUINEA-BISSAU Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Marital status</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Optional</td></tr>
+
+<tr><th colspan=2>GUINEA-BISSAU Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
@@ -4493,22 +5201,17 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th colspan=2>HONDURAS Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
-<tr><td>Date of expiry</td><td>Optional</td></tr>
-<tr><td>Date of issue</td><td>Optional</td></tr>
-<tr><td>First name</td><td>Optional</td></tr>
-<tr><td>Full name</td><td>Optional</td></tr>
-<tr><td>Last name</td><td>Optional</td></tr>
-<tr><td>Nationality</td><td>Optional</td></tr>
-<tr><td>Place of birth</td><td>Optional</td></tr>
-<tr><td>Sex</td><td>Optional</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>HONDURAS Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
-<tr><td>Address</td><td>Optional</td></tr>
-<tr><td>Full name</td><td>Optional</td></tr>
-<tr><td>MRZ</td><td>Optional</td></tr>
-<tr><td>Personal ID number</td><td>Optional</td></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>HONDURAS Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -4606,12 +5309,16 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 
 <tr><th colspan=2>HUNGARY Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
-<tr><td>Additional name information</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Issuing authority</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Mothers name</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
-<tr><td>Document number</td><td>Optional</td></tr>
+<tr><td>Date of birth</td><td>Optional</td></tr>
+<tr><td>Maiden name</td><td>Optional</td></tr>
+<tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>HUNGARY Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -4632,11 +5339,13 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>HUNGARY Residence Permit - Back</th></tr>
@@ -4647,6 +5356,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>ICELAND Driver's License - Front</th></tr>
@@ -4823,6 +5533,22 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Issuing authority</td><td>Mandatory</td></tr>
 <tr><td>Vehicle class</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>INDIA ODISHA Driver's License - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Vehicle class</td><td>Optional</td></tr>
+
+<tr><th colspan=2>INDIA ODISHA Driver's License - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document additional number</td><td>Optional</td></tr>
+<tr><td>Document number</td><td>Optional</td></tr>
+<tr><td>Issuing authority</td><td>Optional</td></tr>
+<tr><td>Vehicle class</td><td>Optional</td></tr>
+
 <tr><th colspan=2>INDIA PUNJAB Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
@@ -4849,6 +5575,38 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Address</td><td>Optional</td></tr>
 <tr><td>Date of expiry</td><td>Optional</td></tr>
 <tr><td>Document number</td><td>Optional</td></tr>
+
+<tr><th colspan=2>INDIA TELANGANA Driver's License - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Optional</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
+<tr><td>Date of issue</td><td>Optional</td></tr>
+<tr><td>Issuing authority</td><td>Optional</td></tr>
+
+<tr><th colspan=2>INDIA TELANGANA Driver's License - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Vehicle class</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Optional</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
+<tr><td>Document number</td><td>Optional</td></tr>
+<tr><td>Issuing authority</td><td>Optional</td></tr>
+
+<tr><th colspan=2>INDIA UTTARAKHAND Driver's License - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>INDIA UTTARAKHAND Driver's License - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Vehicle class</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>INDONESIA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -4999,6 +5757,12 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>IRELAND Proof Of Age Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>IRELAND Public Services Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
@@ -5015,6 +5779,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
@@ -5026,6 +5792,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -5145,6 +5912,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
@@ -5160,6 +5929,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>IVORY COAST Driver's License - Front</th></tr>
@@ -5196,6 +5966,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>MRZ</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
+
+<tr><th colspan=2>IVORY COAST Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>JAMAICA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -5279,6 +6063,19 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Full name</td><td>Mandatory</td></tr>
 <tr><td>Jap nationality</td><td>Mandatory</td></tr>
 <tr><td>Jap sex or gender</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>JAPAN Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>JORDAN Driver's License - Front</th></tr>
@@ -5593,6 +6390,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>LAOS Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>LATVIA Alien ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -5648,10 +6459,12 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>LATVIA Residence Permit - Back</th></tr>
@@ -5659,6 +6472,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -5740,6 +6554,34 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>LESOTHO Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>LIBERIA Driver's License - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Vehicle class</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>LIBERIA Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -5748,6 +6590,39 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>LIBERIA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>LIBERIA Social Security Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>LIBERIA Voter ID - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Registration center code</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>LIBERIA Voter ID - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document additional number</td><td>Optional</td></tr>
 
 <tr><th colspan=2>LIBYA Polycarbonate Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -5838,12 +6713,15 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
+<tr><td>Residence permit type</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>LITHUANIA Residence Permit - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -5904,6 +6782,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -5914,6 +6794,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -5935,6 +6816,65 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>MADAGASCAR Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>MALAWI Driver's License - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Restrictions</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Vehicle class</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>MALAWI Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>MALAWI Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>MALAWI Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>MALAYSIA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
@@ -5943,6 +6883,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
 <tr><td>Vehicle class</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
 
 <tr><th colspan=2>MALAYSIA i-Kad - Front</th></tr>
@@ -6078,6 +7019,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>MALDIVES Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>MALI Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -6096,6 +7051,22 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>MALI Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>MALTA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -6158,18 +7129,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>MALTA Residence Permit - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
-<tr><td>Address</td><td>Optional</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
@@ -6193,6 +7166,40 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>MAURITANIA Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Fathers name</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>MAURITANIA Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>MAURITANIA Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
+<tr><td>Profession</td><td>Optional</td></tr>
+
 <tr><th colspan=2>MAURITIUS Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -6206,6 +7213,22 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>MAURITIUS Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
+<tr><td>Profession</td><td>Optional</td></tr>
+
 <tr><th colspan=2>MEXICO Consular ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
@@ -6213,11 +7236,11 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
-<tr><td>First name</td><td>Optional</td></tr>
-<tr><td>Full name</td><td>Optional</td></tr>
-<tr><td>Last name</td><td>Optional</td></tr>
+<tr><td>Husband name</td><td>Optional</td></tr>
 
 <tr><th colspan=2>MEXICO Consular ID - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -6241,6 +7264,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Mothers name</td><td>Optional</td></tr>
 <tr><td>Place of birth</td><td>Optional</td></tr>
 <tr><td>Signature</td><td>Optional</td></tr>
+<tr><td>State</td><td>Optional</td></tr>
+<tr><td>State code</td><td>Optional</td></tr>
 
 <tr><th colspan=2>MEXICO Consular Voter ID - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -6323,6 +7348,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Sex</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
 
+<tr><th colspan=2>MEXICO Social Security Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Social security status</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
+
+<tr><th colspan=2>MEXICO Social Security Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document additional number</td><td>Optional</td></tr>
+<tr><td>Document optional additional number</td><td>Optional</td></tr>
+
 <tr><th colspan=2>MEXICO Tax ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
@@ -6330,22 +7369,25 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th colspan=2>MEXICO Voter ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>Document optional additional number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
-<tr><td>Date of birth</td><td>Optional</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Section code</td><td>Mandatory</td></tr>
 <tr><td>Fathers name</td><td>Optional</td></tr>
+<tr><td>Locality code</td><td>Optional</td></tr>
 <tr><td>Mothers name</td><td>Optional</td></tr>
-<tr><td>Personal ID number</td><td>Optional</td></tr>
+<tr><td>Municipality code</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 <tr><td>Signature</td><td>Optional</td></tr>
+<tr><td>State code</td><td>Optional</td></tr>
 
 <tr><th colspan=2>MEXICO Voter ID - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
-<tr><td>Document number</td><td>Optional</td></tr>
-<tr><td>MRZ</td><td>Optional</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Signature</td><td>Optional</td></tr>
 
 <tr><th colspan=2>MEXICO AGUASCALIENTES Driver's License - Front</th></tr>
@@ -6583,22 +7625,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 
 <tr><th colspan=2>MEXICO MEXICO Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
-<tr><td>Date of birth</td><td>Optional</td></tr>
-<tr><td>Nationality</td><td>Optional</td></tr>
-<tr><td>Vehicle class</td><td>Optional</td></tr>
+<tr><td>Vehicle class</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>MEXICO MEXICO Driver's License - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Issuing authority</td><td>Mandatory</td></tr>
 <tr><td>Restrictions</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
-<tr><td>Date of birth</td><td>Optional</td></tr>
 
 <tr><th colspan=2>MEXICO MICHOACAN Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -6935,19 +7975,31 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
-<tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>First name</td><td>Mandatory</td></tr>
-<tr><td>Issuing authority</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
-<tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Optional</td></tr>
+<tr><td>Document additional number</td><td>Optional</td></tr>
+<tr><td>Issuing authority</td><td>Optional</td></tr>
+<tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Place of birth</td><td>Optional</td></tr>
 
 <tr><th colspan=2>MOLDOVA Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
 <tr><td>Address</td><td>Optional</td></tr>
+<tr><td>Date of birth</td><td>Optional</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
+<tr><td>Date of issue</td><td>Optional</td></tr>
+<tr><td>Fathers name</td><td>Optional</td></tr>
+<tr><td>First name</td><td>Optional</td></tr>
+<tr><td>Issuing authority</td><td>Optional</td></tr>
+<tr><td>Last name</td><td>Optional</td></tr>
+<tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Place of birth</td><td>Optional</td></tr>
+<tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>MOLDOVA Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -6991,6 +8043,34 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>MONGOLIA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Optional</td></tr>
+
+<tr><th colspan=2>MONGOLIA Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>MONTENEGRO Driver's License - Front</th></tr>
@@ -7181,6 +8261,22 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document number</td><td>Optional</td></tr>
 <tr><td>MRZ</td><td>Optional</td></tr>
 
+<tr><th colspan=2>NAMIBIA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
+
 <tr><th colspan=2>NEPAL Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -7272,6 +8368,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
@@ -7283,8 +8381,10 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
+<tr><td>Effective date</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
@@ -7372,6 +8472,22 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Sex</td><td>Mandatory</td></tr>
 <tr><td>Additional personal id number</td><td>Optional</td></tr>
 
+<tr><th colspan=2>NIGER Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>NIGERIA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
@@ -7405,6 +8521,15 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th colspan=2>NIGERIA Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>NIGERIA Nin Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>NIGERIA Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -7535,6 +8660,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
@@ -7550,6 +8677,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>NORWAY Polycarbonate Passport - Bio-data page</th></tr>
@@ -7822,6 +8950,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
 <tr><td>Address</td><td>Optional</td></tr>
 
+<tr><th colspan=2>PAPUA NEW GUINEA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>PARAGUAY Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
@@ -7869,6 +9011,21 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
+
+<tr><th colspan=2>PARAGUAY Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>PERU Alien ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -7995,6 +9152,21 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
 
+<tr><th colspan=2>PHILIPPINES eID - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>PHILIPPINES eID - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Marital status</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>PHILIPPINES Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
@@ -8018,6 +9190,12 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>PHILIPPINES Mysss Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>PHILIPPINES Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -8162,12 +9340,14 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>POLAND Residence Permit - Back</th></tr>
@@ -8180,6 +9360,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>POLAND Polycarbonate Passport - Bio-data page</th></tr>
@@ -8247,10 +9428,12 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>PORTUGAL Residence Permit - Back</th></tr>
@@ -8264,6 +9447,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>PUERTO RICO Driver's License - Front</th></tr>
@@ -8279,6 +9463,18 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Full name</td><td>Optional</td></tr>
 <tr><td>Last name</td><td>Optional</td></tr>
 <tr><td>Restrictions</td><td>Optional</td></tr>
+
+<tr><th colspan=2>PUERTO RICO Identity Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Optional</td></tr>
+<tr><td>Full name</td><td>Optional</td></tr>
+<tr><td>Last name</td><td>Optional</td></tr>
 
 <tr><th colspan=2>PUERTO RICO Voter ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -8356,6 +9552,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Address</td><td>Optional</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
+<tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Fathers name</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>MRZ</td><td>Optional</td></tr>
@@ -8366,10 +9563,10 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 
 <tr><th colspan=2>ROMANIA Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
-<tr><td>Address</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Issuing authority</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Address</td><td>Optional</td></tr>
 
 <tr><th colspan=2>ROMANIA Residence Permit - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -8377,6 +9574,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
@@ -8392,6 +9591,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>ROMANIA Polycarbonate Passport - Bio-data page</th></tr>
@@ -8447,6 +9647,16 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>RWANDA Driver's License - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Vehicle class</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>RWANDA Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -8539,6 +9749,35 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>SAINT THOMAS AND PRINCE Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>SAINT VINCENT AND THE GRENADINES Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>SAN MARINO Polycarbonate Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -8603,6 +9842,24 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Issuing authority</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>SENEGAL Driver's License - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Vehicle class</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>SENEGAL Driver's License - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>SENEGAL Identity Card - Front</th></tr>
@@ -8673,6 +9930,51 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th colspan=2>SERBIA Polycarbonate Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>SEYCHELLES Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>SEYCHELLES Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>SIERRA LEONE Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
@@ -8842,12 +10144,14 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>SLOVAKIA Residence Permit - Back</th></tr>
@@ -8860,6 +10164,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>SLOVAKIA Polycarbonate Passport - Bio-data page</th></tr>
@@ -8917,6 +10222,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Remarks</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
@@ -8934,9 +10241,11 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Address</td><td>Optional</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
+<tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>SLOVENIA Polycarbonate Passport - Bio-data page</th></tr>
@@ -8956,6 +10265,21 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th colspan=2>SLOVENIA Polycarbonate Passport - Second data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>SOMALIA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>SOUTH AFRICA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -9012,6 +10336,17 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Conditions</td><td>Optional</td></tr>
 <tr><td>Full name</td><td>Optional</td></tr>
 
+<tr><th colspan=2>SOUTH KOREA Driver's License - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>SOUTH KOREA Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
@@ -9042,6 +10377,22 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>SOUTH SUDAN Polycarbonate Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>SPAIN Alien ID - Front</th></tr>
@@ -9126,6 +10477,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Address</td><td>Optional</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
@@ -9143,6 +10495,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>SRI LANKA Driver's License - Front</th></tr>
@@ -9275,11 +10628,13 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>SWEDEN Residence Permit - Back</th></tr>
@@ -9290,6 +10645,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
 <tr><td>Place of birth</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>SWEDEN Polycarbonate Passport - Bio-data page</th></tr>
@@ -9349,6 +10705,16 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of expiry</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 
+<tr><th colspan=2>SWITZERLAND Adr Certificate - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>SWITZERLAND Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -9405,6 +10771,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of expiry</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
 <tr><td>Document additional number</td><td>Optional</td></tr>
@@ -9413,10 +10780,12 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Last name</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>SWITZERLAND Residence Permit - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of entry</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Date of birth</td><td>Optional</td></tr>
@@ -9424,6 +10793,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document optional additional number</td><td>Optional</td></tr>
 <tr><td>Issuing authority</td><td>Optional</td></tr>
 <tr><td>Nationality</td><td>Optional</td></tr>
+<tr><td>Remarks</td><td>Optional</td></tr>
 <tr><td>Sex</td><td>Optional</td></tr>
 
 <tr><th colspan=2>SWITZERLAND Polycarbonate Passport - Bio-data page</th></tr>
@@ -9477,6 +10847,21 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TAIWAN Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Additional name information</td><td>Optional</td></tr>
 
 <tr><th colspan=2>TAIWAN Temporary Residence Permit - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -9620,6 +11005,42 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>TOGO Driver's License - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TOGO Driver's License - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Document optional additional number</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Restrictions</td><td>Mandatory</td></tr>
+<tr><td>Vehicle class</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TOGO Gendarmerie ID - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TOGO Gendarmerie ID - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>TOGO Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -9637,6 +11058,104 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Address</td><td>Mandatory</td></tr>
 <tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>MRZ</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TOGO Military ID - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TOGO Military ID - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TOGO Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TOGO Police ID - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TOGO Police ID - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TOGO Residence Permit - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Fathers name</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Mothers name</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Residence permit type</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TOGO Residence Permit - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TOGO Voter ID - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Address</td><td>Mandatory</td></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Fathers name</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>Mothers name</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Optional</td></tr>
+
+<tr><th colspan=2>TOGO Voter ID - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>TONGA Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>TRINIDAD AND TOBAGO Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -10227,8 +11746,8 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>MRZ</td><td>Mandatory</td></tr>
 <tr><td>Nationality</td><td>Mandatory</td></tr>
 <tr><td>Personal ID number</td><td>Mandatory</td></tr>
-<tr><td>Place of birth</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Optional</td></tr>
 
 <tr><th colspan=2>USA Border Crossing Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -10357,6 +11876,7 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
 <tr><td>Date of issue</td><td>Optional</td></tr>
+<tr><td>Work restriction</td><td>Optional</td></tr>
 
 <tr><th colspan=2>USA Twic Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -10385,9 +11905,9 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 
 <tr><th colspan=2>USA Veteran ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
-<tr><td>Date of expiry</td><td>Mandatory</td></tr>
-<tr><td>Document additional number</td><td>Mandatory</td></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
+<tr><td>Document additional number</td><td>Optional</td></tr>
 <tr><td>Document number</td><td>Optional</td></tr>
 
 <tr><th colspan=2>USA Work Permit - Front</th></tr>
@@ -10588,9 +12108,9 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Document subtype</td><td>Mandatory</td></tr>
-<tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Optional</td></tr>
 <tr><td>Specific document validity</td><td>Optional</td></tr>
 
 <tr><th colspan=2>USA CALIFORNIA Identity Card - Back</th></tr>
@@ -11716,10 +13236,9 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>Document subtype</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 <tr><td>First name</td><td>Optional</td></tr>
-<tr><td>Full name</td><td>Optional</td></tr>
-<tr><td>Last name</td><td>Optional</td></tr>
 <tr><td>Specific document validity</td><td>Optional</td></tr>
 
 <tr><th colspan=2>USA NORTH CAROLINA Identity Card - Back</th></tr>
@@ -12490,6 +14009,36 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>MRZ</td><td>Optional</td></tr>
 <tr><td>Place of birth</td><td>Optional</td></tr>
 
+<tr><th colspan=2>VIETNAM Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Nationality</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Document additional number</td><td>Optional</td></tr>
+<tr><td>First name</td><td>Optional</td></tr>
+<tr><td>Full name</td><td>Optional</td></tr>
+<tr><td>Issuing authority</td><td>Optional</td></tr>
+<tr><td>Last name</td><td>Optional</td></tr>
+<tr><td>Place of birth</td><td>Optional</td></tr>
+
+<tr><th colspan=2>YEMEN Paper Passport - Bio-data page</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Issuing authority</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+<tr><td>MRZ</td><td>Mandatory</td></tr>
+<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Profession</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>ZAMBIA Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
@@ -12538,11 +14087,13 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><th colspan=2>ZIMBABWE Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
-<tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
-<tr><td>Place of birth</td><td>Mandatory</td></tr>
+<tr><td>Legal status</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Optional</td></tr>
+<tr><td>Place of birth</td><td>Optional</td></tr>
 
 <tr><th colspan=2>ZIMBABWE Identity Card - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -12635,6 +14186,20 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Last name</td><td>Optional</td></tr>
 <tr><td>Personal ID number</td><td>Optional</td></tr>
 
+<tr><th colspan=2>GHANA Health Insurance Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Sex</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Optional</td></tr>
+
+<tr><th colspan=2>GHANA Health Insurance Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document additional number</td><td>Optional</td></tr>
+<tr><td>Document optional additional number</td><td>Optional</td></tr>
+
 <tr><th colspan=2>PHILIPPINES Health Insurance Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Document number</td><td>Mandatory</td></tr>
@@ -12664,11 +14229,23 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Document number</td><td>Mandatory</td></tr>
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
-<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Optional</td></tr>
 
 <tr><th colspan=2>USA GEORGIA Medical Marijuana ID - Back</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Full name</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>USA MARYLAND Medical Marijuana ID - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of birth</td><td>Mandatory</td></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Full name</td><td>Mandatory</td></tr>
+<tr><td>Personal ID number</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>USA MARYLAND Medical Marijuana ID - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>USA NEVADA Medical Marijuana ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -12710,6 +14287,19 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Date of issue</td><td>Mandatory</td></tr>
 <tr><td>First name</td><td>Mandatory</td></tr>
 <tr><td>Last name</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>OMAN Vehicle Registration - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of expiry</td><td>Mandatory</td></tr>
+<tr><td>Date of issue</td><td>Mandatory</td></tr>
+<tr><td>Manufacturing year</td><td>Mandatory</td></tr>
+<tr><td>Vehicle type</td><td>Mandatory</td></tr>
+
+<tr><th colspan=2>OMAN Vehicle Registration - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document additional number</td><td>Mandatory</td></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>Vehicle owner</td><td>Mandatory</td></tr>
 
 <tr><th colspan=2>UAE Vehicle Registration - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
