@@ -10,8 +10,8 @@ import com.microblink.blinkidverify.core.BlinkIdVerifyClient
 import com.microblink.blinkidverify.core.BlinkIdVerifySdk
 import com.microblink.blinkidverify.core.BlinkIdVerifySdkSettings
 import com.microblink.blinkidverify.core.Response
-import com.microblink.blinkidverify.core.capture.session.CapturePolicy
-import com.microblink.blinkidverify.core.capture.session.VerifyCaptureSessionSettings
+import com.microblink.blinkidverify.core.capture.session.BlinkIdVerifyScanningSettings
+import com.microblink.blinkidverify.core.capture.session.BlinkIdVerifySessionSettings
 import com.microblink.blinkidverify.core.capture.session.ImageQualitySettings
 import com.microblink.blinkidverify.core.data.model.request.BlinkIdVerifyProcessingRequestOptions
 import com.microblink.blinkidverify.core.data.model.request.BlinkIdVerifyProcessingUseCase
@@ -21,8 +21,10 @@ import com.microblink.blinkidverify.core.data.model.result.BlinkIdVerifyEndpoint
 import com.microblink.blinkidverify.core.settings.BlinkIdVerifyServiceSettings
 import com.microblink.blinkidverify.sample.config.BlinkIdVerifyConfig
 import com.microblink.blinkidverify.ux.capture.settings.VerifyUxSettings
+import com.microblink.core.session.InputImageSource
 import com.microblink.ux.UiSettings
 import com.microblink.ux.camera.CameraSettings
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -53,8 +55,7 @@ class MainViewModel : ViewModel() {
 
     val blinkIDVerifyRequestOptionsConfig = BlinkIdVerifyProcessingRequestOptions()
 
-    // TODO use constructor
-    val blinkIDVerifyRequestUseCase = BlinkIdVerifyProcessingUseCase.Empty
+    val blinkIDVerifyRequestUseCase = BlinkIdVerifyProcessingUseCase()
 
     // TODO use settings options
     val blinkIDVerifyUiSettings = UiSettings()
@@ -72,27 +73,26 @@ class MainViewModel : ViewModel() {
     var localSdk: BlinkIdVerifySdk? = null
         private set
 
-    // TODO use BlinkIdVerifyProcessingRequestOptions.toCaptureSessionSettings that will be implemented in SDK
-    val captureSessionSettings = VerifyCaptureSessionSettings(
-        capturePolicy = CapturePolicy.Video,
-        treatExpirationAsFraud = blinkIDVerifyRequestOptionsConfig.treatExpirationAsFraud,
-        screenMatchLevel = blinkIDVerifyRequestOptionsConfig.screenMatchLevel,
-        photocopyMatchLevel = blinkIDVerifyRequestOptionsConfig.photocopyMatchLevel,
-        barcodeAnomalyMatchLevel = blinkIDVerifyRequestOptionsConfig.barcodeAnomalyMatchLevel,
-        photoForgeryMatchLevel = blinkIDVerifyRequestOptionsConfig.photoForgeryMatchLevel,
-        staticSecurityFeaturesMatchLevel = blinkIDVerifyRequestOptionsConfig.staticSecurityFeaturesMatchLevel,
-        dataMatchMatchLevel = blinkIDVerifyRequestOptionsConfig.dataMatchMatchLevel,
-        imageQualitySettings = ImageQualitySettings(
-            blurMatchLevel = blinkIDVerifyRequestOptionsConfig.blurMatchLevel,
-            glareMatchLevel = blinkIDVerifyRequestOptionsConfig.glareMatchLevel,
-            lightingMatchLevel = blinkIDVerifyRequestOptionsConfig.lightingMatchLevel,
-            sharpnessMatchLevel = blinkIDVerifyRequestOptionsConfig.sharpnessMatchLevel,
-            handOcclusionMatchLevel = blinkIDVerifyRequestOptionsConfig.handOcclusionMatchLevel,
-            dpiMatchLevel = blinkIDVerifyRequestOptionsConfig.dpiMatchLevel,
-            tiltMatchLevel = blinkIDVerifyRequestOptionsConfig.tiltMatchLevel,
-            imageQualityInterpretation = blinkIDVerifyRequestOptionsConfig.imageQualityInterpretation
+    val sessionSettings = BlinkIdVerifySessionSettings(
+        inputImageSource = InputImageSource.Video,
+        scanningSettings = BlinkIdVerifyScanningSettings(
+            treatExpirationAsFraud = blinkIDVerifyRequestOptionsConfig.treatExpirationAsFraud,
+            screenAnalysisMatchLevel = blinkIDVerifyRequestOptionsConfig.screenMatchLevel,
+            barcodeAnomalyMatchLevel = blinkIDVerifyRequestOptionsConfig.barcodeAnomalyMatchLevel,
+            staticSecurityFeaturesMatchLevel = blinkIDVerifyRequestOptionsConfig.staticSecurityFeaturesMatchLevel,
+            dataMatchMatchLevel = blinkIDVerifyRequestOptionsConfig.dataMatchMatchLevel,
+            imageQualitySettings = ImageQualitySettings(
+                blurMatchLevel = blinkIDVerifyRequestOptionsConfig.blurMatchLevel,
+                glareMatchLevel = blinkIDVerifyRequestOptionsConfig.glareMatchLevel,
+                lightingMatchLevel = blinkIDVerifyRequestOptionsConfig.lightingMatchLevel,
+                sharpnessMatchLevel = blinkIDVerifyRequestOptionsConfig.sharpnessMatchLevel,
+                handOcclusionMatchLevel = blinkIDVerifyRequestOptionsConfig.handOcclusionMatchLevel,
+                dpiMatchLevel = blinkIDVerifyRequestOptionsConfig.dpiMatchLevel,
+                tiltMatchLevel = blinkIDVerifyRequestOptionsConfig.tiltMatchLevel,
+                imageQualityInterpretation = blinkIDVerifyRequestOptionsConfig.imageQualityInterpretation
+            ),
+            useCase = blinkIDVerifyRequestUseCase
         ),
-        useCase = blinkIDVerifyRequestUseCase
     )
 
     fun sendVerifyRequestsFromCaptureResult(captureResult: BlinkIdVerifyCaptureResult) {
@@ -102,8 +102,14 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch {
             invokeServerProcessing(
                 captureResult.toBlinkIdVerifyRequest(
-                    blinkIDVerifyRequestOptionsConfig,
-                    blinkIDVerifyRequestUseCase
+                    returnFullDocumentImage = blinkIDVerifyRequestOptionsConfig.returnFullDocumentImage,
+                    returnFaceImage = blinkIDVerifyRequestOptionsConfig.returnFaceImage,
+                    returnSignatureImage = blinkIDVerifyRequestOptionsConfig.returnSignatureImage,
+                    photocopyMatchLevel = blinkIDVerifyRequestOptionsConfig.photocopyMatchLevel,
+                    photoForgeryMatchLevel = blinkIDVerifyRequestOptionsConfig.photoForgeryMatchLevel,
+                    generativeAiMatchLevel = blinkIDVerifyRequestOptionsConfig.generativeAiMatchLevel,
+                    returnImageFormat = blinkIDVerifyRequestOptionsConfig.returnImageFormat,
+                    anonymizationMode = blinkIDVerifyRequestOptionsConfig.anonymizationMode
                 )
             )
         }
@@ -188,13 +194,15 @@ class MainViewModel : ViewModel() {
         _uiState.update { UiState() }
     }
 
-    private fun unloadSdk() {
-        try {
-            // also delete cached resources
-            localSdk?.closeAndDeleteCachedAssets()
-        } catch (_: Exception) {
-            Log.w(TAG, "SDK is already closed")
-        }
+    fun unloadSdk() {
+        val sdkToClose = localSdk
         localSdk = null
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                sdkToClose?.closeAndDeleteCachedAssets()
+            } catch (_: Exception) {
+                Log.w(TAG, "SDK is already closed")
+            }
+        }
     }
 }

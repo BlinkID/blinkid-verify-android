@@ -5,18 +5,24 @@
 
 package com.microblink.blinkidverify.ux.capture.scanning
 
-import com.microblink.blinkidverify.core.capture.session.VerifyCaptureSession
-import com.microblink.blinkidverify.core.capture.session.VerifyProcessResult
-import com.microblink.blinkidverify.core.data.model.result.extraction.VerifyProcessingStatus
+import com.microblink.blinkid.core.result.ProcessingStatus
+import com.microblink.blinkid.core.result.classinfo.Country
+import com.microblink.blinkid.core.result.classinfo.Type
+import com.microblink.blinkid.ux.scanning.RequestPassportPage
+import com.microblink.blinkid.ux.scanning.ScanningWrongPassportPage
+import com.microblink.blinkid.ux.state.PassportPage
+import com.microblink.blinkid.ux.state.PassportType
+import com.microblink.blinkidverify.core.capture.session.BlinkIdVerifyProcessResult
+import com.microblink.blinkidverify.core.data.model.result.VerifyScanningStatus
 import com.microblink.core.image.InputImage
 import com.microblink.core.session.DetectionStatus
 import com.microblink.ux.ScanningUxEvent
-import com.microblink.ux.state.DocumentSide
+import com.microblink.ux.state.UiScanningSide
 import kotlin.time.Duration.Companion.nanoseconds
 import kotlin.time.Duration.Companion.seconds
 
 /**
- * Translates [VerifyProcessResult] and other scanning session information into a
+ * Translates [BlinkIdVerifyProcessResult] and other scanning session information into a
  * list of [ScanningUxEvent] objects.
  *
  * This class is responsible for interpreting the results of the document
@@ -30,63 +36,86 @@ class VerifyScanningUxTranslator : VerifyUxTranslator {
     private val backToBarcodeTimeout = 3.seconds
     private var barcodeDispatched = false
 
-    private var currentSide = DocumentSide.Front
+    private var passportType: PassportType? = null
+
+    private var currentSide = UiScanningSide.First
 
     private var firstBackRequestedTimestamp: Long? = null
 
+    private val unsupportedDocumentTimeout = 1.5.seconds
+    private var firstUnsupportedDocumentTimestamp: Long? = null
+
     /**
-     * Translates the given [VerifyProcessResult], [InputImage], and [VerifyCaptureSession]
+     * Translates the given [BlinkIdVerifyProcessResult], [InputImage]
      * into a list of [ScanningUxEvent] objects.
      *
      * This function analyzes the current state of the scanning session and the
      * results of the last image processing step to determine which UX events
      * should be generated.
      *
-     * @param processResult The [VerifyProcessResult] from the scanning session.
+     * @param processResult The [BlinkIdVerifyProcessResult] from the scanning session.
      * @param inputImage The [InputImage] used for the process. Can be `null`.
-     * @param session The [VerifyCaptureSession] that was used for the process.
      * @return A list of [ScanningUxEvent] objects representing the user
      *         experience events that should be dispatched.
      */
     override suspend fun translate(
-        processResult: VerifyProcessResult,
+        processResult: BlinkIdVerifyProcessResult,
         inputImage: InputImage?,
-        session: VerifyCaptureSession,
     ): List<ScanningUxEvent> {
         val events = mutableListOf<ScanningUxEvent>()
 
-        val frameAnalysisResult = processResult.frameAnalysisResult
+        val inputImageAnalysisResult = processResult.inputImageAnalysisResult
+        val extractionImageAnalysisResult = inputImageAnalysisResult.extractionInputImageAnalysisResult
 
-        if (processResult.resultCompleteness.overallFlowFinished) {
+        if (processResult.resultCompleteness.isComplete()) {
             events.add(ScanningUxEvent.ScanningDone)
             return events
         }
 
-        if (currentSide == DocumentSide.Front) {
-            if (processResult.resultCompleteness.frontSideFinished) {
-                currentSide = DocumentSide.Back
-                events.add(ScanningUxEvent.RequestDocumentSide(DocumentSide.Back))
+        extractionImageAnalysisResult.documentClassInfo.type?.takeIf { it == Type.Passport }?.let {
+            passportType = if (
+                extractionImageAnalysisResult.documentClassInfo.country == Country.Usa ||
+                extractionImageAnalysisResult.documentClassInfo.country == Country.India
+            ) {
+                PassportType.BackSideBarcode
+            } else {
+                PassportType.Regular
             }
-        } else if (currentSide == DocumentSide.Back) {
-            if (!processResult.resultCompleteness.frontSideFinished) {
-                currentSide = DocumentSide.Front
+        }
+
+        if (currentSide == UiScanningSide.First) {
+            if (processResult.resultCompleteness.scanningStatus == VerifyScanningStatus.ScannedFirst) {
+                currentSide = UiScanningSide.Second
+                if (passportType != null) {
+                    events.add(
+                        RequestPassportPage(
+                            documentRotation = extractionImageAnalysisResult.documentRotation,
+                            isBarcodePageRequested = passportType == PassportType.BackSideBarcode
+                        )
+                    )
+                } else {
+                    events.add(ScanningUxEvent.RequestSide(UiScanningSide.Second))
+                }
+            }
+        } else if (currentSide == UiScanningSide.Second) {
+            if (processResult.resultCompleteness.scanningStatus != VerifyScanningStatus.ScanningSecond) {
+                currentSide = UiScanningSide.First
             } else if (firstBackRequestedTimestamp == null) {
                 firstBackRequestedTimestamp = System.nanoTime()
             } else {
                 if (shouldRequestBarcode(processResult)) {
                     barcodeDispatched = true
-                    session.setAllowBarcodeStep(true)
-                    events.add(ScanningUxEvent.RequestDocumentSide(DocumentSide.Barcode))
+                    events.add(ScanningUxEvent.RequestSide(UiScanningSide.Barcode))
                 }
             }
         }
         if (events.isNotEmpty()) return events
 
-        if (frameAnalysisResult.documentLocation != null) {
+        if (extractionImageAnalysisResult.documentLocation != null) {
             events.add(
                 if (inputImage != null) {
-                    DocumentLocatedLocation(
-                        location = frameAnalysisResult.documentLocation!!,
+                    BlinkIdVerifyDocumentLocatedLocation(
+                        location = extractionImageAnalysisResult.documentLocation!!,
                         inputImage = inputImage
                     )
                 } else {
@@ -100,15 +129,63 @@ class VerifyScanningUxTranslator : VerifyUxTranslator {
         // below just one event can be generated, by following priorities
         var hasEvents = false
 
-        when (frameAnalysisResult.processingStatus) {
+        val previousUnsupportedTimestamp = firstUnsupportedDocumentTimestamp
+        firstUnsupportedDocumentTimestamp = null
 
-            VerifyProcessingStatus.AwaitingOtherSide -> {
-                events.add(ScanningUxEvent.RequestDocumentSide(side = currentSide))
+        when (extractionImageAnalysisResult.processingStatus) {
+            ProcessingStatus.UnsupportedDocument -> {
+                firstUnsupportedDocumentTimestamp = previousUnsupportedTimestamp ?: System.nanoTime()
+                if (shouldShowUnsupportedDocument()) {
+                    events.add(ScanningUxEvent.UnsupportedDocument)
+                }
                 hasEvents = true
             }
 
-            VerifyProcessingStatus.ScanningWrongSide -> {
-                events.add(ScanningUxEvent.ScanningWrongSide)
+            ProcessingStatus.AwaitingOtherSide -> {
+                when (passportType) {
+                    PassportType.Regular -> events.add(
+                        RequestPassportPage(
+                            documentRotation = extractionImageAnalysisResult.documentRotation,
+                            isBarcodePageRequested = false
+                        )
+                    )
+
+                    PassportType.BackSideBarcode -> events.add(
+                        RequestPassportPage(
+                            documentRotation = extractionImageAnalysisResult.documentRotation,
+                            isBarcodePageRequested = true
+                        )
+                    )
+
+                    null -> events.add(ScanningUxEvent.RequestSide(side = currentSide))
+                }
+                hasEvents = true
+            }
+
+            ProcessingStatus.ScanningWrongSide -> {
+                val isScanningDataPage = currentSide == UiScanningSide.First
+                events.add(
+                    when (passportType) {
+                        PassportType.Regular -> ScanningWrongPassportPage(
+                            activePassportPage = if (isScanningDataPage) PassportPage.Data else null,
+                            documentRotation = extractionImageAnalysisResult.documentRotation
+                        )
+
+                        PassportType.BackSideBarcode -> ScanningWrongPassportPage(
+                            activePassportPage = if (isScanningDataPage) PassportPage.Data else PassportPage.Barcode,
+                            documentRotation = extractionImageAnalysisResult.documentRotation
+                        )
+
+                        else -> ScanningUxEvent.ScanningWrongSide
+                    }
+                )
+                hasEvents = true
+            }
+
+            ProcessingStatus.MandatoryFieldMissing,
+            ProcessingStatus.MrzParsingFailed,
+            ProcessingStatus.InvalidCharactersFound -> {
+                events.add(ScanningUxEvent.DocumentNotFullyVisible)
                 hasEvents = true
             }
 
@@ -116,17 +193,17 @@ class VerifyScanningUxTranslator : VerifyUxTranslator {
         }
 
         if (hasEvents) {
-            events.add(DocumentFrameAnalysisResult(frameAnalysisResult = frameAnalysisResult))
+            events.add(VerifyDocumentImageAnalysisResult(extractionImageAnalysisResult = extractionImageAnalysisResult))
             return events
         }
 
         hasEvents = true
 
-        when (frameAnalysisResult.detectionStatus) {
+        when (extractionImageAnalysisResult.documentDetectionStatus) {
             DetectionStatus.CameraTooFar -> events.add(ScanningUxEvent.DocumentTooFar)
-            DetectionStatus.CameraTooClose -> events.add(ScanningUxEvent.DocumentTooClose)
+            DetectionStatus.CameraTooClose,
+            DetectionStatus.DocumentTooCloseToCameraEdge -> events.add(ScanningUxEvent.DocumentTooClose)
             DetectionStatus.DocumentPartiallyVisible -> events.add(ScanningUxEvent.DocumentNotFullyVisible)
-            DetectionStatus.DocumentTooCloseToCameraEdge -> events.add(ScanningUxEvent.DocumentTooCloseToCameraEdge)
             DetectionStatus.CameraAngleTooSteep -> events.add(ScanningUxEvent.DocumentTooTilted)
             else -> {
                 hasEvents = false
@@ -134,35 +211,41 @@ class VerifyScanningUxTranslator : VerifyUxTranslator {
         }
 
         if (hasEvents) {
-            events.add(DocumentFrameAnalysisResult(frameAnalysisResult = frameAnalysisResult))
+            events.add(VerifyDocumentImageAnalysisResult(extractionImageAnalysisResult = extractionImageAnalysisResult))
             return events
         }
 
         hasEvents = true
 
-        if (frameAnalysisResult.glareDetected) events.add(ScanningUxEvent.GlareDetected)
-        else if (frameAnalysisResult.blurDetected) events.add(ScanningUxEvent.BlurDetected)
-        else if (frameAnalysisResult.occlusionDetected) events.add(ScanningUxEvent.DocumentNotFullyVisible)
-        else if (frameAnalysisResult.tiltDetected) events.add(ScanningUxEvent.DocumentTooTilted)
+        if (inputImageAnalysisResult.glareDetected) events.add(ScanningUxEvent.GlareDetected)
+        else if (inputImageAnalysisResult.blurDetected) events.add(ScanningUxEvent.BlurDetected)
+        else if (inputImageAnalysisResult.occlusionDetected) events.add(ScanningUxEvent.DocumentNotFullyVisible)
+        else if (inputImageAnalysisResult.tiltDetected) events.add(ScanningUxEvent.DocumentTooTilted)
         else hasEvents = false
 
         if (hasEvents) {
-            events.add(DocumentFrameAnalysisResult(frameAnalysisResult = frameAnalysisResult))
+            events.add(VerifyDocumentImageAnalysisResult(extractionImageAnalysisResult = extractionImageAnalysisResult))
             return events
         }
 
         events.add(ScanningUxEvent.DocumentNotFound)
-        events.add(ScanningUxEvent.RequestDocumentSide(side = currentSide))
-        events.add(DocumentFrameAnalysisResult(frameAnalysisResult = frameAnalysisResult))
+        events.add(ScanningUxEvent.RequestSide(side = currentSide))
+        events.add(VerifyDocumentImageAnalysisResult(extractionImageAnalysisResult = extractionImageAnalysisResult))
         return events
     }
 
     fun resetSession() {
         firstBackRequestedTimestamp = null
         barcodeDispatched = false
+        passportType = null
+        firstUnsupportedDocumentTimestamp = null
     }
 
-    private fun shouldRequestBarcode(processResult: VerifyProcessResult): Boolean {
-        return (System.nanoTime() - firstBackRequestedTimestamp!!).nanoseconds > backToBarcodeTimeout && processResult.frameAnalysisResult.hasBarcodeReadingIssues && !barcodeDispatched
+    private fun shouldShowUnsupportedDocument(): Boolean {
+        return (System.nanoTime() - firstUnsupportedDocumentTimestamp!!).nanoseconds > unsupportedDocumentTimeout
+    }
+
+    private fun shouldRequestBarcode(processResult: BlinkIdVerifyProcessResult): Boolean {
+        return (System.nanoTime() - firstBackRequestedTimestamp!!).nanoseconds > backToBarcodeTimeout && processResult.inputImageAnalysisResult.hasBarcodeReadingIssue && !barcodeDispatched
     }
 }

@@ -11,10 +11,12 @@
     + [Philippines](#philippines)<br>
     + [Croatia](#croatia)<br>
     + [European Union](#european-union)<br>
+    + [Ghana](#ghana)<br>
     + [Canada, Ontario](#canada-ontario)<br>
     + [Canada, Quebec](#canada-quebec)<br>
     + [USA, Florida](#usa-florida)<br>
     + [USA, Georgia](#usa-georgia)<br>
+    + [USA, Maryland](#usa-maryland)<br>
     + [USA, Nevada](#usa-nevada)<br>
     + [USA, New York](#usa-new-york)<br>
     + [USA, Oklahoma](#usa-oklahoma)<br>
@@ -44,19 +46,19 @@
 
 # Supported documents
 
-BlinkID can be used to scan both Identity documents (ID, DL, Passports, etc.) and Medical documents. Each document type has been issued in
-multiple versions throughout the years and document design is usually significantly changed in different versions. Some document changes that we observed are:
-change in orientation (horizontal vs vertical), addition or replacement of the script of the document (Latin, Cyrillic, Arabic), security features changes,
+BlinkID can be used to scan both Identity documents (ID, DL, Passports, etc.) and Medical documents. Each document type has been issued in 
+multiple versions throughout the years and document design is usually significantly changed in different versions. Some document changes that we observed are: 
+change in orientation (horizontal vs vertical), addition or replacement of the script of the document (Latin, Cyrillic, Arabic), security features changes, 
 and other similar updates. Key document features on supported documents are noted below (e.g. document orientation, script) as well as supported document sides (front, back, bio-data-page, etc.)
 
 All information is listed in tables below in different columns: Document Type, Localised Document Name, Supported side and orientation,
 Supported scripts, respectively.
 
-Some documents which are supported by BlinkID are still in the research and knowledge gathering phase and they will be noted with the BETA tag (xx <sup> BETA</sup>).
+Some documents which are supported by BlinkID are still in the research and knowledge gathering phase and they will be noted with the BETA tag (xx <sup> BETA</sup>). 
 That means scanning them is possible but some scanning and/or extraction challenges are possible.
 
 
-Other than documents listed here, BlinkID also scans the <strong>Machine Readable Zone (MRZ)</strong> on standard (ISO/IEC 7501 compliant)
+Other than documents listed here, BlinkID also scans the <strong>Machine Readable Zone (MRZ)</strong> on standard (ISO/IEC 7501 compliant) 
 <strong>Machine Readable Travel Documents (MRTD)</strong>. This includes <strong>passports, visas</strong> and other identification documents.
 
 
@@ -72,6 +74,8 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Health Insurance Card</td><td width=35%>Zdravstvena iskaznica, Zdravstveno osiguranje</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><th width=1200px colspan = 4 align="center"> <b><h3>EUROPEAN UNION</h3></b></th></tr>
 <tr><td width=35%>Health Insurance Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><th width=1200px colspan = 4 align="center"> <b><h3>GHANA</h3></b></th></tr>
+<tr><td width=35%>Health Insurance Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, ONTARIO</h3></b></th></tr>
 <tr><td width=35%>Health Insurance Card</td><td width=35%>Ontario Health card (OHIP) / Carte Santé de l’Ontario</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, QUEBEC</h3></b></th></tr>
@@ -80,6 +84,8 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Medical Marijuana ID</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, GEORGIA</h3></b></th></tr>
 <tr><td width=35%>Medical Marijuana ID</td><td width=35%>Low THC Oil Card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, MARYLAND</h3></b></th></tr>
+<tr><td width=35%>Medical Marijuana ID</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, NEVADA</h3></b></th></tr>
 <tr><td width=35%>Medical Marijuana ID</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, NEW YORK</h3></b></th></tr>
@@ -109,7 +115,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 
 
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AFGHANISTAN</h3></b></th></tr>
-<tr><td width=35%>Identity Card</td><td width=35%>تذکره الکترونیک‎</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>تذکره الکترونیک, تذکره الکترونیک‎</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>پاسپورټ</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ARMENIA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>վարորդական վկայական</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -124,6 +130,8 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Identity Card</td><td width=35%>জাতীয় পরিচয় পত্র</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>পাসপোর্ট</td><td align="center" width=15%><sub>BIO-DATA PAGE, SECOND DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>পাসপোর্ট</td><td align="center" width=15%><sub>BIO-DATA PAGE, SECOND DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BHUTAN</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>ལམ་ཡིག</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRUNEI</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Kad Pengenalan (Kuning)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Military ID</td><td width=35%>Kad Pengenalan Tentera (ABDB)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -138,6 +146,8 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Identity Card</td><td width=35%>中华人民共和国居民身份证</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Mainland Travel Permit Taiwan</td><td width=35%>台湾居民来往大陆通行证, 往来台湾通行证</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>中华人民共和国护照</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>EAST TIMOR</h3></b></th></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>HONG KONG</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>香港身份證</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>護照</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -161,10 +171,16 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Driver's License</td><td width=35%>ड्राइविंग लाइसेंस</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, MAHARASHTRA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>ड्राइविंग लाइसेंस</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, ODISHA</h3></b></th></tr>
+<tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, PUNJAB</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>ड्राइविंग लाइसेंस</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, TAMIL NADU</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>ड्राइविंग लाइसेंस</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, TELANGANA</h3></b></th></tr>
+<tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, UTTARAKHAND</h3></b></th></tr>
+<tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDONESIA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Surat Izin Mengemudi (SIM), Surat izin mengemudi</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Kartu Tanda Penduduk (KTP)</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -175,6 +191,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>My Number Card</td><td width=35%>マイナンバーカード</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>旅券</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Residence Permit</td><td width=35%>在留カード</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>旅券</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>KAZAKHSTAN</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Жеке қуәлік / Yдостоверение личности</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Паспорт</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -183,8 +200,10 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Identity Card</td><td width=35%>идентификациялык карта / идентификационная карта</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Жалпы жарандык паспорт / Общегражданский паспорт</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Жалпы жарандык паспорт / Общегражданский паспорт</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>LAOS</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>ໜັງສືຜ່ານແດນ</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MALAYSIA</h3></b></th></tr>
-<tr><td width=35%>Driver's License</td><td width=35%>Lesen Memandu</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driver's License</td><td width=35%>Lesen Memandu, Lesen memandu</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>i-Kad</td><td width=35%>iKad</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>MyKad</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>MyKAS</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -196,6 +215,10 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MALDIVES</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>ދިވެހި ރައްޔިތެއްކަން އަންގައިދޭ ކާޑު</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>ޕާސްޕޯޓް</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MONGOLIA</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Паспорт</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Cyrillic, Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Паспорт</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MYANMAR</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>ယာဉ်မောင်းလိုင်စင်</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>နိုင်ငံကူးလက်မှတ်</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -205,7 +228,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PAKISTAN</h3></b></th></tr>
 <tr><td width=35%>Afghan Citizen Card</td><td width=35%>Afghan Citizen Card (ACC)</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Consular ID</td><td width=35%>National Identity Card for Overseas Pakistanis (NICOP)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>Identity Card</td><td width=35%>Computerized National Identity Card (CNIC), Smart National Identity Card (SNIC)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Computerized National Identity Card (CNIC), Smart National Identity Card (SNIC), non-chip Computerized National Identity Card (CNIC)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Proof Of Registration</td><td width=35%>Afghan Citizen Proof of Registration card (PoR)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>پاسپورٹ</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -214,8 +237,10 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PHILIPPINES</h3></b></th></tr>
 <tr><td width=35%>Alien ID</td><td width=35%>Alien certificate of registration identity card (ACR I-Card)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>eID</td><td width=35%>Pambansang pagkakakilanlan</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>PhilSys ID / PhilID</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Multipurpose ID</td><td width=35%>Unified Multi-Purpose ID</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Mysss Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Postal ID</td><td width=35%>Postal identity card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Professional ID</td><td width=35%>PRC License</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -235,7 +260,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>S Pass</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Work Permit</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SOUTH KOREA</h3></b></th></tr>
-<tr><td width=35%>Driver's License</td><td width=35%>자동차운전면허증</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driver's License</td><td width=35%>자동차운전면허증</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>주민등록증</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>여권</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>여권</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -245,6 +270,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Paper Passport</td><td width=35%>ගමන් බලපත්‍රය / கடவுச்சீட்டு</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>TAIWAN</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>中華民國國民身分證</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>護照</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Temporary Residence Permit</td><td width=35%>中華民國居留證 (ARC)</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>TAJIKISTAN</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Шиноснома</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -263,6 +289,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>VIETNAM</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Giấy phép lái xe</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Căn cước công dân, Giấy chứng minh nhân dân</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Hộ chiếu</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table>
 <br><br><br>
 
@@ -302,7 +329,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Paper Passport</td><td width=35%>Paspoort / Passeport / Reisepass</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Provisional DL</td><td width=35%>Permis de Conduire Provisoire / Vorloopig Rijebewijs / Schulungführerschein</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Residence Permit</td><td width=35%>Verblijfstitel / Titre de Sejour</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>Resident ID</td><td width=35%>Document de Seojur / Verblijfsdocument / Aufenthaltsdokument, E Kaart / Carte E / E Karte; E+ Kaart / Carte E+ / E+ Karte; F Kaart / Carte F / F Karte; F+ Kaart / Carte F+ / F+ Karte </td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Resident ID</td><td width=35%>Document de Seojur / Verblijfsdocument / Aufenthaltsdokument, E Kaart / Carte E / E Karte; E+ Kaart / Carte E+ / E+ Karte; F Kaart / Carte F / F Karte; F+ Kaart / Carte F+ / F+ Karte, E Kaart / Carte E / E Karte; E+ Kaart / Carte E+ / E+ Karte; F Kaart / Carte F / F Karte; F+ Kaart / Carte F+ / F+ Karte </td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Paspoort / Passeport / Reisepass</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Special ID</td><td width=35%>Carte d'identité spéciale / Bijzondere identiteitskaart / Besonderer Personalausweis</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BOSNIA AND HERZEGOVINA</h3></b></th></tr>
@@ -347,6 +374,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Residence Permit</td><td width=35%>Oleskelulupa / Uppehållstillstånd</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passi / Pass</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>FRANCE</h3></b></th></tr>
+<tr><td width=35%>Adr Certificate</td><td width=35%>Certificat de formation de conducteur</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte d'identité</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -357,6 +385,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Identity Card</td><td width=35%>მოქალაქის პირადობის მოწმობა</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>პასპორტი</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GERMANY</h3></b></th></tr>
+<tr><td width=35%>Adr Certificate</td><td width=35%>ADR-schulungsbescheinigung für Fahrzeugführer</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Führerschein</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Driver Qualification Card</td><td width=35%>Fahrerqualifizierungsnachweis</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>eID</td><td width=35%>eID-Karte</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -374,7 +403,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Driver's License</td><td width=35%>Aάδεια οδήγησης</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Greek, Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>ΔΕΛΤΙΟ ΤΑΥΤΟΤΗΤΑΣ</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Greek, Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Διαβατήριο</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Greek, Latin</sub></td></tr>
-<tr><td width=35%>Residence Permit</td><td width=35%>ΑΔΕΙΑ ΔΙΑΜΟΝΗΣ</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>ΑΔΕΙΑ ΔΙΑΜΟΝΗΣ</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Greek, Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Διαβατήριο</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Greek, Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>HUNGARY</h3></b></th></tr>
 <tr><td width=35%>Address Card</td><td width=35%>Lakcímkártya / Lakcímigazolvány</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -388,6 +417,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>IRELAND</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Ceadúnas tiomána</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Passport Card</td><td width=35%>Cárta Pas</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Proof Of Age Card</td><td width=35%>Age card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Public Services Card</td><td width=35%>Cárta Seirbhísí Poiblí</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Residence Permit</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pas</td><td align="center" width=15%><sub>BIO-DATA PAGE, SECOND DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -428,7 +458,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passaport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MOLDOVA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Permis de conducere</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>Identity Card</td><td width=35%>Buletin de identitate</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Buletin de identitate, Carte de identitate</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Paşaport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Paşaport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MONACO</h3></b></th></tr>
@@ -504,6 +534,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Sis ID</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Social Security Card</td><td width=35%>Identitetskort / Skatteverkets id-kort</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SWITZERLAND</h3></b></th></tr>
+<tr><td width=35%>Adr Certificate</td><td width=35%>Schulungsbescheinigung für fahrzeugführer / Certificat de formation de conducteur / Attestato di formazione per conducenti</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Führerausweis / Permis de conduire / Licenza di condurre / Permiss da manischar</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>IDENTITÄTSKARTE CARTE D'IDENTITÉ CARTA D'IDENTITÀ CARTA D'IDENTITAD, Identitätskarte / Carte d’identité  / Carta d’identità / Carta d’identitad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Pass / Passeport / Passaporto / Passaport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -534,6 +565,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ANTIGUA AND BARBUDA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ARGENTINA</h3></b></th></tr>
 <tr><td width=35%>Alien ID</td><td width=35%>DNI para extranjeros</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -549,6 +581,9 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BARBADOS</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Driving licence</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Trident ID Card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport/Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BELIZE</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BOLIVIA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Licencia para conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -560,11 +595,15 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Driver's License</td><td width=35%>Carteira Nacional de Habilitação (CNH)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Passaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, ACRE</h3></b></th></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, ALAGOAS</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, CEARA</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, DISTRITO FEDERAL</h3></b></th></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, ESPIRITO SANTO</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, GOIAS</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -572,15 +611,23 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, MATO GROSSO</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, MATO GROSSO DO SUL</h3></b></th></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, MINAS GERAIS</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, PARA</h3></b></th></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, PARAIBA</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, PARANA</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, PERNAMBUCO</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, PIAUI</h3></b></th></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, RIO DE JANEIRO</h3></b></th></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, RIO GRANDE DO NORTE</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, RIO GRANDE DO SUL</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -590,6 +637,8 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, SERGIPE</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, TOCANTINS</h3></b></th></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CAYMAN ISLANDS</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Driver's licence</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -597,7 +646,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Voter ID</td><td width=35%>Voter registration card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CHILE</h3></b></th></tr>
 <tr><td width=35%>Alien ID</td><td width=35%>Cédula de Identidad, Cédula de identidad para extranjeros</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>Driver's License</td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driver's License</td><td width=35%>Licencia de conducir, Licencia de conductor</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de Identidad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>COLOMBIA</h3></b></th></tr>
@@ -631,6 +680,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>EL SALVADOR</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Documento Único de Identidad (DUI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GRENADA</h3></b></th></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GUATEMALA</h3></b></th></tr>
@@ -664,6 +714,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Professional ID</td><td width=35%>Cédula Profesional</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Residence Permit</td><td width=35%>Tarjeta de Residencia Temporal y Residencia Permanente</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Social Security Card</td><td width=35%>Credencial del IMSS</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Tax ID</td><td width=35%>Cédula de Identificación Fiscal (CIF)</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Voter ID</td><td width=35%>Credencial para votar</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, AGUASCALIENTES</h3></b></th></tr>
@@ -747,14 +798,16 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Driver's License</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de Identidad Civil</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PERU</h3></b></th></tr>
 <tr><td width=35%>Alien ID</td><td width=35%>Carné de Extranjería</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>Identity Card</td><td width=35%>Documento Nacional de Identidad (DNI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Documento Nacional de Identidad (DNI), Documento nacional de identidad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Minors ID</td><td width=35%>Documento Nacional de Identidad (DNI) para menores</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PUERTO RICO</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Tarjeta de Identificación</td><td align="center" width=15%><sub>FRONT,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Voter ID</td><td width=35%>Tarjeta de Identificación Electoral (TIE) / Electoral Identification Card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SAINT KITTS AND NEVIS</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -762,6 +815,8 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SAINT LUCIA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>NIS/NIC Card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SAINT VINCENT AND THE GRENADINES</h3></b></th></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SURINAME</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Identiteitskaart (e-ID-Kaart)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -793,38 +848,68 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Driver's License</td><td width=35%>رخصة القيادة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte nationale d’identité / بطاقة الهوية الوطني</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>جواز السفر / Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ANGOLA</h3></b></th></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Bilhete de Identidade de Cidadão Nacional </td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BAHRAIN</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>رخصة السائق</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>بطاقة الهوية / CPR Card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BENIN</h3></b></th></tr>
+<tr><td width=35%>Driver's License</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte d’identité CEDEAO, Carte nationale d'identite</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BOTSWANA</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Omang</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport National</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BURKINA FASO</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Permis de conduire </td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte Nationale d'Identité Burkinabè (CNIB)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BURUNDI</h3></b></th></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CAMEROON</h3></b></th></tr>
-<tr><td width=35%>Identity Card</td><td width=35%>Carte Nationale d'Identité (CNI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driver's License</td><td width=35%>Permis de Conduire / Driving Licence</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Carte Nationale d'Identité (CNI), Carte nationale d'identité</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CENTRAL AFRICAN REPUBLIC</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CHAD</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte d'identité nationale / بطاقة شخصية وطنية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport / جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>COMOROS</h3></b></th></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Passeport / جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CONGO</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>DEMOCRATIC REPUBLIC OF THE CONGO</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Permis de conduire (CONADEP)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Voter ID</td><td width=35%>Carte d'electeur</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>DJIBOUTI</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport /جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport /جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>EGYPT</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>رخصة القيادة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>بطاقة تحقيق الشخصية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>EQUATORIAL GUINEA</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaporte / Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ERITREA</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>ፓስፖርት/جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ESWATINI</h3></b></th></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>National identity card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ETHIOPIA</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>ፓስፖርት</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GABON</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GAMBIA</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>ECOWAS Identity Card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -832,9 +917,16 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Ghana Card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Social Security Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Voter ID</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GUINEA</h3></b></th></tr>
+<tr><td width=35%>Driver's License</td><td width=35%>PERMIS DE CONDUIRE</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte d'identite cedeao</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GUINEA BISSAU</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>IRAN</h3></b></th></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>گذرنامه</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>IRAQ</h3></b></th></tr>
@@ -848,6 +940,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>IVORY COAST</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte Nationale d'Identité (CNI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>JORDAN</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>رخصة القيادة</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>بطاقة شخصية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
@@ -866,14 +959,31 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Driver's License</td><td width=35%>رخصة السائق</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>بطاقة الهوية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>LESOTHO</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>LIBERIA</h3></b></th></tr>
+<tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Social Security Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Voter ID</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>LIBYA</h3></b></th></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MADAGASCAR</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasipaoro / Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MALAWI</h3></b></th></tr>
+<tr><td width=35%>Driver's License</td><td width=35%>carta de condução</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Chiphaso cha Nzika</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MALI</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte d'identité CEDEAO</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport / جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MAURITANIA</h3></b></th></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>بطاقة تعريف, بطاقة تعريف / Carte d'identification</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>جواز, جواز / Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MAURITIUS</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MOROCCO</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Permis de conduire / رخصة القيادة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte nationale d'identité /  بطاقة التعريف الوطنية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -884,9 +994,13 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>NAMIBIA</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport ordinaire</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>NIGER</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>NIGERIA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>e-ID card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Nin Card</td><td width=35%>Digital NIN slip card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Voter ID</td><td width=35%>Permanent Voter Card (PVC)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -903,8 +1017,11 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Paper Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 <tr><td width=35%>Residence Permit</td><td width=35%>تصريح الإقامة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>RWANDA</h3></b></th></tr>
+<tr><td width=35%>Driver's License</td><td width=35%>Uruhushya rwo gutwara ibinyabiziga</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Indangamuntu</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasiporo; Passeport; Pasipoti</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SAINT THOMAS AND PRINCE</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SAUDI ARABIA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>رخصة قيادة</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>بطاقة الأحوال المدنية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
@@ -912,12 +1029,22 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Resident ID</td><td width=35%>Iqama / هوية المقيم</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SENEGAL</h3></b></th></tr>
+<tr><td width=35%>Driver's License</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte d'identité biométrique CEDEAO, Carte nationale d'identité</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SEYCHELLES</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SIERRA LEONE</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SOMALIA</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Baasaboor /جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SOUTH AFRICA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Bestuurslisensie</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>Identity Card</td><td width=35%>Green barcoded ID	book, Smart ID card</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Green barcoded ID    book, Smart ID card</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SOUTH SUDAN</h3></b></th></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SUDAN</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>البطاقة الشخصية القومية, بطاقة إثبات شخصية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -930,7 +1057,14 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasipoti; Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Voter ID</td><td width=35%>Kadi ya mpiga kura / Voter Card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>TOGO</h3></b></th></tr>
-<tr><td width=35%>Identity Card</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driver's License</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Gendarmerie ID</td><td width=35%>Carte de Gendarmerie</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Carte nationale d'identite</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Military ID</td><td width=35%>Carte d'identite militaire</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Police ID</td><td width=35%>Carte d'identite professionelle</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Carte de sejour</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Voter ID</td><td width=35%>Carte d'electeur</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>TUNISIA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>رخصة قيادة</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>بطاقة التعريف الوطنية</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -953,6 +1087,8 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Identity Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>YEMEN</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ZAMBIA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -961,8 +1097,10 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Identity Card</td><td width=35%>National registration card (NRC)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>OMAN</h3></b></th></tr>
+<tr><td width=35%>Vehicle Registration</td><td width=35%>رخصة مركبة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>UAE</h3></b></th></tr>
-<tr><td width=35%>Vehicle Registration</td><td width=35%>Vehicle License</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Vehicle Registration</td><td width=35%>رخصة مركبة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table>
 <br><br><br>
 
@@ -974,6 +1112,8 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BERMUDA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA</h3></b></th></tr>
 <tr><td width=35%>Citizenship Certificate</td><td width=35%>Canada citizenship card / Carte de citoyenneté canadienne </td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Non Card Tribal ID</td><td width=35%>Certificate of Indian Status / Certificat de statut Indien</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -995,6 +1135,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, MANITOBA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Metis Federation Card</td><td width=35%>Manitoba Métis Federation (MMF) card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, NEW BRUNSWICK</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte d'identité</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -1023,7 +1164,7 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>Identity Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, YUKON</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>Identity Card</td><td width=35%>carte d'identité générale</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Carte d'identité générale, carte d'identité générale</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA</h3></b></th></tr>
 <tr><td width=35%>Border Crossing Card</td><td width=35%>BCC</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Global Entry Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -1231,8 +1372,14 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRALIA, WESTERN AUSTRALIA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>FEDERATED STATES OF MICRONESIA</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>NEW ZEALAND</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Uruwhenua</td><td align="center" width=15%><sub>BIO-DATA PAGE, SECOND DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PAPUA NEW GUINEA</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>TONGA</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Paasipooti</td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table>
 <br><br><br>
