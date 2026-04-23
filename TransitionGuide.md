@@ -254,7 +254,7 @@ CameraScanningScreen(
 #### Old (BlinkID):
 
 Old BlinkID offered several ways of custom UI integration through resource and UI customization. 
-More info can be found here [on our GitHub page](https://github.com/BlinkID/blinkid-android?tab=readme-ov-file#built-in-ui-components).
+More info can be found here [on our GitHub page](https://github.com/microblink/blinkid-android?tab=readme-ov-file#built-in-ui-components).
 
 #### New (BlinkID Verify):
 

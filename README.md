@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/logo-microblink.png" alt="Microblink" title="Microblink">
+  <img src="https://raw.githubusercontent.com/wiki/microblink/blinkid-android/images/logo-microblink.png" alt="Microblink" title="Microblink">
 </p>
 
 # BlinkID Verify SDK for Android
