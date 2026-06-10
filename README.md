@@ -132,7 +132,7 @@ The `toBlinkIdVerifyRequest()` method automatically derives shared on-device and
 val client = BlinkIdVerifyClient(
     BlinkIdVerifyServiceSettings(
         // if using self hosted solution, set appropriate base URL
-        verificationServiceBaseUrl = "https://usc1.verify.microblink.com/api/v2/docver",
+        verificationServiceBaseUrl = "https://us-east.verify.microblink.com/api/v2",
         token = "your_API_token",
     )
 )
