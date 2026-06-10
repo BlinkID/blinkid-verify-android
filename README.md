@@ -64,7 +64,7 @@ Add _BlinkID Verify_ as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-verify-ux:3.20.0")
+    implementation("com.microblink:blinkid-verify-ux:3.21.0")
 }
 ```
 
@@ -430,7 +430,7 @@ Add _blinkid-verify-core_ library as a dependency in module level `build.gradle(
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-verify-core:3.20.0")
+    implementation("com.microblink:blinkid-verify-core:3.21.0")
 }
 ```
 

@@ -1,5 +1,10 @@
 # Release notes
 
+## v3.21.0
+
+### What's New
+- Update to BlinkID v7.8 for document capturing and extraction.
+
 ## v3.20.0
 
 ### What's New
