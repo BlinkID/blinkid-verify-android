@@ -97,11 +97,11 @@ class MainActivity : ComponentActivity() {
                             )
                         },
                         onCaptureCanceled = {
-                            viewModel.unloadSdk()
                             navController.popBackStack(
                                 route = Destination.Main,
                                 inclusive = false
                             )
+                            viewModel.onCaptureCanceled()
                         }
                     )
                 } else {
