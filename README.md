@@ -131,7 +131,7 @@ The `toBlinkIdVerifyRequest()` method automatically derives shared on-device and
 ```kotlin
 val client = BlinkIdVerifyClient(
     BlinkIdVerifyServiceSettings(
-        // if using self hosted solution, set appropriate base URL
+        // if using self-hosted solution, set appropriate base URL
         verificationServiceBaseUrl = "https://us-east.verify.microblink.com/api/v2",
         token = "your_API_token",
     )
@@ -155,7 +155,7 @@ CoroutineScope(IO).launch {
 
 ### Document verification results
 
-The final result from the document verification service is of type [BlinkIdVerifyEndpointResponse](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.data.model.result/-blink-id-verify-endpoint-response/index.html) and it contains both extraction and verification results.
+The final result from the document verification service is of type [BlinkIdVerifyEndpointResponse](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.data.model.result/-blink-id-verify-endpoint-response/index.html), and it contains both extraction and verification results.
 
 
 # <a name="device-requirements"></a> Device requirements
@@ -377,7 +377,7 @@ When launching the contract, [BlinkIdVerifyActivitySettings](https://blinkid.git
     captureLauncher.launch(
         BlinkIdVerifyActivitySettings(
             BlinkIdVerifySdkSettings(
-                licenseKey = <your_license_key>
+                licenseKey = "<your_license_key>"
             ), 
             // define additional settings here
         )
