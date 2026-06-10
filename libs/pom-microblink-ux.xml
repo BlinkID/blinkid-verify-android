@@ -9,9 +9,9 @@
     <description>Base library for all Microblink&apos;s UX modules.</description>
     <url>https://microblink.com/</url>
     <scm>
-        <url>https://github.com/BlinkID/blinkid-android</url>
-        <connection>scm:git:https://github.com/BlinkID/blinkid-android.git</connection>
-        <developerConnection>scm:git:https://github.com/BlinkID/blinkid-android.git</developerConnection>
+        <url>https://github.com/microblink/blinkid-android</url>
+        <connection>scm:git:https://github.com/microblink/blinkid-android.git</connection>
+        <developerConnection>scm:git:https://github.com/microblink/blinkid-android.git</developerConnection>
     </scm>
     <licenses>
         <license>

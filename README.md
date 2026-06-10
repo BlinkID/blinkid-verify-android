@@ -6,6 +6,8 @@
 
 The _BlinkID Verify_ Android SDK is a comprehensive solution for implementing secure document scanning and verification on Android. It offers powerful capabilities for capturing, analyzing, and verifying a wide range of identification documents.
 
+The list of all supported documents and result fields can be found [here](#supported-docs).
+
 
 # Table of contents
 * [Quick Start](#quick-start)
@@ -27,6 +29,7 @@ The _BlinkID Verify_ Android SDK is a comprehensive solution for implementing se
 * [Troubleshooting](#troubleshoot)
 * [Additional info](#additional-info)
   * [BlinkID Verify SDK size](#sdk-size)
+  * [Supported documents](#supported-docs)
   * [API documentation](#api-documentation)
   * [Contact](#contact)
 
@@ -64,7 +67,7 @@ Add _BlinkID Verify_ as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-verify-ux:3.20.0")
+    implementation("com.microblink:blinkid-verify-ux:3.21.0")
 }
 ```
 
@@ -131,8 +134,8 @@ The `toBlinkIdVerifyRequest()` method automatically derives shared on-device and
 ```kotlin
 val client = BlinkIdVerifyClient(
     BlinkIdVerifyServiceSettings(
-        // if using self hosted solution, set appropriate base URL
-        verificationServiceBaseUrl = "https://usc1.verify.microblink.com/api/v2/docver",
+        // if using self-hosted solution, set appropriate base URL
+        verificationServiceBaseUrl = "https://us-east.verify.microblink.com/api/v2",
         token = "your_API_token",
     )
 )
@@ -155,7 +158,7 @@ CoroutineScope(IO).launch {
 
 ### Document verification results
 
-The final result from the document verification service is of type [BlinkIdVerifyEndpointResponse](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.data.model.result/-blink-id-verify-endpoint-response/index.html) and it contains both extraction and verification results.
+The final result from the document verification service is of type [BlinkIdVerifyEndpointResponse](https://blinkid.github.io/blinkid-verify-android/blinkid-verify-core/com.microblink.blinkidverify.core.data.model.result/-blink-id-verify-endpoint-response/index.html), and it contains both extraction and verification results.
 
 
 # <a name="device-requirements"></a> Device requirements
@@ -377,7 +380,7 @@ When launching the contract, [BlinkIdVerifyActivitySettings](https://blinkid.git
     captureLauncher.launch(
         BlinkIdVerifyActivitySettings(
             BlinkIdVerifySdkSettings(
-                licenseKey = <your_license_key>
+                licenseKey = "<your_license_key>"
             ), 
             // define additional settings here
         )
@@ -430,7 +433,7 @@ Add _blinkid-verify-core_ library as a dependency in module level `build.gradle(
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-verify-core:3.20.0")
+    implementation("com.microblink:blinkid-verify-core:3.21.0")
 }
 ```
 
@@ -529,10 +532,31 @@ Here is the SDK size, calculated for supported ABIs:
 
 | ABI | Download size | Install size |
 | --- |:-------------:|:------------:|
-| armeabi-v7a |    4.21 MB    |   6.33 MB    |
-| arm64-v8a |    4.38 MB    |   7.69 MB    |
+| armeabi-v7a |    4.21 MB    |   6.34 MB    |
+| arm64-v8a |    4.38 MB    |   7.71 MB    |
 
 SDK size is calculated as application size increases when _BlinkID Verify_ SDK is added, with all its dependencies included.
+
+## <a name="supported-docs"></a> Supported documents 
+
+BlinkID Verify SDK uses BlinkID SDK for document scanning and extraction. The list of supported documents and result fields is maintained for BlinkID SDK.
+
+To determine what is supported in a specific Verify SDK version:
+
+1. Find your Verify SDK version in the table below.
+2. Note the corresponding BlinkID SDK version.
+3. Check the [supported documents documentation](https://docs.microblink.com/blinkid/supported-documents) for that BlinkID version.
+
+Version mapping:
+
+| Verify SDK | BlinkID SDK |
+| :--------: |:-----------:|
+| v3.21.0    |    v7.8     |
+| v3.20.0    |    v7.7     |
+| v3.14.1    |    v7.4     |
+| v3.14.0    |    v7.4     |
+| v3.9.0     |    v7.0     |
+
 
 ## <a name="api-documentation"></a> API documentation
 You can find the BlinkID Verify SDK **KDoc** documentation [here](https://blinkid.github.io/blinkid-verify-android/index.html).

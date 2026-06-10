@@ -189,20 +189,29 @@ class MainViewModel : ViewModel() {
         unloadSdk()
     }
 
+    fun onCaptureCanceled() {
+        unloadSdk()
+    }
+
     fun resetState() {
         _mainState.update { MainState() }
         _uiState.update { UiState() }
     }
 
-    fun unloadSdk() {
+    private fun unloadSdk() {
         val sdkToClose = localSdk
         localSdk = null
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                sdkToClose?.closeAndDeleteCachedAssets()
+                sdkToClose?.close()
             } catch (_: Exception) {
                 Log.w(TAG, "SDK is already closed")
             }
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        unloadSdk()
     }
 }
