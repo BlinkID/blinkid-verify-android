@@ -561,7 +561,7 @@ Version mapping:
 ## <a name="api-documentation"></a> API documentation
 You can find the BlinkID Verify SDK **KDoc** documentation [here](https://microblink.github.io/blinkid-verify-android/index.html).
 
-Full BlinkID Verify API can be found [here](https://blinkidverify.docs.microblink.com/docs/docver/models/request/).
+Full BlinkID Verify API can be found [here](https://docs.microblink.com/verify).
 
 ## <a name="contact"></a> Contact
 For any other questions, feel free to contact us at [help.microblink.com](https://help.microblink.com).
