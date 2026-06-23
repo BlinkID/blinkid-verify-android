@@ -335,6 +335,6 @@ BlinkID Verify SDK provides built-in support for backend verification.
 
 ## Support and Resources
 
-- For API documentation: Visit the BlinkID Verify SDK [Android API](https://blinkid.github.io/blinkid-verify-android/index.html) docs. 
+- For API documentation: Visit the BlinkID Verify SDK [Android API](https://microblink.github.io/blinkid-verify-android/index.html) docs. 
 - For backend verification: Check the [BlinkID Verify API](https://blinkidverify.docs.microblink.com/docs/api/request/)
 - For support: Contact technical support through the support portal
